@@ -18,6 +18,18 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
+app.get('/cool-stuff', function(request, response) {
+  response.send("Cool stuff is a list of links to sites I think are neat, interesting, or cool. The cool stuff object will have a link, title, image, timestamp, rating, and tags.");
+});
+
+app.get('/friends', function(request, response) {
+  response.send("Friends is a list of my friends sites. The friend data object will have a link, name, image, and timestamp");
+});
+
+app.get('/projects', function(request, response) {
+  response.send("Projects is a listing of the projects I'm working on past and present. Each project object will have an animated image, images, platforms, technology stack, type, title, description, start date, end date, and timestamp");
+});
+
 app.get('/times', function(request, response) {
     var result = ''
     var times = process.env.TIMES || 5
