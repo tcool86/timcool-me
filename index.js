@@ -1,11 +1,15 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
+const fs = require('fs');
+const path = require('path');
 var jsonp = require('jsonp-body');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use("/dist", express.static(path.resolve(__dirname, "./dist")));
+require("./build/dev-server")(app);
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -19,10 +23,20 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
-app.get('/res-test', function(request, response) {
+app.get('/res-test', (request, response) => {
   response.jsonp({
-    foo : 'bar'
+    foo1 : 'bar',
+    foo : 'fighters'
   });
+});
+
+const indexHTML = ( () => {
+  return fs.readFileSync(path.resolve(__dirname, "./views/pages/index.html"), "utf-8");
+})();
+
+app.get('/vue-test', (req, res) => {
+  res.write(indexHTML);
+  res.end();
 });
 
 app.get('/cool-stuff', function(request, response) {

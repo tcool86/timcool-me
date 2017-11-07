@@ -18,7 +18,11 @@
         <script type="text/javascript" src="/timcool-site/web/scripts/main-panel.js"></script> -->
     </head>
 
-    <body ng-app="timcoolme" ng-attr-route="{{ route }}">
+    <body>
+        <div id="app">
+            {{hello}}
+        </div>
+        <script type="text/javascript" src="/assets/js/app.js"></script>
 <!--         <div id="main-panel" ng-include="'/timcool-site/web/templates/main-panel.html'" ng-controller="MainPanel as mainpanel"></div>
         <div id="social-links" ng-include="'/timcool-site/web/templates/social-links.html'" ng-controller="SocialLinks as sociallinks"></div>
         <div id="side-panel" ng-include="'/timcool-site/web/templates/side-panel.html'" ng-controller="SidePanel as sidepanel"></div> -->
