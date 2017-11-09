@@ -1,26 +1,32 @@
 <template>
-    <div id="app">
-        <nav class="nav has-shadow">
-            <div class="container">
-                <a href="/">
-                    <img src="http://bit.ly/vue-img" alt="Vue SPA"/>
-                </a>
+    <div>
+        <app-header></app-header>
+        <section class="main-section section">
+            <div class="container-content">
+                <category></category>
             </div>
-        </nav>
-        <section class="main-section section"></section>
-        <footer class="footer">
-            <div class="container">
-                <div class="content has-text-centered">
-                    Follow us on the
-                    <a href="https://twitter.com/tcool86" target="_blank">
-                        Twitter app?
-                    </a>
-                </div>
-            </div>
-        </footer>
+        </section>
+        <app-footer></app-footer>
     </div>
 </template>
 <script>
-    export default {}
+    import appHeader from './app-header.vue'
+    import appFooter from './app-footer.vue'
+    import category from './category.vue'
+
+    export default {
+        components : {
+            'app-header' : appHeader,
+            'app-footer' : appFooter,
+            'category' : category
+        }
+    }
 </script>
-<style></style>
+<style lang="scss">
+    $primary : #00FFFF;
+    $link : #FF0000;
+    @import '~bulma';
+    .columns {
+        flex-wrap : wrap
+    }
+</style>

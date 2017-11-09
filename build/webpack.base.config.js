@@ -8,13 +8,17 @@ const config = {
         rules : [
             {
                 enforce : "pre",
-                test : /(\.js$)/,
+                test : /(\.js$)|(\.vue$)/,
                 loader : 'eslint-loader',
                 exclude : /node_modules/
             },
             {
                 test : /\.vue$/,
-                loader : 'vue-loader'
+                loader : 'vue-loader',
+                options : {
+                    css : 'css-loader',
+                    'scss' : 'css-loader|sass-loader'
+                }
             },
             {
                 test : /\.js$/,
