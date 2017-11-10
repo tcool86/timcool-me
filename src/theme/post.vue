@@ -14,3 +14,15 @@
         props : ['link']
     }
 </script>
+<style scoped>
+    .card {
+        padding-bottom : 40px;
+        height : 100%;
+    }
+    footer {
+        position : absolute;
+        width : 100%;
+        left : 0;
+        bottom : 0;
+    }
+</style>
