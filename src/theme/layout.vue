@@ -3,7 +3,7 @@
         <app-header></app-header>
         <section class="main-section section">
             <div class="container-content">
-                <category></category>
+                <router-view></router-view>
             </div>
         </section>
         <app-footer></app-footer>
@@ -12,18 +12,16 @@
 <script>
     import appHeader from './app-header.vue'
     import appFooter from './app-footer.vue'
-    import category from './category.vue'
 
     export default {
         components : {
             'app-header' : appHeader,
-            'app-footer' : appFooter,
-            'category' : category
+            'app-footer' : appFooter
         }
     }
 </script>
 <style lang="scss">
-    $primary : #00FFFF;
+    $primary : #DE8e1e;
     $link : #FF0000;
     @import '~bulma';
     .columns {

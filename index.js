@@ -15,8 +15,9 @@ require("./build/dev-server")(app);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
+app.get(['/','/*'], (req, res) => {
+  res.write(indexHTML);
+  res.end();
 });
 
 app.get('/cool', function(request, response) {
@@ -33,11 +34,6 @@ app.get('/res-test', (request, response) => {
 const indexHTML = ( () => {
   return fs.readFileSync(path.resolve(__dirname, "./views/pages/index.html"), "utf-8");
 })();
-
-app.get('/vue-test', (req, res) => {
-  res.write(indexHTML);
-  res.end();
-});
 
 app.get('/cool-stuff', function(request, response) {
   response.send("Cool stuff is a list of links to sites I think are neat, interesting, or cool. The cool stuff object will have a link, title, image, timestamp, rating, and tags.");
