@@ -7,8 +7,13 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
     mode : 'history',
+    linkActiveClass : 'is-active',
+    scrollBehavior : (to, from, savedPosition) => ({ y : 0 }),
     routes : [{
         path : '/',
+        redirect : '/category/front-end'
+    }, {
+        path : '/category/front-end',
         component : category
     }, {
         path : '/login',
