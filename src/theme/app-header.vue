@@ -4,8 +4,8 @@
             <router-link to="/">
                 <img src="http://bit.ly/vue-img" alt="Vue SPA"/>
             </router-link>
-            <router-link class="navbar-item is-tab" to="/category/front-end">Client</router-link>
-            <router-link class="navbar-item is-tab" :to="{ name : 'category', params : { id : 'mobile' } }">Mobile</router-link>
+            <router-link class="navbar-item is-tab" to="/category/apps">Apps</router-link>
+            <router-link class="navbar-item is-tab" :to="{ name : 'category', params : { id : 'vr' } }">VR</router-link>
             <router-link class="navbar-item is-tab" to="/login" exact>Login</router-link>
         </div>
     </nav>
