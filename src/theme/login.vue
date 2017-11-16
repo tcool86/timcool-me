@@ -51,12 +51,25 @@
 </template>
 <<script>
 import appService from '../app.service.js'
+import eventBus from '../event-bus.js'
 export default {
     data () {
         return {
             username : '',
             password : '',
             isAuthenticated : false
+        }
+    },
+    watch : {
+        isAuthenticated : function (val) {
+            if (val) {
+                appService.getProfile().then(profile => {
+                    this.profile = profile
+                })
+            } else {
+                this.profile = {}
+            }
+            eventBus.$emit('authStatusUpdate', val)
         }
     },
     methods : {
