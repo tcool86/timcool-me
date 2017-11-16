@@ -9,41 +9,34 @@
     </div>
 </template>
 <script>
+    import { mapGetters } from 'vuex'
     import post from './post.vue'
-    import appServices from '../app.service.js'
     export default {
         components : {
             'app-post' : post
         },
-        data () {
-            return {
-                id : this.$route.params.id,
-                posts : []
-            }
+        computed : {
+            ...mapGetters('postsModule', ['posts'])
         },
         methods : {
             loadPosts () {
                 let categoryId = 2
-                if (this.id === 'apps') {
+                if (this.$route.params.id === 'apps') {
                     categoryId = 2
                 }
-                if (this.id === 'vr') {
+                if (this.$route.params.id === 'vr') {
                     categoryId = 6
                 }
-                appServices.getPosts(categoryId).then(data => {
-                    this.posts = data
-                })
+                this.$store.dispatch('postsModule/updateCategory', categoryId)
             }
         },
         watch : {
             '$route' (to, from) {
-                this.id = to.params.id
                 this.loadPosts()
             }
         },
         created () {
             this.loadPosts()
-            console.log(this.$route.query.page)
         }
     }
 </script>
