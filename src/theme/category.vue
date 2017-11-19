@@ -9,9 +9,24 @@
     </div>
 </template>
 <script>
-    import { mapGetters } from 'vuex'
     import post from './post.vue'
+    import { mapGetters } from 'vuex'
+
+    const fetchInitialData = (store, route) => {
+        let categoryId = 2
+        if (route.params.id === 'apps') {
+            categoryId = 2
+        }
+        if (route.params.id === 'vr') {
+            categoryId = 6
+        }
+        return store.dispatch('postsModule/updateCategory', categoryId)
+    }
+
     export default {
+        asyncData (store, route) {
+            return fetchInitialData(store, route)
+        },
         components : {
             'app-post' : post
         },
@@ -20,14 +35,7 @@
         },
         methods : {
             loadPosts () {
-                let categoryId = 2
-                if (this.$route.params.id === 'apps') {
-                    categoryId = 2
-                }
-                if (this.$route.params.id === 'vr') {
-                    categoryId = 6
-                }
-                this.$store.dispatch('postsModule/updateCategory', categoryId)
+                fetchInitialData(this.$store, this.$route)
             }
         },
         watch : {

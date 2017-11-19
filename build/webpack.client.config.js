@@ -1,7 +1,6 @@
 const base = require('./webpack.base.config');
 const extractTextPlugin =  require('extract-text-webpack-plugin')
 
-
 const config = Object.assign({}, base, {
     plugins : base.plugins || []
 });

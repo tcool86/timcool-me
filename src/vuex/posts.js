@@ -1,8 +1,15 @@
 import appServices from '../app.service.js'
 
-const state = {
+const defaultState = {
     posts : [],
     categoryId : 0
+}
+
+const inBrowser = (typeof window !== 'undefined')
+var state = defaultState
+if (inBrowser) {
+    const initialState = window.__INITIAL_STATE__
+    state = (initialState) ? initialState.postsModule : defaultState
 }
 
 const getters = {
@@ -11,7 +18,7 @@ const getters = {
 
 const actions = {
     updateCategory (context, categoryId) {
-        appServices.getPosts(categoryId).then(data => {
+        return appServices.getPosts(categoryId).then(data => {
             context.commit('updateCategory', { categoryId, posts : data })
         })
     }

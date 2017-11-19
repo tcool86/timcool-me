@@ -3,6 +3,7 @@ var express = require('express')
 var jsonp = require('jsonp-body')
 var app = express()
 
+const serialize = require('serialize-javascript')
 const fs = require('fs')
 const path = require('path')
 
@@ -28,11 +29,15 @@ const indexHTML = (() => {
 
 //Server-side routes
 app.get(['/', '/*'], (req, res) => {
-    renderer.renderToString({ url: req.url }, (error, html) => {
+    const context = { url: req.url }
+    renderer.renderToString(context, (error, html) => {
         if (error) {
             return res.status(500).send('Server Error')
         }
-        html = html.replace('{{ APP }}', html)
+        html = indexHTML.replace('{{ APP }}', html)
+        const serializedInitialState = serialize(context.initialState, { isJSON : true })
+        const stateScript = `<script>window.__INITIAL_STATE__=${serializedInitialState}</script>`
+        html = html.replace('{{ STATE }}', stateScript)
         res.write(html)
         res.end()
     })
