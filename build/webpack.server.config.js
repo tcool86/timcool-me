@@ -5,7 +5,7 @@ const nodeExternals = require('webpack-node-externals')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const config = Object.assign({}, base, {
-    entry: path.resolve(__dirname, '../src/server-entry.js'),
+    entry: path.resolve(__dirname, '../src/server.entry.js'),
     target: 'node',
     devtool: 'source-map',
     output: {

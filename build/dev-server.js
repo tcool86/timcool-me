@@ -1,7 +1,10 @@
-const webpack = require("webpack");
-const clientConfig = require("./webpack.client.config");
+const webpack = require('webpack')
+const path = require('path')
+const clientConfig = require('./webpack.client.config')
+const serverConfig = require('./webpack.server.config')
+const memoryFS = require('memory-fs')
 
-module.exports = function setupDevServer(app) {
+module.exports = function setupDevServer(app, onUpdate) {
     clientConfig.entry.app = [
         "webpack-hot-middleware/client",
         clientConfig.entry.app
@@ -10,7 +13,7 @@ module.exports = function setupDevServer(app) {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     );
-    const clientCompiler = webpack(clientConfig);
+    const clientCompiler = webpack(clientConfig)
     app.use(
         require("webpack-dev-middleware")(clientCompiler, {
             stats : {
@@ -18,5 +21,14 @@ module.exports = function setupDevServer(app) {
             }
         })
     );
-    app.use(require("webpack-hot-middleware")(clientCompiler));
-};
+    app.use(require("webpack-hot-middleware")(clientCompiler))
+
+    const serverCompiler = webpack(serverConfig)
+    const mfs = new memoryFS()
+    const outputPath = path.join(serverConfig.output.path, 'server/main.js')
+
+    serverCompiler.outputFileSystem = mfs
+    serverCompiler.watch({}, () => {
+        onUpdate(mfs.readFileSync(outputPath, 'utf-8'))
+    })
+}
