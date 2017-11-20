@@ -2,9 +2,9 @@
     <footer class="footer">
         <div class="container">
             <div class="content has-text-centered">
-                Follow us on the
-                <a href="https://twitter.com/tcool86" target="_blank">
-                    Twitter app?
+                Follow me on
+                <a href="https://twitter.com/timothymcool" target="_blank">
+                    Twitter
                 </a>
             </div>
         </div>
