@@ -6,6 +6,8 @@ var app = express()
 const serialize = require('serialize-javascript')
 const fs = require('fs')
 const path = require('path')
+const environment = process.env.NODE_ENV
+const isProd = (typeof environment !== 'undefined') && (environment === 'production')
 
 const { createBundleRenderer } = require('vue-server-renderer')
 let renderer
@@ -13,11 +15,18 @@ let renderer
 //Server app configuration
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
-app.use("/dist", express.static(path.resolve(__dirname, "./dist")))
 
-require("./build/dev-server")(app, bundle => {
-    renderer = createBundleRenderer(bundle)
-});
+const rootPath = (isProd) ? "/" : "/dist";
+app.use(rootPath, express.static(path.resolve(__dirname, "./dist")))
+
+if (isProd) {
+    const bundlePath = path.resolve(__dirname, './dist/server/main.js')
+    renderer = createBundleRenderer(fs.readFileSync(bundlePath, 'utf-8'))
+} else {
+    require("./build/dev-server")(app, bundle => {
+        renderer = createBundleRenderer(bundle)
+    });
+}
 
 // views is directory for all template files
 app.set('views', __dirname + '/views')

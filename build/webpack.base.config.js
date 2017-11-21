@@ -2,7 +2,8 @@ const path = require('path')
 
 const config = {
     entry : {
-        app : path.resolve(__dirname, "../src/client.entry.js")
+        app : path.resolve(__dirname, "../src/client.entry.js"),
+        vendors : ['vue', 'vue-router', 'vuex', 'axios']
     },
     module : {
         rules : [
