@@ -2,6 +2,7 @@ var cool = require('cool-ascii-faces')
 var express = require('express')
 var jsonp = require('jsonp-body')
 var app = express()
+const axios = require('axios')
 
 const serialize = require('serialize-javascript')
 const fs = require('fs')
@@ -37,7 +38,7 @@ const indexHTML = (() => {
 })()
 
 //Server-side routes
-app.get(['/', '/*'], (req, res) => {
+app.get(['/', '/category/*', '/login'], (req, res) => {
     const context = { url: req.url }
     renderer.renderToString(context, (error, html) => {
         if (error) {
@@ -81,6 +82,14 @@ app.get('/times', function (request, response) {
     for (i = 0; i < times; i++)
         result += i + ' '
     response.send(result)
+})
+
+app.get(['/blog','/blog/category/:categoryId'], (request, res) => {
+    const categoryId = request.params.categoryId
+    axios.defaults.baseURL = 'http://wordpress.timcool.me'
+    axios.get(`/wp-json/wp/v2/posts?categories=${categoryId}&per_page=6`).then(response => {
+        res.send(response.data)
+    })
 })
 
 //Postgres Database connection
