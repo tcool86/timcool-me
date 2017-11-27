@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://timcool-me-api.herokuapp.com/'
+axios.defaults.baseURL = 'https://timcool-me-api.herokuapp.com'
 
 const appService = {
     getPosts (categoryId) {
         return new Promise((resolve) => {
-            axios.get(`/blog/categories/${categoryId}`).then(response => {
+            axios.get(`/blog/category/${categoryId}`).then(response => {
                 resolve(response.data)
             })
         })

@@ -194,12 +194,12 @@ module.exports = require("vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
-__WEBPACK_IMPORTED_MODULE_0_axios___default.a.defaults.baseURL = 'https://timcool-me-api.herokuapp.com/';
+__WEBPACK_IMPORTED_MODULE_0_axios___default.a.defaults.baseURL = 'https://timcool-me-api.herokuapp.com';
 
 var appService = {
     getPosts: function getPosts(categoryId) {
         return new Promise(function (resolve) {
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/blog/categories/' + categoryId).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/blog/category/' + categoryId).then(function (response) {
                 resolve(response.data);
             });
         });
