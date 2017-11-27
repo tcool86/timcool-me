@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://wordpress.timcool.me'
+axios.defaults.baseURL = 'https://timcool-me-api.herokuapp.com/'
 
 const appService = {
     getPosts (categoryId) {
         return new Promise((resolve) => {
-            axios.get(`/wp-json/wp/v2/posts?categories=${categoryId}&per_page=6`).then(response => {
+            axios.get(`/blog/categories/${categoryId}`).then(response => {
                 resolve(response.data)
             })
         })
