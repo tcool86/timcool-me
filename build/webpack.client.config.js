@@ -17,6 +17,14 @@ config.plugins.push(
     new extractTextPlugin('assets/styles.css')
 )
 
+const defineEnvironment = new webpack.DefinePlugin({
+    'process.env' : {
+        NODE_ENV : JSON.stringify(process.env.NODE_ENV),
+        DEV_API : JSON.stringify(process.env.DEV_API)
+    }
+})
+config.plugins.push(defineEnvironment)
+
 const isProd = process.env.NODE_ENV === 'production'
 if (isProd) {
     const optimizePlugin = new webpack.optimize.UglifyJsPlugin({
@@ -24,12 +32,7 @@ if (isProd) {
             warnings : false
         }
     })
-    const defineProd = new webpack.DefinePlugin({
-        'process.env' : {
-            NODE_ENV : '"production"'
-        }
-    })
-    config.plugins.push(defineProd, optimizePlugin)
+    config.plugins.push(optimizePlugin)
 }
 
 module.exports = config;

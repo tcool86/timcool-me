@@ -84,14 +84,6 @@ app.get('/times', function (request, response) {
     response.send(result)
 })
 
-app.get(['/blog','/blog/category/:categoryId'], (request, res) => {
-    const categoryId = request.params.categoryId
-    axios.defaults.baseURL = 'http://wordpress.timcool.me'
-    axios.get(`/wp-json/wp/v2/posts?categories=${categoryId}&per_page=6`).then(response => {
-        res.send(response.data)
-    })
-})
-
 //Postgres Database connection
 var pg = require('pg')
 
