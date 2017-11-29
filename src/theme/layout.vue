@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-    import appHeader from './app-header.vue'
+    import appHeader from './header/app-header.vue'
     import appFooter from './app-footer.vue'
 
     export default {
@@ -24,6 +24,7 @@
     $primary : #DE8e1e;
     $link : #FF0000;
     @import '~bulma';
+    @import '../styles/global.scss';
     .columns {
         flex-wrap : wrap
     }

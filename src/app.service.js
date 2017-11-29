@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { setup } from 'axios-cache-adapter'
 
 const api = setup({
@@ -26,15 +25,6 @@ const appService = {
                 api.cache.length().then(length => {
                     console.log('Cache store length:', length)
                 })
-                resolve(response.data)
-            }).catch(response => {
-                reject(response.status)
-            })
-        })
-    },
-    login (credentials) {
-        return new Promise((resolve, reject) => {
-            axios.post(`/wp-json/jwt-auth/v1/token`, credentials).then(response => {
                 resolve(response.data)
             }).catch(response => {
                 reject(response.status)

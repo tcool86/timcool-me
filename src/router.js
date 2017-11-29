@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import category from './theme/category.vue'
-import login from './theme/login.vue'
+import blog from './theme/blog.vue'
+import about from './theme/about.vue'
+import project from './theme/project.vue'
 import notFound from './theme/not-found.vue'
 
 // const category = () => System.import('./theme/category.vue')
@@ -16,14 +18,23 @@ const router = new VueRouter({
     scrollBehavior : (to, from, savedPosition) => ({ y : 0 }),
     routes : [{
         path : '/',
-        redirect : '/category/front-end'
+        redirect : '/blog'
     }, {
         path : '/category/:id',
         name : 'category',
         component : category
     }, {
-        path : '/login',
-        component : login
+        path : '/about',
+        component : about
+    }, {
+        path : '/friend',
+        component : blog
+    }, {
+        path : '/project',
+        component : project
+    }, {
+        path : '/blog',
+        component : blog
     }, {
         path : '*',
         component : notFound
