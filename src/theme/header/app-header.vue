@@ -1,13 +1,22 @@
 <template>
-    <nav id="nav-main" class="container">
-        <ul class="nav-wrapper">
-            <router-link class="navbar-item skew-20" to="/about">About</router-link>
-            <router-link class="navbar-item skew-20" to="/category/apps">Apps</router-link>
-            <router-link class="navbar-item skew-20" :to="{ name : 'category', params : { id : 'vr' } }">VR</router-link>
-            <router-link class="navbar-item skew-20" to="/project">Projects</router-link>
-            <router-link class="navbar-item skew-20" to="/blog">Blog</router-link>
-            <router-link class="navbar-item skew-20" to="/friends">Friends</router-link>
-            <router-link class="navbar-item skew-20" to="/stuff">Stuff</router-link>
+    <nav id="nav-main" class="level container">
+        <ul class="nav-wrapper level-left">
+            <router-link class="navbar-item skew-20 level-item" to="/about">About</router-link>
+            <router-link class="navbar-item skew-20 level-item" to="/category/apps">Apps</router-link>
+            <router-link class="navbar-item skew-20 level-item" :to="{ name : 'category', params : { id : 'vr' } }">VR</router-link>
+            <router-link class="navbar-item skew-20 level-item" to="/project">Projects</router-link>
+            <router-link class="navbar-item skew-20 level-item" to="/blog">Blog</router-link>
+            <router-link class="navbar-item skew-20 level-item" to="/friends">Friends</router-link>
+            <router-link class="navbar-item skew-20 level-item" to="/stuff">Stuff</router-link>
+        </ul>
+        <ul class="level-right">
+            <li class="level-item">facebook</li>
+            <li class="level-item">twitter</li>
+            <li class="level-item">instagram</li>
+            <li class="level-item">linkedIn</li>
+            <li class="level-item">stackOverflow</li>
+            <li class="level-item">gitHub</li>
+            <li class="level-item">amazon</li>
         </ul>
     </nav>
 </template>
@@ -59,7 +68,7 @@
                 border-radius: 0%;
                 transition: 0.5s;
                 padding: 1.5rem;
-                margin: 0 -2px;
+                margin: 0;
                 /* Desktop Only */
                 @media (min-width: $mobileSize) {
                     &:hover {
