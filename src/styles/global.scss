@@ -20,6 +20,17 @@ $amazonColor: #ff9700;
 $githubColor: #4078c0;
 $kickstarterColor: #87c442;
 
+/* Social Colors */
+$twitter: #00aced;
+$facebook: #3b5998;
+$stackoverflow: #f48024;
+$linkedin: #007bb6;
+$github: #6e5494;
+$youtube: #bb0000;
+$vimeo: #1ab7ea;
+$instagram: #bc2a8d;
+$wordpress: #21759b;
+
 body {
     background-color: $backgroundColor;
 }
@@ -38,6 +49,44 @@ body {
     -moz-transform: skew(20deg);
     -o-transform: skew(20deg);
     transform: skew(20deg);
+}
+
+.icon-large {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+    transition: 1s;
+    fill: white;
+    &:hover {
+        transition: 0.5s;
+    }
+    &:active {
+        fill: $activeColor;
+    }
+}
+
+:hover.facebook-color {
+    fill: $facebook;
+}
+
+:hover.twitter-color {
+    fill: $twitter;
+}
+
+:hover.linkedin-color {
+    fill: $linkedin;
+}
+
+:hover.stackoverflow-color {
+    fill: $stackoverflow;
+}
+
+:hover.github-color {
+    fill: $github;
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 h1 {
