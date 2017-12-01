@@ -1,17 +1,21 @@
 <template>
     <nav id="nav-main" class="level container">
         <main-nav></main-nav>
-        <social-links></social-links>
+        <media :query="{minWidth: 1158}">
+            <social-links class="level-right"></social-links>
+        </media>
     </nav>
 </template>
 <script>
     import mainNavigation from './main-nav.vue'
     import socialLinks from './social-links.vue'
-    import '../icons'
+    import Media from 'vue-media'
+    
     export default {
         components : {
             'main-nav' : mainNavigation,
-            'social-links' : socialLinks
+            'social-links' : socialLinks,
+            Media
         }
     }
 </script>

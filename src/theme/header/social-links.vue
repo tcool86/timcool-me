@@ -1,5 +1,5 @@
 <template>
-    <ul class="level-right">
+    <ul>
         <li class="level-item">
             <a href="//www.facebook.com/timcool" target="_blank" alt="facebook">
                 <svgicon icon="facebook" class="icon-large clickable facebook-color"></svgicon>
@@ -33,4 +33,9 @@
 </script>
 <style lang="scss">
     @import '../../styles/global.scss';
+    .footer {
+        .icon-large {
+            fill : black;
+        }
+    }
 </style>
