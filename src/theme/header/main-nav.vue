@@ -1,9 +1,7 @@
 <template>
     <ul class="nav-wrapper level-left">
         <router-link class="navbar-item skew-20 level-item" to="/about">About</router-link>
-        <router-link class="navbar-item skew-20 level-item" to="/category/apps">Apps</router-link>
-        <router-link class="navbar-item skew-20 level-item" :to="{ name : 'category', params : { id : 'vr' } }">VR</router-link>
-        <router-link class="navbar-item skew-20 level-item" to="/project">Projects</router-link>
+        <router-link class="navbar-item skew-20 level-item" to="/portfolio">Portfolio</router-link>
         <router-link class="navbar-item skew-20 level-item" to="/blog">Blog</router-link>
         <router-link class="navbar-item skew-20 level-item" to="/friends">Friends</router-link>
         <router-link class="navbar-item skew-20 level-item" to="/stuff">Stuff</router-link>

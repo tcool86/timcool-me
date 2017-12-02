@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import category from './theme/category.vue'
 import blog from './theme/blog.vue'
 import about from './theme/about.vue'
-import project from './theme/project.vue'
+import portfolio from './theme/portfolio.vue'
 import notFound from './theme/not-found.vue'
 
 // const category = () => System.import('./theme/category.vue')
@@ -30,8 +30,8 @@ const router = new VueRouter({
         path : '/friend',
         component : blog
     }, {
-        path : '/project',
-        component : project
+        path : '/portfolio',
+        component : portfolio
     }, {
         path : '/blog',
         component : blog

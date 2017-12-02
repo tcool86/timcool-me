@@ -38,7 +38,7 @@ const indexHTML = (() => {
 })()
 
 //Server-side routes
-app.get(['/', '/category/*', '/about', '/blog', '/project', '/friend', '/stuff'], (req, res) => {
+app.get(['/', '/category/*', '/about', '/blog', '/portfolio', '/friend', '/stuff'], (req, res) => {
     const context = { url: req.url }
     renderer.renderToString(context, (error, html) => {
         if (error) {

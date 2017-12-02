@@ -1,26 +1,46 @@
 <template>
-    <div class="projects-container">
-        <article class="project-article" >
-            <!-- <div class="project-title-wrapper">
-                <span class="platforms">Platforms go here</span>
-                <span class="project-icon">
-                    <img src="web/assets/placeholder_app_icon.png" />
-                </span>
-                <h2 class="project-title">{{project.title}}</h2>
-                <span class="project-date right">Last Updated: {{project.last_updated | date : 'mediumDate'}} </span>
-                <span class="project-date right">Project Started: {{project.start_date | date : 'mediumDate'}}</span>
+    <div class="portfolio-container">
+        <h1 class="content-title">Portfolio</h1>
+        <section id="portfolio-section" class="columns level">
+            <div class="column level-item has-text-centered">
+                <h2>Business</h2>
             </div>
-            <div class="project-description-wrapper">
-                <p class="project-description">{{project.description}}</p>
+            <div class="column level-item has-text-centered">
+                <h2>Projects</h2>
             </div>
-            <div class="project-image-wrapper">
-                <img class="project-image" ng-src="{{project.image}}">
-            </div> -->
-        </article>
+        </section>
+        <section id="project-section">
+            <div class="project-container">
+                <article class="project-article" >
+                    <!-- <div class="project-title-wrapper">
+                        <span class="platforms">Platforms go here</span>
+                        <span class="project-icon">
+                            <img src="web/assets/placeholder_app_icon.png" />
+                        </span>
+                        <h2 class="project-title">{{project.title}}</h2>
+                        <span class="project-date right">Last Updated: {{project.last_updated | date : 'mediumDate'}} </span>
+                        <span class="project-date right">Project Started: {{project.start_date | date : 'mediumDate'}}</span>
+                    </div>
+                    <div class="project-description-wrapper">
+                        <p class="project-description">{{project.description}}</p>
+                    </div>
+                    <div class="project-image-wrapper">
+                        <img class="project-image" ng-src="{{project.image}}">
+                    </div> -->
+                </article>
+            </div>
+        </section>
     </div>
 </template>
 <style lang="scss">
     @import '../styles/global.scss';
+
+    #portfolio-section {
+        margin-top: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
     @mixin projectFadeIn($n) {
         &:nth-child(#{$n}) {
             -moz-animation-duration: (0.5 + $n/4)s;
@@ -28,7 +48,7 @@
         }
     }
 
-    .projects-container {
+    .project-container {
         margin: 1em;
         margin-top: 2em;
         position: relative;
