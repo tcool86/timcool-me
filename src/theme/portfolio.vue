@@ -1,14 +1,18 @@
 <template>
     <div class="portfolio-container">
         <h1 class="content-title">Portfolio</h1>
-        <section id="portfolio-section" class="columns level">
-            <div class="column level-item has-text-centered">
-                <h2>Business</h2>
+        <div class="protfolio-section-wrapper columns">
+            <div class="column is-half is-offset-one-quarter">
+                <section id="portfolio-section" class="columns level">
+                    <div class="column level-item has-text-centered">
+                        <h2 class="button">Business</h2>
+                    </div>
+                    <div class="column level-item has-text-centered">
+                        <h2 class="button">Projects</h2>
+                    </div>
+                </section>
             </div>
-            <div class="column level-item has-text-centered">
-                <h2>Projects</h2>
-            </div>
-        </section>
+        </div>
         <section id="project-section">
             <div class="project-container">
                 <article class="project-article" >
