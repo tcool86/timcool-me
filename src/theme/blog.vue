@@ -1,13 +1,17 @@
 <template>
-    <div>
+    <div class="blog-posts container is-fluid">
+        <h1 class="content-title">Blog</h1>
         <div class="list-group-item noselect" v-for="(post, title) in posts" v-bind:key="post.id">
-            <article class="post-wrapper">
-                <section class="image-wrapper">
+            <article class="post-wrapper media">
+                <section class="image-wrapper media-left">
                     <div class="post-image"></div>
                 </section>
-                <section class="content-wrapper">
+                <section class="content-wrapper media-content">
                     <h2 class="blog-title" v-html="post.title.rendered"></h2>
                     <span v-html="post.content.rendered"></span>
+                </section>
+                <section class="topics media-right">
+                    <h3>VR &amp; Stuff</h3>
                 </section>
             </article>
         </div>
