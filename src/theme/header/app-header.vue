@@ -1,6 +1,6 @@
 <template>
     <div id="nav-main">
-        <nav class="level container" ref="staticmenu" :key="resizeWidth">
+        <nav class="level container" ref="staticmenu" :key="resizeWidth" v-bind:style="staticStyles">
             <main-nav></main-nav>
             <media :query="{minWidth: 1158}">
                 <social-links class="level-right"></social-links>
@@ -28,7 +28,6 @@
         data : function () {
             return {
                 scrollDown : false,
-                scrollAmount : 0,
                 resizeWidth : 0
             }
         },
@@ -51,12 +50,19 @@
                     styles['animation'] = 'pushDown 0.5s ease-out'
                 }
                 return styles
+            },
+            staticStyles : function () {
+                var styles = {}
+                if (this.scrollDown) {
+                    styles['transition'] = '0.5s'
+                    styles['opacity'] = '0'
+                }
+                return styles
             }
         },
         methods : {
             handleScrollEvent : function (event) {
-                const menuHeight = 54
-                this.$data.scrollAmount = window.scrollY
+                const menuHeight = 2
                 if (window.scrollY >= menuHeight) {
                     this.$data.scrollDown = true
                 } else {
@@ -64,24 +70,15 @@
                 }
             },
             getMenuLeftPosition : function () {
-                const elementOffset = this.$refs.staticmenu.offsetLeft
-                const parentOffset = this.$refs.staticmenu.parentElement.offsetLeft
-                var left = (elementOffset > parentOffset) ? parentOffset : elementOffset
-                if (left === 0) {
-                    left = (elementOffset > parentOffset) ? elementOffset : parentOffset
-                }
-                console.log(left)
-                return left
+                const staticMenu = this.$refs.staticmenu
+                return staticMenu.offsetLeft
             },
             getMenuWidth : function () {
-                const elementOffset = this.$refs.staticmenu.offsetWidth
-                return elementOffset
+                const staticMenu = this.$refs.staticmenu
+                return staticMenu.offsetWidth
             },
             updateNavigationMenus : function () {
                 this.$data.resizeWidth = window.document.body.clientWidth
-                this.$children.forEach(($child) => {
-                    $child.$forceUpdate()
-                })
             }
         },
         created () {
@@ -98,8 +95,4 @@
         }
     }
 </script>
-<style lang="scss">
-
-</style>
-
 
