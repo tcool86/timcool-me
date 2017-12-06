@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul class="nav-wrapper">
         <li class="level-item">
             <a href="//www.facebook.com/timcool" target="_blank" alt="facebook">
                 <svgicon icon="facebook" class="icon-large clickable facebook-color"></svgicon>
@@ -32,7 +32,12 @@
     export default {}
 </script>
 <style lang="scss">
-    @import '../../styles/global.scss';
+    #nav-main {
+        .nav-wrapper {
+            z-index: 1;
+            transition: all 0.15s ease-out;
+        }
+    }
     .footer {
         .icon-large {
             fill : black;

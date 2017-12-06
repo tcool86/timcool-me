@@ -8,12 +8,11 @@
     </ul>
 </template>
 <style lang="scss">
-    @import '../../styles/global.scss';
+    @import '../../styles/style-vars.scss';
     #nav-main {
         .nav-wrapper {
-            margin-bottom: 0;
-            padding-right: 2.5em;
-            -webkit-padding-start: 2.5em;
+            z-index: 1;
+            transition: all 0.15s ease-out;
             /* Tablet */
             @media (max-width: $tabletSize) {
                 width: 542px;
@@ -22,13 +21,15 @@
             }
             /* Mobile */
             @media (max-width: $mobileSize) {
-                width: 100%;
+                width: 400px;
+                margin: auto;
                 text-align: center;
             }
             a {
                 text-decoration: none;
             }
             .navbar-item {
+                margin-right: 0;
                 line-height: 0.4em;
                 display: inline-block;
                 text-transform: uppercase;
@@ -39,7 +40,7 @@
                     border-right: 2px solid $borderColor;
                 }
                 color: white;
-
+                background-color: $backgroundColor;
                 border-bottom: 2px solid $borderColor;
                 border-top: 2px solid $borderColor;
                 border-left: 1px solid $borderColor;
@@ -47,7 +48,6 @@
                 border-radius: 0%;
                 transition: 0.5s;
                 padding: 1.5rem;
-                margin: 0;
                 /* Desktop Only */
                 @media (min-width: $mobileSize) {
                     &:hover {

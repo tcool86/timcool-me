@@ -21,7 +21,7 @@
     </div>
 </template>
 <style lang="scss">
-    @import '../styles/global.scss';
+    @import '../styles/style-vars.scss';
     #about-section {
         margin: 0 2.7em;
         * {

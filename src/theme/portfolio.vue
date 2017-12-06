@@ -37,7 +37,7 @@
     </div>
 </template>
 <style lang="scss">
-    @import '../styles/global.scss';
+    @import '../styles/style-vars.scss';
 
     #portfolio-section {
         margin-top: 1rem;
