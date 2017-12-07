@@ -1,19 +1,24 @@
 <template>
     <div class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
-        <div class="list-group-item noselect" v-for="(post, title) in posts" v-bind:key="post.id">
+        <div class="list-group-item" v-for="(post, title) in posts" v-bind:key="post.id">
             <article class="post-wrapper media">
                 <section class="image-wrapper media-left">
                     <div class="post-image"></div>
                 </section>
                 <section class="content-wrapper media-content">
-                    <h2 class="blog-title" v-html="post.title.rendered"></h2>
-                    <span v-html="post.content.rendered"></span>
-                </section>
-                <section class="topics media-right">
-                    <h3>VR &amp; Stuff</h3>
+                    <div class="title-wrapper">
+                        <h2 class="blog-title" v-html="post.title.rendered"></h2>
+                    </div>
+                    <div class="topics">
+                        <h3>VR &amp; Stuff</h3>
+                    </div>
+                    <div class="text-wrapper">
+                        <span v-html="post.content.rendered"></span>
+                    </div>
                 </section>
             </article>
+            <br/>
         </div>
     </div>
 </template>
@@ -58,10 +63,49 @@
     }
 </script>
 <style lang="scss">
+    @import '../styles/style-vars.scss';
     .post-wrapper {
         h1 {
             color: #000;
             text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 1px 0 rgb(128, 141, 147), -1px 0 0 rgb(205, 210, 213), -1px 2px 0 rgb(128, 141, 147), -2px 1px 0 rgb(205, 210, 213), -2px 3px 0 rgb(128, 141, 147), -3px 2px 0 rgb(205, 210, 213), -3px 4px 0 rgb(128, 141, 147), -4px 3px 0 rgb(205, 210, 213);
+        }
+        .title-wrapper {
+            background-color: $titleBackgroundColor;
+            text-align: center;
+            width: 50%;
+            padding: 1rem;
+            margin-left: 1.75rem;
+            border-radius: 8px;
+            border-color: $color1;
+            border-width: 0.25rem;
+            border-style: solid;
+            top: 1rem;
+            position: relative;
+            z-index: -1;
+            @media (max-width: $tabletSize) {
+                width: auto;
+                margin-right: 1.75rem;
+            }
+        }
+        .text-wrapper {
+            background-color: $color2;
+            border-color: $color1;
+            border-width: 0.25rem;
+            border-style: solid;
+            border-radius: 8px;
+            padding: 2rem;
+            p {
+                &:first-child {
+                    text-indent: 4rem;
+                }
+                strong {
+                    color: white;
+                }
+            }
+        }
+        .topics {
+            background-color: $color1;
+            float: right;
         }
     }
     .list-group-item {
