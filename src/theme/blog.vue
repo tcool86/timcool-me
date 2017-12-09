@@ -11,7 +11,14 @@
                         <h2 class="blog-title" v-html="post.title.rendered"></h2>
                     </div>
                     <div class="topics">
-                        <h3>VR &amp; Stuff</h3>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
                     </div>
                     <div class="text-wrapper">
                         <span v-html="post.content.rendered"></span>
@@ -106,6 +113,14 @@
         .topics {
             background-color: $color1;
             float: right;
+            bottom: 1.5rem;
+            position: relative;
+            right: 2rem;
+            border: 2px solid;
+            border-radius: 4px;
+            border-color: #3B0908;
+            padding: 0.25rem;
+            padding-right: 0.5rem;
         }
     }
     .list-group-item {
