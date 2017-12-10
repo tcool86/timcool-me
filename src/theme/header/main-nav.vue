@@ -1,16 +1,32 @@
 <template>
     <ul class="nav-wrapper level-left">
-        <router-link class="navbar-item skew-20 level-item" to="/about">About</router-link>
-        <router-link class="navbar-item skew-20 level-item" to="/portfolio">Portfolio</router-link>
-        <router-link class="navbar-item skew-20 level-item" to="/blog">Blog</router-link>
-        <router-link class="navbar-item skew-20 level-item" to="/friends">Friends</router-link>
-        <router-link class="navbar-item skew-20 level-item" to="/stuff">Stuff</router-link>
+        <li>
+            <router-link class="navbar-item skew-20 level-item" to="/about">About</router-link>
+        </li>
+        <li>
+            <router-link class="navbar-item skew-20 level-item" to="/portfolio">Portfolio</router-link>
+        </li>
+        <li>
+            <router-link class="navbar-item skew-20 level-item" to="/blog">Blog</router-link>
+        </li>
+        <li>
+            <router-link class="navbar-item skew-20 level-item" to="/friends">Friends</router-link>
+        </li>
+        <li>
+            <router-link class="navbar-item skew-20 level-item" to="/stuff">Stuff</router-link>
+        </li>
     </ul>
 </template>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
     #nav-main {
+        pointer-events: none;
         .nav-wrapper {
+            li {
+                display: inline-block;
+                width: min-content;
+            }
+            pointer-events: all;
             z-index: 1;
             transition: all 0.15s ease-out;
             a {
@@ -63,13 +79,13 @@
             }
             /* Tablet */
             @media (max-width: $tabletSize) {
-                width: 542px;
+                //width: 542px;
                 margin: auto;
                 padding: 0;
             }
             /* Mobile */
             @media (max-width: $mobileSize) {
-                width: 400px;
+                //width: 400px;
                 text-align: center;
             }
         }

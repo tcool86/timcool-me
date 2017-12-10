@@ -121,6 +121,12 @@
             border-color: #3B0908;
             padding: 0.25rem;
             padding-right: 0.5rem;
+            @media (max-width: $tabletSize) {
+                float: left;
+                position: relative;
+                bottom: 0;
+                right: 0;
+            }
         }
     }
     .list-group-item {
