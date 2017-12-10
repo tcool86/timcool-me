@@ -26,7 +26,7 @@
                 display: inline-block;
                 width: min-content;
             }
-            pointer-events: all;
+            pointer-events: auto;
             z-index: 1;
             transition: all 0.15s ease-out;
             a {
