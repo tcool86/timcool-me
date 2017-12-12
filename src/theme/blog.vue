@@ -11,14 +11,9 @@
                         <h2 class="blog-title" v-html="post.title.rendered"></h2>
                     </div>
                     <div class="topics">
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
-                        <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
+                        <svgicon icon="oculus" class="icon-large clickable oculus-color"></svgicon>
+                        <svgicon icon="steam" class="icon-large clickable steam-color"></svgicon>
+                        <svgicon icon="windows" class="icon-large clickable windows-color"></svgicon>
                     </div>
                     <div class="text-wrapper">
                         <span v-html="post.content.rendered"></span>
@@ -125,6 +120,7 @@
                 position: relative;
                 bottom: 0;
                 right: 0;
+                margin-bottom: 0.5rem;
             }
         }
     }

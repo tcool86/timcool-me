@@ -62,6 +62,18 @@ body {
     fill: $github;
 }
 
+:hover.oculus-color {
+    fill: $oculus;
+}
+
+:hover.steam-color {
+    fill: $steam;
+}
+
+:hover.windows-color {
+    fill: $windows;
+}
+
 .clickable {
     cursor: pointer;
 }
