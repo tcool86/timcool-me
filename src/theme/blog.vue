@@ -7,7 +7,7 @@
                     <div class="post-image"></div>
                 </section>
                 <section class="content-wrapper media-content">
-                    <div class="title-wrapper">
+                    <div class="title-wrapper skew-20">
                         <h2 class="blog-title" v-html="post.title.rendered"></h2>
                     </div>
                     <div class="topics">
@@ -88,7 +88,6 @@
             border-style: solid;
             top: 1rem;
             position: relative;
-            z-index: -1;
             @media (max-width: $tabletSize) {
                 width: auto;
                 margin-right: 1.75rem;
