@@ -11,9 +11,15 @@
                         <h2 class="blog-title" v-html="post.title.rendered"></h2>
                     </div>
                     <div class="topics">
-                        <svgicon icon="oculus" class="icon-large clickable oculus-color"></svgicon>
-                        <svgicon icon="steam" class="icon-large clickable steam-color"></svgicon>
-                        <svgicon icon="windows" class="icon-large clickable windows-color"></svgicon>
+                        <a href="?filter=vr">
+                            <svgicon icon="oculus" class="icon-large clickable oculus-color"></svgicon>
+                        </a>
+                        <a href="?filter=steam">
+                            <svgicon icon="steam" class="icon-large clickable steam-color"></svgicon>
+                        </a>
+                        <a href="?filter=windows">
+                            <svgicon icon="windows" class="icon-large clickable windows-color"></svgicon>
+                        </a>
                     </div>
                     <div class="text-wrapper">
                         <span v-html="post.content.rendered"></span>
@@ -29,14 +35,20 @@
     import { mapGetters } from 'vuex'
 
     const fetchInitialData = (store, route) => {
-        let categoryId = 6
-        if (route.params.id === 'apps') {
-            categoryId = 2
+        let filterId = 0
+        if (typeof route.query.filter !== 'undefined') {
+            let filter = route.query.filter
+            if (filter === 'apps') {
+                filterId = 2
+            }
+            if (filter === 'vr') {
+                filterId = 6
+            }
+            if (filter === 'steam') {
+                filterId = 3
+            }
         }
-        if (route.params.id === 'vr') {
-            categoryId = 6
-        }
-        return store.dispatch('postsModule/updateCategory', categoryId)
+        return store.dispatch('postsModule/updateCategory', filterId)
     }
 
     export default {
