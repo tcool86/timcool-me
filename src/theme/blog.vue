@@ -1,12 +1,12 @@
 <template>
-    <div class="blog-posts container is-fluid">
+    <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
         <div class="list-group-item" v-for="(post, title) in posts" v-bind:key="post.id">
             <article class="post-wrapper media">
-                <section class="image-wrapper media-left">
+                <div class="image-wrapper media-left">
                     <div class="post-image"></div>
-                </section>
-                <section class="content-wrapper media-content">
+                </div>
+                <div class="content-wrapper media-content">
                     <div class="title-wrapper skew-20">
                         <h2 class="blog-title" v-html="post.title.rendered"></h2>
                     </div>
@@ -24,11 +24,11 @@
                     <div class="text-wrapper">
                         <span v-html="post.content.rendered"></span>
                     </div>
-                </section>
+                </div>
             </article>
             <br/>
         </div>
-    </div>
+    </section>
 </template>
 <script>
     import post from './post.vue'
