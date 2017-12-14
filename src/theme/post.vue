@@ -21,22 +21,19 @@
     </article>
 </template>
 <script>
+    import Filter from '../vuex/filters.js'
     export default {
         data : function () {
+            var filters = []
+            if (typeof this.categories !== 'undefined') {
+                this.categories.forEach(element => {
+                    const filter = Filter.getFromCategory(element)
+                    filters.push(filter)
+                })
+            }
+
             return {
-                'filters' : [{
-                    id : 0,
-                    link : '?filter=vr',
-                    icon : 'oculus'
-                }, {
-                    id : 1,
-                    link : '?filter=steam',
-                    icon : 'steam'
-                }, {
-                    id : 2,
-                    link : '?filter=windows',
-                    icon : 'windows'
-                }]
+                'filters' : filters
             }
         },
         props : ['categories']
