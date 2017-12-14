@@ -74,6 +74,10 @@ body {
     fill: $windows;
 }
 
+:hover.apple-color {
+    fill: $apple;
+}
+
 .clickable {
     cursor: pointer;
 }

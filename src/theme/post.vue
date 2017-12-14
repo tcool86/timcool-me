@@ -10,7 +10,7 @@
             <div class="topics" >
                 <span v-for="filter in filters" v-bind:key="filter.id"> 
                     <a :href="filter.link">
-                        <svgicon :icon="filter.icon" class="icon-large clickable oculus-color"></svgicon>
+                        <svgicon :icon="filter.icon" :class="filter.hover" class="icon-large clickable"></svgicon>
                     </a>
                 </span>
             </div>
@@ -31,7 +31,6 @@
                     filters.push(filter)
                 })
             }
-
             return {
                 'filters' : filters
             }

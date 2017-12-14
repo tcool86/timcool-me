@@ -11,6 +11,7 @@
     </section>
 </template>
 <script>
+    import Filter from '../vuex/filters.js'
     import post from './post.vue'
     import { mapGetters } from 'vuex'
 
@@ -18,15 +19,7 @@
         let filterId = 0
         if (typeof route.query.filter !== 'undefined') {
             let filter = route.query.filter
-            if (filter === 'apps') {
-                filterId = 2
-            }
-            if (filter === 'vr') {
-                filterId = 6
-            }
-            if (filter === 'steam') {
-                filterId = 3
-            }
+            filterId = Filter.filterCategories[filter]
         }
         return store.dispatch('postsModule/updateCategory', filterId)
     }
@@ -107,6 +100,9 @@
             border-color: #3B0908;
             padding: 0.25rem;
             padding-right: 0.5rem;
+            a {
+                margin: 0.25rem;
+            }
             @media (max-width: $tabletSize) {
                 float: left;
                 position: relative;
