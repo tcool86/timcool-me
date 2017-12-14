@@ -1,31 +1,11 @@
 <template>
     <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
-        <div class="list-group-item" v-for="(post, title) in posts" v-bind:key="post.id">
-            <article class="post-wrapper media">
-                <div class="image-wrapper media-left">
-                    <div class="post-image"></div>
-                </div>
-                <div class="content-wrapper media-content">
-                    <div class="title-wrapper skew-20">
-                        <h2 class="blog-title" v-html="post.title.rendered"></h2>
-                    </div>
-                    <div class="topics">
-                        <a href="?filter=vr">
-                            <svgicon icon="oculus" class="icon-large clickable oculus-color"></svgicon>
-                        </a>
-                        <a href="?filter=steam">
-                            <svgicon icon="steam" class="icon-large clickable steam-color"></svgicon>
-                        </a>
-                        <a href="?filter=windows">
-                            <svgicon icon="windows" class="icon-large clickable windows-color"></svgicon>
-                        </a>
-                    </div>
-                    <div class="text-wrapper">
-                        <span v-html="post.content.rendered"></span>
-                    </div>
-                </div>
-            </article>
+        <div class="list-group-item" v-for="post in posts" v-bind:key="post.id">
+            <app-post :categories='post.categories'>
+                <h2 slot="title" v-html="post.title.rendered"></h2>
+                <span slot="content" v-html="post.content.rendered"></span>
+            </app-post>
             <br/>
         </div>
     </section>

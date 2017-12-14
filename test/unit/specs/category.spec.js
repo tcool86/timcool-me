@@ -2,16 +2,16 @@ import 'es6-promise/auto'
 import Vue from 'vue'
 import store from '../../../src/vuex/index.js'
 import VueRouter from 'vue-router'
-import Category from '../../../src/theme/Category.vue'
+import Blog from '../../../src/theme/blog.vue'
 
-describe('Category.vue', () => {
+describe('blog.vue', () => {
     it('should load front-end links', (done) => {
         Vue.use(VueRouter)
         const router = new VueRouter({
             routes : [
                 {
                     path : '/',
-                    component : Category
+                    component : Blog
                 }
             ]
         })
