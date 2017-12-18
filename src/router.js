@@ -15,7 +15,7 @@ const router = new VueRouter({
     scrollBehavior : (to, from, savedPosition) => ({ y : 0 }),
     routes : [{
         path : '/',
-        redirect : '/blog'
+        redirect : '/about'
     }, {
         path : '/about',
         component : about
