@@ -217,21 +217,42 @@ api.defaults.baseURL = baseURL;
 
 var appService = {
     getPosts: function getPosts(categoryId) {
-        return new Promise(function (resolve, reject) {
-            api.get('/blog/category/' + categoryId).then(function (response) {
-                // Do something awesome with response.data \o/
-                console.log('Request response:', response);
-                // Interacting with the store, see `localForage` API.
-                api.cache.length().then(function (length) {
-                    console.log('Cache store length:', length);
-                });
-                resolve(response.data);
-            }).catch(function (response) {
-                reject(response.status);
-            });
-        });
+        console.log(categoryId);
+        if (typeof categoryId === 'undefined') {
+            return getAllPosts();
+        } else {
+            return getPostsWithCategory(categoryId);
+        }
     }
 };
+
+function getAllPosts() {
+    return new Promise(function (resolve, reject) {
+        api.get('/blog').then(function (response) {
+            console.log('Request response:', response);
+            api.cache.length().then(function (length) {
+                console.log('Cache store length:', length);
+            });
+            resolve(response.data);
+        }).catch(function (response) {
+            reject(response.status);
+        });
+    });
+}
+
+function getPostsWithCategory(categoryId) {
+    return new Promise(function (resolve, reject) {
+        api.get('/blog/category/' + categoryId).then(function (response) {
+            console.log('Request response:', response);
+            api.cache.length().then(function (length) {
+                console.log('Cache store length:', length);
+            });
+            resolve(response.data);
+        }).catch(function (response) {
+            reject(response.status);
+        });
+    });
+}
 
 /* harmony default export */ __webpack_exports__["a"] = (appService);
 
@@ -1419,7 +1440,7 @@ module.exports = require("vue-router");
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_blog_vue__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_32c5670b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4ede73d2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__ = __webpack_require__(63);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(58),i.__inject__&&i.__inject__(ssrContext),i)
@@ -1439,7 +1460,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "54517bb4"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_blog_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_32c5670b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4ede73d2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1484,7 +1505,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 var fetchInitialData = function fetchInitialData(store, route) {
-    var filterId = 0;
+    var filterId;
     if (typeof route.query.filter !== 'undefined') {
         var filter = route.query.filter;
         filterId = __WEBPACK_IMPORTED_MODULE_0__vuex_filters_js__["a" /* default */].filterCategories[filter];
