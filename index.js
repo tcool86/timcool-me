@@ -42,7 +42,7 @@ app.get(['/', '/about', '/blog', '/portfolio', '/friend', '/stuff', '/*'], (req,
     const context = { url: req.url }
     renderer.renderToString(context, (error, html) => {
         if (error) {
-            console.log(error)
+            console.log('error' + error)
             return res.status(500).send('Server Error')
         }
         html = indexHTML.replace('{{ APP }}', html)
