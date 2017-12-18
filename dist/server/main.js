@@ -1407,7 +1407,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router___default.a({
     },
     routes: [{
         path: '/',
-        redirect: '/blog'
+        redirect: '/about'
     }, {
         path: '/about',
         component: __WEBPACK_IMPORTED_MODULE_3__theme_about_vue__["a" /* default */]
