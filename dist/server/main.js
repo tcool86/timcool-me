@@ -446,23 +446,23 @@ var appService = {
 
 function getAllPosts() {
     return new Promise(function (resolve, reject) {
-        // api.get(`/blog`).then(response => {
-        //     api.cache.length().then(length => {})
-        //     resolve(response.data)
-        // }).catch(response => {
-        //     reject(response.status)
-        // })
+        api.get('/blog').then(function (response) {
+            api.cache.length().then(function (length) {});
+            resolve(response.data);
+        }).catch(function (response) {
+            reject(response.status);
+        });
     });
 }
 
 function getPostsWithCategory(categoryId) {
     return new Promise(function (resolve, reject) {
-        // api.get(`/blog/category/${categoryId}`).then(response => {
-        //     api.cache.length().then()
-        //     resolve(response.data)
-        // }).catch(response => {
-        //     reject(response.status)
-        // })
+        api.get('/blog/category/' + categoryId).then(function (response) {
+            api.cache.length().then();
+            resolve(response.data);
+        }).catch(function (response) {
+            reject(response.status);
+        });
     });
 }
 
