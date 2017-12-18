@@ -38,10 +38,11 @@ const indexHTML = (() => {
 })()
 
 //Server-side routes
-app.get(['/', '/about', '/blog', '/portfolio', '/friend', '/stuff'], (req, res) => {
+app.get(['/', '/about', '/blog', '/portfolio', '/friend', '/stuff', '/*'], (req, res) => {
     const context = { url: req.url }
     renderer.renderToString(context, (error, html) => {
         if (error) {
+            console.log(error)
             return res.status(500).send('Server Error')
         }
         html = indexHTML.replace('{{ APP }}', html)
