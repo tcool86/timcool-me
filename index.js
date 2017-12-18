@@ -42,7 +42,7 @@ app.get(['/', '/about', '/blog', '/portfolio', '/friend', '/stuff'], (req, res) 
     const context = { url: req.url }
     renderer.renderToString(context, (error, html) => {
         if (error) {
-            return res.status(500).send(error.renderToString())
+            return res.status(500).send('Server Error')
         }
         html = indexHTML.replace('{{ APP }}', html)
         const serializedInitialState = serialize(context.initialState, { isJSON : true })

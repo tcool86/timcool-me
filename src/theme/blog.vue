@@ -16,7 +16,7 @@
     import { mapGetters } from 'vuex'
 
     const fetchInitialData = (store, route) => {
-        let filterId = 0
+        var filterId
         if (typeof route.query.filter !== 'undefined') {
             let filter = route.query.filter
             filterId = Filter.filterCategories[filter]
