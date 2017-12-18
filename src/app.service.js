@@ -27,23 +27,23 @@ const appService = {
 
 function getAllPosts () {
     return new Promise((resolve, reject) => {
-        api.get(`/blog`).then(response => {
-            api.cache.length().then(length => {})
-            resolve(response.data)
-        }).catch(response => {
-            reject(response.status)
-        })
+        // api.get(`/blog`).then(response => {
+        //     api.cache.length().then(length => {})
+        //     resolve(response.data)
+        // }).catch(response => {
+        //     reject(response.status)
+        // })
     })
 }
 
 function getPostsWithCategory (categoryId) {
     return new Promise((resolve, reject) => {
-        api.get(`/blog/category/${categoryId}`).then(response => {
-            api.cache.length().then()
-            resolve(response.data)
-        }).catch(response => {
-            reject(response.status)
-        })
+        // api.get(`/blog/category/${categoryId}`).then(response => {
+        //     api.cache.length().then()
+        //     resolve(response.data)
+        // }).catch(response => {
+        //     reject(response.status)
+        // })
     })
 }
 

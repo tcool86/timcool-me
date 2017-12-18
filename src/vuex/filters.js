@@ -1,4 +1,3 @@
-
 const filterCategories = {
     'apps' : 2,
     'vr' : 6,

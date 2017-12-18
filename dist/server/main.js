@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -196,64 +196,6 @@ module.exports = require("vuex");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter__);
-
-
-var api = Object(__WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter__["setup"])({
-    cache: {
-        maxAge: 15 * 60 * 1000
-    }
-});
-
-var baseURL;
-if (process.env.NODE_ENV === 'production') {
-    baseURL = 'https://timcool-me-api.herokuapp.com';
-} else {
-    baseURL = 'http://local.timcool.dev:3000';
-}
-
-api.defaults.baseURL = baseURL;
-
-var appService = {
-    getPosts: function getPosts(categoryId) {
-        if (typeof categoryId === 'undefined') {
-            return getAllPosts();
-        } else {
-            return getPostsWithCategory(categoryId);
-        }
-    }
-};
-
-function getAllPosts() {
-    return new Promise(function (resolve, reject) {
-        api.get('/blog').then(function (response) {
-            api.cache.length().then(function (length) {});
-            resolve(response.data);
-        }).catch(function (response) {
-            reject(response.status);
-        });
-    });
-}
-
-function getPostsWithCategory(categoryId) {
-    return new Promise(function (resolve, reject) {
-        api.get('/blog/category/' + categoryId).then(function (response) {
-            api.cache.length().then();
-            resolve(response.data);
-        }).catch(function (response) {
-            reject(response.status);
-        });
-    });
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (appService);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_social_links_vue__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0c717b76_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_social_links_vue__ = __webpack_require__(49);
 function injectStyle (ssrContext) {
@@ -286,17 +228,16 @@ var Component = normalizeComponent(
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-media");
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
 var filterCategories = {
     'apps': 2,
     'vr': 6,
@@ -343,12 +284,12 @@ var getFromCategory = function getFromCategory(categoryId) {
 });
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(8);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (context) {
@@ -364,14 +305,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return app; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vuex_index_js__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vuex_index_js__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__theme_layout_vue__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router_js__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_svgicon__ = __webpack_require__(0);
@@ -397,7 +338,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_extends({
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -405,86 +346,27 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_extends({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuex__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_service_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__posts_js__ = __webpack_require__(12);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__posts_js__ = __webpack_require__(10);
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex___default.a);
 
-var state = {
-    isAuthenticated: false
-};
-
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex___default.a.Store({
     modules: {
-        postsModule: __WEBPACK_IMPORTED_MODULE_3__posts_js__["a" /* default */]
-    },
-    state: state,
-    getters: {
-        isAuthenticated: function isAuthenticated(state) {
-            return state.isAuthenticated;
-        }
-    },
-    actions: {
-        logout: function logout(context) {
-            context.commit('logout');
-        },
-        login: function login(context, credentials) {
-            return new Promise(function (resolve) {
-                __WEBPACK_IMPORTED_MODULE_2__app_service_js__["a" /* default */].login(credentials).then(function (data) {
-                    context.commit('login', data);
-                    resolve();
-                }).catch(function () {
-                    return window.alert('Could not login!');
-                });
-            });
-        }
-    },
-    mutations: {
-        logout: function logout(state) {
-            if (typeof window !== 'undefined') {
-                window.localStorage.setItem('token', null);
-                window.localStorage.setItem('tokenExpiration', null);
-            }
-            state.isAuthenticated = false;
-        },
-        login: function login(state, data) {
-            if (typeof window !== 'undefined') {
-                window.localStorage.setItem('token', data.token);
-                window.localStorage.setItem('tokenExpiration', data.expiration);
-            }
-            state.isAuthenticated = true;
-        }
+        postsModule: __WEBPACK_IMPORTED_MODULE_2__posts_js__["a" /* default */]
     }
 });
-
-if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', function (event) {
-        var expiration = window.localStorage.getItem('tokenExpiration');
-        var unixTimestamp = new Date().getTime() / 1000;
-        if (expiration !== null && parseInt(expiration) - unixTimestamp > 0) {
-            store.state.isAuthenticated = true;
-        }
-    });
-}
 
 /* harmony default export */ __webpack_exports__["a"] = (store);
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios-cache-adapter");
-
-/***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_service_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_service_js__ = __webpack_require__(11);
 
 
 var defaultState = {
@@ -527,6 +409,70 @@ var mutations = {
     actions: actions,
     mutations: mutations
 });
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter__);
+
+
+var api = Object(__WEBPACK_IMPORTED_MODULE_0_axios_cache_adapter__["setup"])({
+    cache: {
+        maxAge: 15 * 60 * 1000
+    }
+});
+
+var baseURL;
+if (process.env.NODE_ENV === 'production') {
+    baseURL = 'https://timcool-me-api.herokuapp.com';
+} else {
+    baseURL = 'http://local.timcool.dev:3000';
+}
+
+api.defaults.baseURL = baseURL;
+
+var appService = {
+    getPosts: function getPosts(categoryId) {
+        if (typeof categoryId === 'undefined') {
+            return getAllPosts();
+        } else {
+            return getPostsWithCategory(categoryId);
+        }
+    }
+};
+
+function getAllPosts() {
+    return new Promise(function (resolve, reject) {
+        // api.get(`/blog`).then(response => {
+        //     api.cache.length().then(length => {})
+        //     resolve(response.data)
+        // }).catch(response => {
+        //     reject(response.status)
+        // })
+    });
+}
+
+function getPostsWithCategory(categoryId) {
+    return new Promise(function (resolve, reject) {
+        // api.get(`/blog/category/${categoryId}`).then(response => {
+        //     api.cache.length().then()
+        //     resolve(response.data)
+        // }).catch(response => {
+        //     reject(response.status)
+        // })
+    });
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (appService);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios-cache-adapter");
 
 /***/ }),
 /* 13 */
@@ -637,8 +583,8 @@ var Component = normalizeComponent(
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_nav_vue__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__social_links_vue__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_media__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__social_links_vue__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_media__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_media___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_media__);
 //
 //
@@ -1322,8 +1268,8 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_social_links_vue__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_media__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_social_links_vue__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_media__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_media___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_media__);
 //
 //
@@ -1471,7 +1417,7 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_filters_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_filters_js__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__post_vue__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuex__);
@@ -1564,7 +1510,7 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_filters_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_filters_js__ = __webpack_require__(6);
 //
 //
 //
