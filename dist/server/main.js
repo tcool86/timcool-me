@@ -217,7 +217,6 @@ api.defaults.baseURL = baseURL;
 
 var appService = {
     getPosts: function getPosts(categoryId) {
-        console.log(categoryId);
         if (typeof categoryId === 'undefined') {
             return getAllPosts();
         } else {
@@ -229,10 +228,7 @@ var appService = {
 function getAllPosts() {
     return new Promise(function (resolve, reject) {
         api.get('/blog').then(function (response) {
-            console.log('Request response:', response);
-            api.cache.length().then(function (length) {
-                console.log('Cache store length:', length);
-            });
+            api.cache.length().then(function (length) {});
             resolve(response.data);
         }).catch(function (response) {
             reject(response.status);
@@ -243,10 +239,7 @@ function getAllPosts() {
 function getPostsWithCategory(categoryId) {
     return new Promise(function (resolve, reject) {
         api.get('/blog/category/' + categoryId).then(function (response) {
-            console.log('Request response:', response);
-            api.cache.length().then(function (length) {
-                console.log('Cache store length:', length);
-            });
+            api.cache.length().then();
             resolve(response.data);
         }).catch(function (response) {
             reject(response.status);
@@ -1411,9 +1404,6 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router___default.a({
     }, {
         path: '/about',
         component: __WEBPACK_IMPORTED_MODULE_3__theme_about_vue__["a" /* default */]
-    }, {
-        path: '/friend',
-        component: __WEBPACK_IMPORTED_MODULE_2__theme_blog_vue__["a" /* default */]
     }, {
         path: '/portfolio',
         component: __WEBPACK_IMPORTED_MODULE_4__theme_portfolio_vue__["a" /* default */]
