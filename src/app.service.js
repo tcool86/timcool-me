@@ -10,7 +10,7 @@ var baseURL
 if (process.env.NODE_ENV === 'production') {
     baseURL = 'https://timcool-me-api.herokuapp.com'
 } else {
-    baseURL = 'http://local.timcool.dev:3000'
+    baseURL = 'http://local.timcool.test:3000'
 }
 
 api.defaults.baseURL = baseURL
