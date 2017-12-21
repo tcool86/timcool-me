@@ -2,10 +2,10 @@
     <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
         <div class="list-group-item" v-for="post in posts" v-bind:key="post.id">
-            <app-post :categories='post.categories'>
+            <blog-post :categories='post.categories'>
                 <h2 slot="title" v-html="post.title.rendered"></h2>
                 <span slot="content" v-html="post.content.rendered"></span>
-            </app-post>
+            </blog-post>
             <br/>
         </div>
     </section>
@@ -29,7 +29,7 @@
             return fetchInitialData(store, route)
         },
         components : {
-            'app-post' : post
+            'blog-post' : post
         },
         computed : {
             ...mapGetters('postsModule', ['posts'])
