@@ -22,13 +22,24 @@ const appService = {
         } else {
             return getPostsWithCategory(categoryId)
         }
+    },
+    getProjects () {
+        return new Promise((resolve, reject) => {
+            api.get('/projects').then(response => {
+                resolve(response.data)
+            }).catch(response => {
+                reject(response.status)
+            })
+        })
     }
 }
 
 function getAllPosts () {
     return new Promise((resolve, reject) => {
         api.get(`/blog`).then(response => {
-            api.cache.length().then(length => {})
+            api.cache.length().then(length => {
+                console.log(length)
+            })
             resolve(response.data)
         }).catch(response => {
             reject(response.status)
@@ -39,7 +50,6 @@ function getAllPosts () {
 function getPostsWithCategory (categoryId) {
     return new Promise((resolve, reject) => {
         api.get(`/blog/category/${categoryId}`).then(response => {
-            api.cache.length().then()
             resolve(response.data)
         }).catch(response => {
             reject(response.status)

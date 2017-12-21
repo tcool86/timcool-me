@@ -14,9 +14,7 @@
             </div>
         </div>
         <section id="project-section">
-            <div class="project-container">
-                <project></project>
-                <project></project>
+            <div class="project-container" v-for="project in projects" v-bind:key="project._id">
                 <project></project>
             </div>
         </section>
@@ -24,7 +22,14 @@
 </template>
 <script>
     import project from './project.vue'
+    import appServices from '../app.service.js'
+
     export default {
+        data : function () {
+            return {
+                'projects' : appServices.getProjects()
+            }
+        },
         components : {
             'project' : project
         }
