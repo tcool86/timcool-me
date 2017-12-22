@@ -17,7 +17,7 @@ body {
 .top-layer {
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
 }
 
@@ -26,6 +26,24 @@ body {
     -moz-transform: skew(20deg);
     -o-transform: skew(20deg);
     transform: skew(20deg);
+}
+
+.title-wrapper {
+    background-color: $titleBackgroundColor;
+    text-align: center;
+    width: 50%;
+    padding: 1rem;
+    margin-left: 1.75rem;
+    border-radius: 8px;
+    border-color: $color1;
+    border-width: 0.25rem;
+    border-style: solid;
+    top: 1rem;
+    position: relative;
+    @media (max-width: $tabletSize) {
+        width: auto;
+        margin-right: 1.75rem;
+    }
 }
 
 .icon-large {

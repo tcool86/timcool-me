@@ -8,7 +8,7 @@ const inBrowser = (typeof window !== 'undefined')
 var state = defaultState
 if (inBrowser) {
     const initialState = window.__INITIAL_STATE__
-    state = (initialState) ? initialState.projectModule : defaultState
+    state = (initialState) ? initialState.projectsModule : defaultState
 }
 
 const getters = {

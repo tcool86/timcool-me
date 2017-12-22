@@ -1,8 +1,10 @@
 import { setup } from 'axios-cache-adapter'
 
+const sixtyMinutes = 60 * 60 * 1000
+
 const api = setup({
     cache : {
-        maxAge : 15 * 60 * 1000
+        maxAge : sixtyMinutes
     }
 })
 
@@ -25,7 +27,7 @@ const appService = {
     },
     getProjects () {
         return new Promise((resolve, reject) => {
-            api.get('/projects').then(response => {
+            api.get(`/projects`).then(response => {
                 resolve(response.data)
             }).catch(response => {
                 reject(response.status)

@@ -56,23 +56,6 @@
             color: #000;
             text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 1px 0 rgb(128, 141, 147), -1px 0 0 rgb(205, 210, 213), -1px 2px 0 rgb(128, 141, 147), -2px 1px 0 rgb(205, 210, 213), -2px 3px 0 rgb(128, 141, 147), -3px 2px 0 rgb(205, 210, 213), -3px 4px 0 rgb(128, 141, 147), -4px 3px 0 rgb(205, 210, 213);
         }
-        .title-wrapper {
-            background-color: $titleBackgroundColor;
-            text-align: center;
-            width: 50%;
-            padding: 1rem;
-            margin-left: 1.75rem;
-            border-radius: 8px;
-            border-color: $color1;
-            border-width: 0.25rem;
-            border-style: solid;
-            top: 1rem;
-            position: relative;
-            @media (max-width: $tabletSize) {
-                width: auto;
-                margin-right: 1.75rem;
-            }
-        }
         .text-wrapper {
             background-color: $color2;
             border-color: $color1;
