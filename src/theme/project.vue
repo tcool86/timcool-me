@@ -50,7 +50,14 @@ export default {
             border-width: 0.25rem;
             border-style: solid;
             box-sizing: content-box;
-            box-shadow: -4px 4px 10px #777;
+            box-shadow: -8px 6px 16px #565656;
+            background-color: #6E312F;
+            line-height: 0;
+            @media (max-width: $tabletSize) {
+                top: -1.5rem;
+                left: 2rem;
+                box-shadow: -4px 3px 8px #565656;
+            }
         }
         .title-wrapper {
             width: 95%;
