@@ -43,11 +43,18 @@ export default {
         .project-icon-wrapper {
             position: absolute;
             z-index: 1;
-            margin-left: 4rem;
-            top: 0.5rem;
+            top: -2.5rem;
+            left: 6rem;
+            border-radius: 8px;
+            border-color: #3B0908;
+            border-width: 0.25rem;
+            border-style: solid;
+            box-sizing: content-box;
+            box-shadow: -4px 4px 10px #777;
         }
         .title-wrapper {
             width: 95%;
+            top: -2rem;
         }
         .project-date {
             position: absolute;
@@ -58,8 +65,7 @@ export default {
             }
         }
         .project-description-wrapper {
-            margin-top: 4rem;
-            text-indent: 3rem;
+            text-indent: 8rem;
             flex-wrap: wrap;
             font-family: 'Exo 2';
         }
