@@ -1,7 +1,15 @@
 <template>
     <article class="project-article" >
         <div class="project-icon-wrapper">
-            <img :src="project.icon">
+            <media :query="{minWidth: 1158}">
+                <img :src="project.icon">
+            </media>
+            <media :query="{maxWidth: 1158, minWidth:600}">
+                <img :src="project.icon_medium">
+            </media>
+            <media :query="{maxWidth: 600}">
+                <img :src="project.icon_small">
+            </media>
         </div>
         <div class="title-wrapper skew-20">
             <h2 class="project-title">{{project.title}}</h2>
@@ -17,9 +25,13 @@
     </article>
 </template>
 <script>
-export default {
-    props : ['project']
-}
+    import Media from 'vue-media'
+    export default {
+        components : {
+            Media
+        },
+        props : ['project']
+    }
 </script>
 <style lang="scss">
     @import '../styles/style-vars.scss';
