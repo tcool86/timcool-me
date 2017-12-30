@@ -92,7 +92,7 @@
         padding: 1em;
         border-radius: 1em;
         border: 2px solid #888;
-        margin: 8em;
+        margin: 4em 8rem 8rem 8rem;
         background-image: url(//res.cloudinary.com/hnairgdu6/image/upload/v1513915883/project-back_pyilud.png);
         @media (max-width: $tabletSize) {
             margin: 0.25rem;
@@ -148,7 +148,7 @@
             transform: skew(-40deg);
             border-radius: 4px;
             padding-right: 2rem;
-            border-right: #0A0E28 1rem solid;
+            box-shadow: #0A0E28 1px 1px 6px;
             &.last-updated {
                 top: 0.5rem;
             }
