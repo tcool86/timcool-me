@@ -13,8 +13,12 @@
         </div>
         <div class="title-wrapper skew-20">
             <h2 class="project-title">{{project.title}}</h2>
-            <span class="project-date last-updated">Last Updated: {{project.last_updated}} </span>
-            <span class="project-date">Project Started: {{project.date_started}}</span>
+            <span class="project-date last-updated">
+                Updated: <b>{{ formattedDate(project.last_updated) }}</b>
+            </span>
+            <span class="project-date">
+                Started: <b>{{ formattedDate(project.date_started) }}</b>
+            </span>
         </div>
         <div class="project-description-wrapper">
             <p class="project-description">
@@ -26,16 +30,30 @@
 </template>
 <script>
     import Media from 'vue-media'
+    import DateFormatter from 'dateformat'
+
     export default {
         components : {
             Media
         },
-        props : ['project']
+        props : ['project'],
+        data : function () {
+            return {
+                formattedDate : (rawDate) => {
+                    let date = new Date(rawDate)
+                    return DateFormatter(date, 'mmmm dS, yyyy')
+                }
+            }
+        }
     }
 </script>
 <style lang="scss">
     @import '../styles/style-vars.scss';
     .project-article {
+        h2 {
+            font-size: 2.5em;
+            text-shadow: black -2px 2px 7px;
+        }
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -74,19 +92,37 @@
         .title-wrapper {
             width: 95%;
             top: -2rem;
+            @media (max-width: $tabletSize) {
+                text-align: left;
+                text-indent: 4rem;
+                span {
+                    text-indent: 0;
+                }
+            }
         }
         .project-date {
             position: absolute;
-            right: 0rem;
-            top: 0rem;
+            right: -1.75rem;;
+            top: 1.33rem;
+            color: whitesmoke;
+            padding: 0.1rem 0.35rem;
+            background-color: #3C4162;
+            border: #0A0E28 0.1rem solid;
+            transform: skew(-40deg);
+            border-radius: 4px;
+            padding-right: 2rem;
+            border-right: #0A0E28 1rem solid;
             &.last-updated {
-                top: 2rem;
+                top: -1rem;
             }
         }
         .project-description-wrapper {
             text-indent: 8rem;
             flex-wrap: wrap;
             font-family: 'Exo 2';
+            @media (max-width: $tabletSize) {
+                text-indent: 3rem;
+            }
         }
         .project-image {
             float: right;
