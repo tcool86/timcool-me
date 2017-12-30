@@ -4,20 +4,24 @@
             <media :query="{minWidth: 1158}">
                 <img :src="project.icon">
             </media>
-            <media :query="{maxWidth: 1158, minWidth:600}">
+            <media :query="{maxWidth: 1158, minWidth:800}"
+                @media-enter="mediaEnterMedium"
+                @media-leave="mediaLeaveMedium">
                 <img :src="project.icon_medium">
             </media>
-            <media :query="{maxWidth: 600}">
+            <media :query="{maxWidth: 800}"
+                @media-enter="mediaEnterSmall"
+                @media-leave="mediaLeaveSmall">
                 <img :src="project.icon_small">
             </media>
         </div>
         <div class="title-wrapper skew-20">
             <h2 class="project-title">{{project.title}}</h2>
-            <span class="project-date last-updated">
-                Updated: <b>{{ formattedDate(project.last_updated) }}</b>
+            <span class="project-date last-updated" v-if="showDates">
+                <span v-if="fullText">Updated: </span><b>{{ formattedDate(project.last_updated) }}</b>
             </span>
-            <span class="project-date">
-                Started: <b>{{ formattedDate(project.date_started) }}</b>
+            <span class="project-date" v-if="showDates">
+                <span v-if="fullText">Started: </span><b>{{ formattedDate(project.date_started) }}</b>
             </span>
         </div>
         <div class="project-description-wrapper">
@@ -39,10 +43,30 @@
         props : ['project'],
         data : function () {
             return {
+                showDates : true,
+                fullText : true,
+                dateFormat : 'mmmm dS, yyyy',
                 formattedDate : (rawDate) => {
                     let date = new Date(rawDate)
-                    return DateFormatter(date, 'mmmm dS, yyyy')
+                    return DateFormatter(date, this.dateFormat)
                 }
+            }
+        },
+        methods : {
+            mediaEnterMedium (query) {
+                this.dateFormat = 'mmm yyyy'
+                this.fullText = false
+            },
+            mediaLeaveMedium (query) {
+                this.dateFormat = 'mmmm dS, yyyy'
+                this.fullText = true
+            },
+            mediaEnterSmall (query) {
+                this.showDates = false
+                this.fullText = false
+            },
+            mediaLeaveSmall (query) {
+                this.showDates = true
             }
         }
     }
@@ -53,6 +77,9 @@
         h2 {
             font-size: 2.5em;
             text-shadow: black -2px 2px 7px;
+            @media (max-width: $mobileSize) {
+                font-size: 1.5em;
+            }
         }
         display: flex;
         justify-content: space-around;
@@ -88,22 +115,32 @@
                 left: 2rem;
                 box-shadow: -4px 3px 8px #565656;
             }
+            @media (max-width: $mobileSize) {
+                top: 0;
+                left: 3rem;
+            }
         }
         .title-wrapper {
             width: 95%;
             top: -2rem;
+            text-align: left;
+            text-indent: 6rem;
             @media (max-width: $tabletSize) {
+                text-align: center;
+                text-indent: 0;
+            }
+            @media (max-width: $mobileSize) {
                 text-align: left;
                 text-indent: 4rem;
-                span {
-                    text-indent: 0;
-                }
+            }
+            span {
+                text-indent: 0;
             }
         }
         .project-date {
             position: absolute;
             right: -1.75rem;;
-            top: 1.33rem;
+            top: 2.88rem;
             color: whitesmoke;
             padding: 0.1rem 0.35rem;
             background-color: #3C4162;
@@ -113,7 +150,7 @@
             padding-right: 2rem;
             border-right: #0A0E28 1rem solid;
             &.last-updated {
-                top: -1rem;
+                top: 0.5rem;
             }
         }
         .project-description-wrapper {
