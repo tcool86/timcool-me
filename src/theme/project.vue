@@ -74,6 +74,23 @@
 <style lang="scss">
     @import '../styles/style-vars.scss';
     .project-article {
+        &:hover {
+            box-shadow:
+                    1px 1px #4a4b4e,
+                    2px 2px whitesmoke,
+                    3px 3px 4px whitesmoke;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            .project-icon-wrapper {
+                left: 5rem;
+            }
+            .title-wrapper {
+                text-indent: 5rem;
+            }
+            .project-date {
+                right: -2.3rem;
+            }
+        }
         h2 {
             font-size: 2.5em;
             text-shadow: black -2px 2px 7px;
@@ -110,6 +127,7 @@
             box-shadow: -8px 6px 16px #565656;
             background-color: #6E312F;
             line-height: 0;
+            transition: all 0.3s ease;
             @media (max-width: $tabletSize) {
                 top: -1.5rem;
                 left: 2rem;
@@ -125,6 +143,7 @@
             top: -2rem;
             text-align: left;
             text-indent: 6rem;
+            transition: all 0.3s ease;
             @media (max-width: $tabletSize) {
                 text-align: center;
                 text-indent: 0;
@@ -139,7 +158,7 @@
         }
         .project-date {
             position: absolute;
-            right: -1.75rem;;
+            right: -1.75rem;
             top: 2.88rem;
             color: whitesmoke;
             padding: 0.1rem 0.35rem;
@@ -149,6 +168,7 @@
             border-radius: 4px;
             padding-right: 2rem;
             box-shadow: #0A0E28 1px 1px 6px;
+            transition: all 0.3s ease;
             &.last-updated {
                 top: 0.5rem;
             }
