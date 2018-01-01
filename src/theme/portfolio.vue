@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="spinner-container content" v-if="showSpinner">
-            <spinner :color="'#F9F9F9'" :size="'42px'"></spinner>
+            <!-- <spinner :color="'#F9F9F9'" :size="'42px'"></spinner> -->
         </div>
         <section id="project-section">
             <div class="project-container" v-for="project in projects" v-bind:key="project._id">
@@ -26,7 +26,7 @@
 <script>
     import project from './project.vue'
     import { mapGetters } from 'vuex'
-    import spinner from 'vue-spinner/src/MoonLoader.vue'
+    // import spinner from 'vue-spinner/src/MoonLoader.vue'
 
     const fetchInitialData = (store, route) => {
         return store.dispatch('projectsModule/updateProjects')
@@ -37,8 +37,8 @@
             return fetchInitialData(store, route)
         },
         components : {
-            'project' : project,
-            'spinner' : spinner
+            'project' : project
+            // ,'spinner' : spinner
         },
         computed : {
             ...mapGetters('projectsModule', ['projects'])

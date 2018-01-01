@@ -2,7 +2,7 @@
     <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
         <div class="spinner-container content" v-if="showSpinner">
-            <spinner :color="'#F9F9F9'" :size="'42px'"></spinner>
+            <!-- <spinner :color="'#F9F9F9'" :size="'42px'"></spinner> -->
         </div>
         <div class="list-group-item" v-for="post in posts" v-bind:key="post.id">
             <blog-post :categories='post.categories'>
@@ -17,7 +17,7 @@
     import Filter from '../vuex/filters.js'
     import post from './post.vue'
     import { mapGetters } from 'vuex'
-    import spinner from 'vue-spinner/src/MoonLoader.vue'
+    // import spinner from 'vue-spinner/src/MoonLoader.vue'
 
     const fetchInitialData = (store, route) => {
         var filterId
@@ -33,8 +33,8 @@
             return fetchInitialData(store, route)
         },
         components : {
-            'blog-post' : post,
-            'spinner' : spinner
+            'blog-post' : post
+            // ,'spinner' : spinner
         },
         computed : {
             ...mapGetters('postsModule', ['posts'])
