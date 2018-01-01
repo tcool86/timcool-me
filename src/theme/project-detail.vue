@@ -25,12 +25,12 @@
             </span> -->
         </div>
         <div class="project-description-wrapper">
-            <p class="project-description">
+            <!-- <p class="project-description">
                 {{project.description}}
                 <div v-for="image in displayedImages" v-bind:key="image">
                     <img class="project-image" :src="image">
                 </div>
-            </p>
+            </p> -->
         </div>
     </article>
 </template>
