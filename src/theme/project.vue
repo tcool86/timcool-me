@@ -27,7 +27,7 @@
         <div class="project-description-wrapper">
             <p class="project-description">
                 <img class="project-image" :src="project.image">
-                {{project.description}}
+                {{project.shortDescription}}
             </p>
         </div>
     </article>

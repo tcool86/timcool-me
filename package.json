@@ -37,6 +37,7 @@
     "serialize-javascript": "^1.4.0",
     "sinon": "^4.1.2",
     "sinon-chai": "^2.14.0",
+    "truncate": "^2.0.0",
     "vue": "^2.5.6",
     "vue-media": "^1.1.1",
     "vue-server-renderer": "^2.5.6",

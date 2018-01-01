@@ -1,4 +1,5 @@
 import appServices from '../app.service.js'
+import truncate from 'truncate'
 
 const defaultState = {
     projects : []
@@ -18,6 +19,11 @@ const getters = {
 const actions = {
     updateProjects (context) {
         return appServices.getProjects().then(data => {
+            data.map((project) => {
+                let shortDescription = truncate(project.description, 450)
+                project.shortDescription = shortDescription
+                return project
+            })
             context.commit('updateProjects', {
                 projects : data
             })
