@@ -26,7 +26,7 @@ if (isProd) {
 } else {
     require("./build/dev-server")(app, bundle => {
         renderer = createBundleRenderer(bundle)
-    });
+    })
 }
 
 // views is directory for all template files
@@ -48,13 +48,13 @@ app.get(['/', '/about', '/blog', '/portfolio', '/friend', '/stuff', '/*'], (req,
             return res.status(500).send('Server Error')
         }
         html = indexHTML.replace('{{ APP }}', html)
-        const serializedInitialState = serialize(context.initialState, { isJSON : true });
-        const stateScript = '<script>window.__INITIAL_STATE__='+serializedInitialState+'</script>';
-        html = html.replace('{{ STATE }}', stateScript);
-        res.write(html);
-        res.end();
-    });
-});
+        const serializedInitialState = serialize(context.initialState, { isJSON : true })
+        const stateScript = `<script>window.__INITIAL_STATE__=${serializedInitialState}</script>`
+        html = html.replace('{{ STATE }}', stateScript)
+        res.write(html)
+        res.end()
+    })
+})
 
 app.get('/cool', function (request, response) {
     response.send(cool())
