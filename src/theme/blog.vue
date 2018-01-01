@@ -1,6 +1,9 @@
 <template>
     <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
+        <div class="spinner-container content" v-if="showSpinner">
+            <spinner :color="'#F9F9F9'" :size="'42px'"></spinner>
+        </div>
         <div class="list-group-item" v-for="post in posts" v-bind:key="post.id">
             <blog-post :categories='post.categories'>
                 <h2 slot="title" v-html="post.title.rendered"></h2>
@@ -14,6 +17,7 @@
     import Filter from '../vuex/filters.js'
     import post from './post.vue'
     import { mapGetters } from 'vuex'
+    import spinner from 'vue-spinner/src/MoonLoader.vue'
 
     const fetchInitialData = (store, route) => {
         var filterId
@@ -29,28 +33,54 @@
             return fetchInitialData(store, route)
         },
         components : {
-            'blog-post' : post
+            'blog-post' : post,
+            'spinner' : spinner
         },
         computed : {
             ...mapGetters('postsModule', ['posts'])
         },
+        data : function () {
+            return {
+                'showSpinner' : true
+            }
+        },
         methods : {
             loadPosts () {
                 fetchInitialData(this.$store, this.$route)
+            },
+            updateSpinner () {
+                if (this.$store.getters['postsModule/posts'].length !== 0) {
+                    this.showSpinner = false
+                } else {
+                    this.showSpinner = true
+                }
             }
         },
         watch : {
             '$route' (to, from) {
                 this.loadPosts()
+            },
+            'posts' () {
+                this.updateSpinner()
             }
         },
         created () {
             this.loadPosts()
+            this.updateSpinner()
         }
     }
 </script>
 <style lang="scss">
     @import '../styles/style-vars.scss';
+    .spinner-container {
+        height: 10rem;
+        background-color: $backgroundColor;
+        width: 100%;
+        display: grid;
+        .v-spinner {
+            margin: auto;
+        }
+    }
     .post-wrapper {
         h1 {
             color: #000;
