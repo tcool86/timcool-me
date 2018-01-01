@@ -3,7 +3,7 @@
   "version": "0.1.40",
   "description": "Timcool.me website",
   "engines": {
-    "node": "8.7.0"
+    "node": "8.9.3"
   },
   "main": "index.js",
   "scripts": {
