@@ -53,7 +53,6 @@
         }
     }
 </script>
-
 <style lang="scss">
     @import '../styles/style-vars.scss';
 

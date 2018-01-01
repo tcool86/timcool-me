@@ -27,7 +27,7 @@
         <div class="project-description-wrapper">
             <p class="project-description">
                 <img class="project-image" :src="project.image">
-                {{project.shortDescription}}
+                {{project.shortDescription}}<span class="description-more">Read more</span>
             </p>
         </div>
     </article>
@@ -98,6 +98,10 @@
                 font-size: 1.5em;
             }
         }
+        .description-more {
+            color: $color1;
+            font-weight: 600;
+        }
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -113,6 +117,7 @@
         background-image: url(//res.cloudinary.com/hnairgdu6/image/upload/v1513915883/project-back_pyilud.png);
         @media (max-width: $tabletSize) {
             margin: 0.25rem;
+            margin-bottom: 4rem;
         }
         .project-icon-wrapper {
             position: absolute;
@@ -187,4 +192,3 @@
         }
     }
 </style>
-
