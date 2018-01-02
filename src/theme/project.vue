@@ -1,5 +1,5 @@
 <template>
-    <article class="project-article" >
+    <article class="project-article" v-on:click="handleProjectOnClick">
         <div class="project-icon-wrapper">
             <media :query="{minWidth: 1158}">
                 <img :src="project.icon">
@@ -67,6 +67,9 @@
             },
             mediaLeaveSmall (query) {
                 this.showDates = true
+            },
+            handleProjectOnClick () {
+                console.log('project clicked: ' + this.project.title)
             }
         }
     }
