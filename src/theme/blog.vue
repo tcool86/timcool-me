@@ -1,9 +1,13 @@
 <template>
     <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
-        <div class="spinner-container content" v-if="showSpinner">
-            <!-- <spinner :color="'#F9F9F9'" :size="'42px'"></spinner> -->
-        </div>
+        <transition name="fade">
+            <div class="spinner-container" v-if="showSpinner">
+                <div class="spinner">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </transition>
         <div class="list-group-item" v-for="post in posts" v-bind:key="post.id">
             <blog-post :categories='post.categories'>
                 <h2 slot="title" v-html="post.title.rendered"></h2>
@@ -17,7 +21,6 @@
     import Filter from '../vuex/filters.js'
     import post from './post.vue'
     import { mapGetters } from 'vuex'
-    // import spinner from 'vue-spinner/src/MoonLoader.vue'
 
     const fetchInitialData = (store, route) => {
         var filterId
@@ -34,7 +37,6 @@
         },
         components : {
             'blog-post' : post
-            // ,'spinner' : spinner
         },
         computed : {
             ...mapGetters('postsModule', ['posts'])
@@ -74,14 +76,18 @@
     @import '../styles/style-vars.scss';
     .spinner-container {
         height: 10rem;
+        position: absolute;
         background-color: $backgroundColor;
         width: 100%;
         display: grid;
-        .v-spinner {
+        .spinner {
             margin: auto;
         }
     }
     .post-wrapper {
+        &:first-child {
+            margin-top: 4rem;
+        }
         h1 {
             color: #000;
             text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 1px 0 rgb(128, 141, 147), -1px 0 0 rgb(205, 210, 213), -1px 2px 0 rgb(128, 141, 147), -2px 1px 0 rgb(205, 210, 213), -2px 3px 0 rgb(128, 141, 147), -3px 2px 0 rgb(205, 210, 213), -3px 4px 0 rgb(128, 141, 147), -4px 3px 0 rgb(205, 210, 213);
@@ -129,5 +135,6 @@
         opacity: 0;
         -webkit-animation: fadeIn linear 0.5s both;
         animation: fadeIn linear 0.5s both;
+        transition: all 0.3s;
     }
 </style>

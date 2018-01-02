@@ -13,9 +13,13 @@
                 </section>
             </div>
         </div>
-        <div class="spinner-container content" v-if="showSpinner">
-            <!-- <spinner :color="'#F9F9F9'" :size="'42px'"></spinner> -->
-        </div>
+        <transition name="fade">
+            <div class="spinner-container content" v-if="showSpinner">
+                <div class="spinner">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </transition>
         <section id="project-section">
             <div class="project-container" v-for="project in projects" v-bind:key="project._id">
                 <project :project="project"></project>
@@ -26,7 +30,6 @@
 <script>
     import project from './project.vue'
     import { mapGetters } from 'vuex'
-    // import spinner from 'vue-spinner/src/MoonLoader.vue'
 
     const fetchInitialData = (store, route) => {
         return store.dispatch('projectsModule/updateProjects')
@@ -38,7 +41,6 @@
         },
         components : {
             'project' : project
-            // ,'spinner' : spinner
         },
         computed : {
             ...mapGetters('projectsModule', ['projects'])
