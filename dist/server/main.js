@@ -537,11 +537,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
 
 
 
 
-// import spinner from 'vue-spinner/src/MoonLoader.vue'
 
 var fetchInitialData = function fetchInitialData(store, route) {
     var filterId;
@@ -559,7 +562,6 @@ var fetchInitialData = function fetchInitialData(store, route) {
 
     components: {
         'blog-post': __WEBPACK_IMPORTED_MODULE_1__post_vue__["a" /* default */]
-        // ,'spinner' : spinner
     },
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["mapGetters"])('postsModule', ['posts'])),
     data: function data() {
@@ -724,10 +726,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
 
 
 
-// import spinner from 'vue-spinner/src/MoonLoader.vue'
 
 var fetchInitialData = function fetchInitialData(store, route) {
     return store.dispatch('projectsModule/updateProjects');
@@ -740,7 +745,6 @@ var fetchInitialData = function fetchInitialData(store, route) {
 
     components: {
         'project': __WEBPACK_IMPORTED_MODULE_0__project_vue__["a" /* default */]
-        // ,'spinner' : spinner
     },
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["mapGetters"])('projectsModule', ['projects'])),
     data: function data() {
@@ -1763,7 +1767,7 @@ module.exports = require("vue-router");
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_blog_vue__ = __webpack_require__(11);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1b1754e4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_11a2dc2a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__ = __webpack_require__(67);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(64),i.__inject__&&i.__inject__(ssrContext),i)
@@ -1784,7 +1788,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "54517bb4"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_blog_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1b1754e4_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_11a2dc2a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1849,7 +1853,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"blog-posts container is-fluid"},[_vm._ssrNode("<h1 class=\"content-title\">Blog</h1> "+((_vm.showSpinner)?("<div class=\"spinner-container content\"></div>"):"<!---->")+" "),_vm._l((_vm.posts),function(post){return _vm._ssrNode("<div class=\"list-group-item\">","</div>",[_c('blog-post',{attrs:{"categories":post.categories}},[_c('h2',{attrs:{"slot":"title"},domProps:{"innerHTML":_vm._s(post.title.rendered)},slot:"title"}),_vm._v(" "),_c('span',{attrs:{"slot":"content"},domProps:{"innerHTML":_vm._s(post.content.rendered)},slot:"content"})]),_vm._ssrNode(" <br>")],2)})],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"blog-posts container is-fluid"},[_vm._ssrNode("<h1 class=\"content-title\">Blog</h1> "),_c('transition',{attrs:{"name":"fade"}},[(_vm.showSpinner)?_c('div',{staticClass:"spinner-container"},[_c('div',{staticClass:"spinner"},[_c('div',{staticClass:"loader"})])]):_vm._e()]),_vm._ssrNode(" "),_vm._l((_vm.posts),function(post){return _vm._ssrNode("<div class=\"list-group-item\">","</div>",[_c('blog-post',{attrs:{"categories":post.categories}},[_c('h2',{attrs:{"slot":"title"},domProps:{"innerHTML":_vm._s(post.title.rendered)},slot:"title"}),_vm._v(" "),_c('span',{attrs:{"slot":"content"},domProps:{"innerHTML":_vm._s(post.content.rendered)},slot:"content"})]),_vm._ssrNode(" <br>")],2)})],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -1912,7 +1916,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_portfolio_vue__ = __webpack_require__(14);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7083c2ce_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_portfolio_vue__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3809f32e_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_portfolio_vue__ = __webpack_require__(77);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(72),i.__inject__&&i.__inject__(ssrContext),i)
@@ -1933,7 +1937,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "421bd4b4"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_portfolio_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7083c2ce_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_portfolio_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3809f32e_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_portfolio_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -2014,7 +2018,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"portfolio-container"},[_vm._ssrNode("<h1 class=\"content-title\">Portfolio</h1> <div class=\"protfolio-section-wrapper columns\"><div class=\"column is-half is-offset-one-quarter\"><section id=\"portfolio-section\" class=\"columns level\"><div class=\"column level-item has-text-centered\"><h2 class=\"button\">Business</h2></div> <div class=\"column level-item has-text-centered\"><h2 class=\"button\">Projects</h2></div></section></div></div> "+((_vm.showSpinner)?("<div class=\"spinner-container content\"></div>"):"<!---->")+" "),_vm._ssrNode("<section id=\"project-section\">","</section>",_vm._l((_vm.projects),function(project){return _vm._ssrNode("<div class=\"project-container\">","</div>",[_c('project',{attrs:{"project":project}})],1)}))],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"portfolio-container"},[_vm._ssrNode("<h1 class=\"content-title\">Portfolio</h1> <div class=\"protfolio-section-wrapper columns\"><div class=\"column is-half is-offset-one-quarter\"><section id=\"portfolio-section\" class=\"columns level\"><div class=\"column level-item has-text-centered\"><h2 class=\"button\">Business</h2></div> <div class=\"column level-item has-text-centered\"><h2 class=\"button\">Projects</h2></div></section></div></div> "),_c('transition',{attrs:{"name":"fade"}},[(_vm.showSpinner)?_c('div',{staticClass:"spinner-container content"},[_c('div',{staticClass:"spinner"},[_c('div',{staticClass:"loader"})])]):_vm._e()]),_vm._ssrNode(" "),_vm._ssrNode("<section id=\"project-section\">","</section>",_vm._l((_vm.projects),function(project){return _vm._ssrNode("<div class=\"project-container\">","</div>",[_c('project',{attrs:{"project":project}})],1)}))],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
