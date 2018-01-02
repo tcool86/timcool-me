@@ -30,19 +30,23 @@
                 {{project.shortDescription}}<span class="description-more">Read more</span>
             </p>
         </div>
+        <project-detail :project="project" v-if="showDetail"></project-detail>
     </article>
 </template>
 <script>
     import Media from 'vue-media'
     import DateFormatter from 'dateformat'
+    import projectDetail from './project-detail.vue'
 
     export default {
         components : {
-            Media
+            Media,
+            'project-detail' : projectDetail
         },
         props : ['project'],
         data : function () {
             return {
+                showDetail : false,
                 showDates : true,
                 fullText : true,
                 dateFormat : 'mmmm dS, yyyy',
@@ -70,6 +74,7 @@
             },
             handleProjectOnClick () {
                 console.log('project clicked: ' + this.project.title)
+                this.showDetail = true
             }
         }
     }
@@ -79,10 +84,12 @@
     .project-article {
         &:hover {
             box-shadow:
-                    1px 1px #4a4b4e,
-                    2px 2px whitesmoke,
-                    3px 3px 4px whitesmoke;
-            transition: all 0.3s ease;
+                    2px 2px #4a4b4e,
+                    5px 5px 8px whitesmoke,
+                    -3px 5px 8px whitesmoke,
+                    -3px -3px 8px whitesmoke,
+                    5px -3px 8px whitesmoke;
+            transition: all 0.2s ease;
             cursor: pointer;
             .project-icon-wrapper {
                 left: 5rem;
