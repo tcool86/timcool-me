@@ -1,5 +1,5 @@
 <template>
-    <div class="detail-modal-background">
+    <div class="detail-modal-background" v-on:click="closeModal">
         <div class="detail-view-wrapper">
             <article class="project-article detail-view" >
                 <div class="title-wrapper skew-20">
@@ -15,9 +15,9 @@
                     <p class="project-description">
                         <img :src="project.icon">
                         {{project.description}}
-                        <!-- <div v-for="image in displayedImages" v-bind:key="image">
-                            <img class="project-image" :src="image">
-                        </div> -->
+                        <div v-for="projectImage in project.images" v-bind:key="projectImage.image">
+                            <img class="project-image" :src="projectImage.image">
+                        </div>
                     </p>
                 </div>
             </article>
@@ -25,18 +25,24 @@
     </div>
 </template>
 <script>
+    let closeableClasses = ['detail-modal-background', 'detail-view-wrapper']
     export default {
         props : ['project'],
-        data : function () {
-            return {
-                displayedImages : []
+        methods : {
+            closeModal : function (event) {
+                let targetClass = event.target.className
+                event.stopPropagation()
+                if (closeableClasses.includes(targetClass)) {
+                    this.$emit('close')
+                }
             }
         }
     }
 </script>
 <style lang="scss">
+    @import '../styles/style-vars.scss';
     .detail-modal-background {
-        display: table;
+        display: block;
         position: fixed;
         z-index: 99;
         top: 0;
@@ -47,12 +53,17 @@
         transition: opacity .3s ease;
     }
     .detail-view-wrapper {
-        display: table-cell;
-        vertical-align: middle;
+        height: 100%;
     }
     .project-article.detail-view {
+        border: 1px solid $backgroundColor;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        height: 75%;
+        overflow: scroll;
         &.project-article {
-            margin: 10% 15% 15% 15%;
+            margin: 6% 15% 15% 15%;
         }
         .project-description {
             text-indent: 1rem;
@@ -63,6 +74,9 @@
             padding: 0 0.75rem;
         }
         .title-wrapper {
+            position: sticky;
+            top: -1rem;
+            margin-bottom: 1.54rem;
             text-align: center;
             text-indent: 0;
         }

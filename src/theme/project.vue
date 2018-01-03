@@ -30,7 +30,7 @@
                 {{project.shortDescription}}<span class="description-more">Read more</span>
             </p>
         </div>
-        <project-detail :project="project" v-if="showDetail"></project-detail>
+        <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
     </article>
 </template>
 <script>
