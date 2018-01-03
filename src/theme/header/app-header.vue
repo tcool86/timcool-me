@@ -1,6 +1,6 @@
 <template>
     <div id="nav-main">
-        <nav class="level container" ref="staticmenu" :key="resizeWidth" v-bind:style="staticStyles">
+        <nav class="level container" ref="staticmenu" v-bind:style="staticStyles">
             <main-nav></main-nav>
             <media :query="{minWidth: 1158}">
                 <social-links class="level-right"></social-links>
