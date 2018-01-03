@@ -84,11 +84,11 @@
     .project-article {
         &:hover {
             box-shadow:
-                    2px 2px #4a4b4e,
-                    5px 5px 8px whitesmoke,
-                    -3px 5px 8px whitesmoke,
-                    -3px -3px 8px whitesmoke,
-                    5px -3px 8px whitesmoke;
+                2px 2px #4a4b4e,
+                5px 5px 8px whitesmoke,
+                -3px 5px 8px whitesmoke,
+                -3px -3px 8px whitesmoke,
+                5px -3px 8px whitesmoke;
             transition: all 0.2s ease;
             cursor: pointer;
             .project-icon-wrapper {
