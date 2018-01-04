@@ -30,13 +30,19 @@
                 {{project.shortDescription}}<span class="description-more">Read more</span>
             </p>
         </div>
-        <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
+        <transition name="bounce">
+            <div class="detail-modal-background" v-on:click="closeModal" v-if="showDetail">
+                <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
+            </div>
+        </transition>
     </article>
 </template>
 <script>
     import Media from 'vue-media'
     import DateFormatter from 'dateformat'
     import projectDetail from './project-detail.vue'
+
+    let closeableClasses = ['detail-modal-background', 'detail-view-wrapper']
 
     export default {
         components : {
@@ -75,12 +81,31 @@
             handleProjectOnClick () {
                 console.log('project clicked: ' + this.project.title)
                 this.showDetail = true
+            },
+            closeModal : function (event) {
+                let targetClass = event.target.className
+                event.stopPropagation()
+                if (closeableClasses.includes(targetClass)) {
+                    this.showDetail = false
+                    this.$emit('close')
+                }
             }
         }
     }
 </script>
 <style lang="scss">
     @import '../styles/style-vars.scss';
+    .detail-modal-background {
+        display: block;
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .66);
+        transition: opacity .3s ease;
+    }
     .project-article {
         &:hover {
             box-shadow:
