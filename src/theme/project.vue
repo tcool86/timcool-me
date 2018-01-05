@@ -1,41 +1,47 @@
 <template>
-    <article class="project-article" v-on:click="handleProjectOnClick">
-        <div class="project-icon-wrapper">
-            <media :query="{minWidth: 1158}">
-                <img :src="project.icon">
-            </media>
-            <media :query="{maxWidth: 1158, minWidth:800}"
-                @media-enter="mediaEnterMedium"
-                @media-leave="mediaLeaveMedium">
-                <img :src="project.icon_medium">
-            </media>
-            <media :query="{maxWidth: 800}"
-                @media-enter="mediaEnterSmall"
-                @media-leave="mediaLeaveSmall">
-                <img :src="project.icon_small">
-            </media>
-        </div>
-        <div class="title-wrapper skew-20">
-            <h2 class="project-title">{{project.title}}</h2>
-            <span class="project-date last-updated" v-if="showDates">
-                <span v-if="fullText">Updated: </span><b>{{ formattedDate(project.last_updated) }}</b>
-            </span>
-            <span class="project-date" v-if="showDates">
-                <span v-if="fullText">Started: </span><b>{{ formattedDate(project.date_started) }}</b>
-            </span>
-        </div>
-        <div class="project-description-wrapper">
-            <p class="project-description">
-                <img class="project-image" :src="project.image">
-                {{project.shortDescription}}<span class="description-more">Read more</span>
-            </p>
-        </div>
-        <transition name="bounce">
-            <div class="detail-modal-background" v-on:click="closeModal" v-if="showDetail">
-                <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
+    <div class="project-wrapper">
+        <transition name="fade" v-on:after-enter="showDetail = true">
+            <div class="detail-modal-background"
+                v-on:click="closeModal"
+                v-if="showDetailBackground">
+                <transition name="bounce" v-on:after-leave="showDetailBackground = false">
+                    <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
+                </transition>
             </div>
         </transition>
-    </article>
+        <article class="project-article" v-on:click="handleProjectOnClick">
+            <div class="project-icon-wrapper">
+                <media :query="{minWidth: 1158}">
+                    <img :src="project.icon">
+                </media>
+                <media :query="{maxWidth: 1158, minWidth:800}"
+                    @media-enter="mediaEnterMedium"
+                    @media-leave="mediaLeaveMedium">
+                    <img :src="project.icon_medium">
+                </media>
+                <media :query="{maxWidth: 800}"
+                    @media-enter="mediaEnterSmall"
+                    @media-leave="mediaLeaveSmall">
+                    <img :src="project.icon_small">
+                </media>
+            </div>
+            <div class="title-wrapper skew-20">
+                <h2 class="project-title">{{project.title}}</h2>
+                <span class="project-date last-updated" v-if="showDates">
+                    <span v-if="fullText">Updated: </span><b>{{ formattedDate(project.last_updated) }}</b>
+                </span>
+                <span class="project-date" v-if="showDates">
+                    <span v-if="fullText">Started: </span><b>{{ formattedDate(project.date_started) }}</b>
+                </span>
+            </div>
+            <div class="project-description-wrapper">
+                <p class="project-description">
+                    <img class="project-image" :src="project.image">
+                    {{project.shortDescription}}<span class="description-more">Read more</span>
+                </p>
+            </div>
+        </article>
+    </div>
 </template>
 <script>
     import Media from 'vue-media'
@@ -52,6 +58,7 @@
         props : ['project'],
         data : function () {
             return {
+                showDetailBackground : false,
                 showDetail : false,
                 showDates : true,
                 fullText : true,
@@ -79,8 +86,7 @@
                 this.showDates = true
             },
             handleProjectOnClick () {
-                console.log('project clicked: ' + this.project.title)
-                this.showDetail = true
+                this.showDetailBackground = true
             },
             closeModal : function (event) {
                 let targetClass = event.target.className
@@ -105,6 +111,7 @@
         height: 100%;
         background-color: rgba(0, 0, 0, .66);
         transition: opacity .3s ease;
+        cursor: pointer;
     }
     .project-article {
         &:hover {
