@@ -3,23 +3,29 @@
         <article class="project-article detail-view" >
             <div class="title-wrapper skew-20">
                 <h2 class="project-title">{{project.title}}</h2>
-                <!-- <span class="project-date last-updated" v-if="showDates">
-                    <span v-if="fullText">Updated: </span><b>{{ formattedDate(project.last_updated) }}</b>
-                </span> -->
-                <!-- <span class="project-date" v-if="showDates">
-                    <span v-if="fullText">Started: </span><b>{{ formattedDate(project.date_started) }}</b>
-                </span> -->
+            </div>
+            <div class="meta-info level">
+                <span class="project-date last-updated level-left">
+                    <span>Updated:&nbsp;<b>{{ project.lastUpdatedFormatted }}</b></span>
+                </span>
+                <span class="project-date level-right">
+                    <span>Started:&nbsp;<b>{{ project.createdDateFormatted }}</b></span>
+                </span>
             </div>
             <div class="project-description-wrapper">
                 <p class="project-description">
                     <img :src="project.icon">
                     {{project.description}}
                 </p>
-                <div class="images-container">
-                    <div v-for="projectImage in project.images" v-bind:key="projectImage.image">
-                        <img class="project-image" :src="projectImage.image">
-                    </div>
-                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="images-container">
+                <figure v-for="projectImage in project.images" v-bind:key="projectImage.image">
+                    <img class="project-image" :src="projectImage.image">
+                    <figcaption>
+                        {{ projectImage.caption }}
+                    </figcaption>
+                </figure>
             </div>
         </article>
     </div>
@@ -47,21 +53,50 @@
         .project-description {
             text-indent: 1rem;
             font-size: larger;
+            img {
+                float: left;
+                text-indent: 0;
+                padding: 0 0.75rem;
+            }
         }
         .images-container {
             display: inline-flex;
+            figure {
+                margin: 0.2rem;
+            }
+            figcaption {
+                text-align: center;
+            }
         }
-        img {
-            float: left;
-            text-indent: 0;
-            padding: 0 0.75rem;
+        .separator {
+            width: 80%;
+            height: 0.33rem;
+            background-color: #6e312f;
+            border: 0.2rem #3b0a07;
+            border-radius: 20%;
+            margin: 2rem auto;
+            box-shadow: 0px 0px 3px black;
         }
         .title-wrapper {
             position: sticky;
             top: -1rem;
-            margin-bottom: 1.54rem;
             text-align: center;
             text-indent: 0;
+            margin-bottom: 0.66rem;
+            z-index: 1;
+        }
+        .meta-info {
+            width: 80%;
+            margin: auto;
+            margin-bottom: 1.54rem;
+            z-index: 0;
+        }
+        .project-date {
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: skew(0);
+            margin: 0.5rem;
         }
         &:hover {
             box-shadow: none;

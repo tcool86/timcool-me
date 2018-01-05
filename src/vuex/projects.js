@@ -1,5 +1,6 @@
 import appServices from '../app.service.js'
 import truncate from 'truncate'
+import DateFormatter from 'dateformat'
 
 const defaultState = {
     projects : []
@@ -22,6 +23,8 @@ const actions = {
             data.map((project) => {
                 let shortDescription = truncate(project.description, 450)
                 project.shortDescription = shortDescription
+                project.lastUpdatedFormatted = DateFormatter(new Date(project.last_updated), 'mmmm dS, yyyy')
+                project.createdDateFormatted = DateFormatter(new Date(project.date_started), 'mmmm dS, yyyy')
                 return project
             })
             context.commit('updateProjects', {
