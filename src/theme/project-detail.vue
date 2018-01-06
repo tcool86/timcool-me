@@ -5,12 +5,12 @@
                 <h2 class="project-title">{{project.title}}</h2>
             </div>
             <div class="meta-info level">
-                <span class="project-date last-updated level-left">
+                <div class="project-date last-updated level-left">
                     <span>Updated:&nbsp;<b>{{ project.lastUpdatedFormatted }}</b></span>
-                </span>
-                <span class="project-date level-right">
+                </div>
+                <div class="project-date level-left">
                     <span>Started:&nbsp;<b>{{ project.createdDateFormatted }}</b></span>
-                </span>
+                </div>
             </div>
             <div class="project-description-wrapper">
                 <p class="project-description">
@@ -63,8 +63,11 @@
         }
         .images-container {
             display: inline-flex;
+            width: 80%;
+            margin: auto;
             figure {
-                margin: 0.2rem;
+                margin: 0.6rem;
+                border: 1px solid;
             }
             figcaption {
                 text-align: center;
@@ -73,11 +76,11 @@
         .separator {
             width: 80%;
             height: 0.33rem;
-            background-color: #6e312f;
-            border: 0.2rem #3b0a07;
+            background-color: $titleBackgroundColor;
+            border: 0.2rem $color1;
             border-radius: 20%;
             margin: 2rem auto;
-            box-shadow: 0px 0px 3px black;
+            box-shadow: 0px 0px 3px $backgroundColor;
         }
         .title-wrapper {
             position: sticky;
@@ -88,7 +91,6 @@
             z-index: 1;
         }
         .meta-info {
-            width: 80%;
             margin: auto;
             margin-bottom: 1.54rem;
             z-index: 0;
@@ -100,18 +102,5 @@
             transform: skew(0);
             margin: 0.5rem;
         }
-        // &:hover {
-        //     box-shadow: none;
-        //     transition: all 0.2s ease;
-        //     .project-icon-wrapper {
-        //         left: 6rem;
-        //     }
-        //     .title-wrapper {
-        //         text-indent: 0;
-        //     }
-        //     .project-date {
-        //         right: 0;
-        //     }
-        // }
     }
 </style>

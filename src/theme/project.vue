@@ -36,7 +36,6 @@
             </div>
             <div class="project-description-wrapper">
                 <p class="project-description">
-                    <img class="project-image" :src="project.image">
                     {{project.shortDescription}}<span class="description-more">Read more</span>
                 </p>
             </div>
@@ -227,10 +226,6 @@
             @media (max-width: $tabletSize) {
                 text-indent: 3rem;
             }
-        }
-        .project-image {
-            float: right;
-            margin: 0.50rem;
         }
     }
 </style>
