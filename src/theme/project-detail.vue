@@ -1,6 +1,7 @@
 <template>
     <div class="detail-view-wrapper">
         <article class="project-article detail-view" >
+            <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             <div class="title-wrapper skew-20">
                 <h2 class="project-title">{{project.title}}</h2>
             </div>
@@ -33,6 +34,7 @@
     </div>
 </template>
 <script>
+    import './icons'
     export default {
         props : ['project']
     }
@@ -41,6 +43,8 @@
     @import '../styles/style-vars.scss';
     .detail-view-wrapper {
         height: 100%;
+        background-color: transparent;
+        position: relative;
     }
     .project-article.detail-view {
         cursor: default;
@@ -116,6 +120,20 @@
             top: 0;
             transform: skew(0);
             margin: 0.5rem;
+        }
+        .close-button {
+            position: absolute;
+            margin-right: 15%;
+            top: -1rem;
+            right: -0.5rem;
+            border-radius: 100%;
+            z-index: 1;
+            path{
+                &:first-child {
+                    fill: black;
+                }
+                fill: grey;
+            }
         }
     }
 </style>

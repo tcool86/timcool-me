@@ -2,6 +2,7 @@
 require('./android')
 require('./angular')
 require('./apple')
+require('./closebutton')
 require('./css3')
 require('./facebook')
 require('./github')
