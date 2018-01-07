@@ -92,7 +92,6 @@
                 event.stopPropagation()
                 if (closeableClasses.includes(targetClass)) {
                     this.showDetail = false
-                    this.$emit('close')
                 }
             }
         }

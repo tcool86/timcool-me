@@ -1,7 +1,9 @@
 <template>
     <div class="detail-view-wrapper">
         <article class="project-article detail-view" >
-            <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
+            <span v-on:click="closeButtonClick">
+                <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
+            </span>
             <div class="title-wrapper skew-20">
                 <h2 class="project-title">{{project.title}}</h2>
             </div>
@@ -36,7 +38,12 @@
 <script>
     import './icons'
     export default {
-        props : ['project']
+        props : ['project'],
+        methods : {
+            closeButtonClick (event) {
+                this.$emit('close')
+            }
+        }
     }
 </script>
 <style lang="scss">
@@ -68,8 +75,6 @@
             }
         }
         .images-container {
-            // display: inline-block;
-            // width: 80%;
             margin: auto;
             figure {
                 position: relative;
@@ -123,6 +128,7 @@
         }
         .close-button {
             position: absolute;
+            cursor: pointer;
             margin-right: 15%;
             top: -1rem;
             right: -0.5rem;
