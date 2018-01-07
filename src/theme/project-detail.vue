@@ -19,13 +19,15 @@
                 </p>
             </div>
             <div class="separator"></div>
-            <div class="images-container">
-                <figure v-for="projectImage in project.images" v-bind:key="projectImage.image">
-                    <img class="project-image" :src="projectImage.image">
-                    <figcaption>
-                        {{ projectImage.caption }}
-                    </figcaption>
-                </figure>
+            <div class="images-container columns">
+                <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
+                    <figure>
+                        <img class="project-image" :src="projectImage.image">
+                        <figcaption>
+                            {{ projectImage.caption }}
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
         </article>
     </div>
@@ -62,20 +64,33 @@
             }
         }
         .images-container {
-            display: inline-flex;
-            width: 80%;
+            // display: inline-block;
+            // width: 80%;
             margin: auto;
             figure {
+                position: relative;
+                display: block;
+                overflow: hidden;
                 margin: 0.6rem;
-                border: 1px solid;
+                img {
+                    border: 1px solid;
+                }
             }
             figcaption {
                 text-align: center;
+                left: 0;
+                bottom: 1%;
+                position: absolute;
+                padding: 1rem;
+                width: 100%;
+                color: whitesmoke;
+                font-size: 16pt;
+                background-color: rgba(0,0,0,0.75);
             }
         }
         .separator {
             width: 80%;
-            height: 0.33rem;
+            height: 0.13rem;
             background-color: $titleBackgroundColor;
             border: 0.2rem $color1;
             border-radius: 20%;
