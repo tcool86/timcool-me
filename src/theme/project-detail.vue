@@ -2,10 +2,15 @@
     <div class="detail-view-wrapper">
         <transition name="fade">
             <div class="project-image-detail-wrapper" v-if="selectedImage !== null">
-                <img :src="selectedImage"/>
+                <div class="detail-image-wrapper">
+                    <span class="close-button-wrapper" v-on:click="closeImageDetailClick">
+                        <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
+                    </span>
+                    <img :src="selectedImage"/>
+                </div>
             </div>
         </transition>
-        <article class="project-article detail-view" >
+        <article class="project-article detail-view">
             <span v-on:click="closeButtonClick">
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             </span>
@@ -53,6 +58,9 @@
             closeButtonClick (event) {
                 this.$emit('close')
             },
+            closeImageDetailClick (event) {
+                this.selectedImage = null
+            },
             getImageDetail (event) {
                 let figureNode = event.target.parentElement
                 let imageElement = figureNode.querySelector('img')
@@ -74,16 +82,26 @@
         position: fixed;
         z-index: 2;
         display: inline-flex;
+        .detail-image-wrapper {
+            position: relative;
+            margin: auto;
+            .close-button-wrapper {
+                position: absolute;
+                right: -0.5rem;
+            }
+        }
         img {
             max-width: max-content;
             max-height: max-content;
-            margin: auto;
             border: 0.23rem black solid;
             border-radius: 0.66rem;
             box-shadow: 0 0 5px, 0 0 5px;
         }
     }
     .project-article.detail-view {
+        &:hover {
+            box-shadow: none;
+        }
         cursor: default;
         transition: all 0.2s ease;
         border: 1px solid $backgroundColor;
@@ -107,6 +125,7 @@
         .images-container {
             margin: auto;
             figure {
+                cursor: pointer;
                 position: relative;
                 display: block;
                 overflow: hidden;
@@ -143,6 +162,7 @@
             text-indent: 0;
             margin-bottom: 0.66rem;
             z-index: 1;
+            padding: 0.1rem;
         }
         .meta-info {
             margin: auto;
@@ -155,21 +175,6 @@
             top: 0;
             transform: skew(0);
             margin: 0.5rem;
-        }
-        .close-button {
-            position: absolute;
-            cursor: pointer;
-            margin-right: 15%;
-            top: -1rem;
-            right: -0.5rem;
-            border-radius: 100%;
-            z-index: 1;
-            path{
-                &:first-child {
-                    fill: black;
-                }
-                fill: grey;
-            }
         }
     }
 </style>
