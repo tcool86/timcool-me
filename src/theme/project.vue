@@ -36,7 +36,7 @@
             </div>
             <div class="project-description-wrapper">
                 <p class="project-description">
-                    {{project.shortDescription}}<span class="description-more">Read more</span>
+                    {{project.shortDescription}}<span class="description-more">&nbsp;Read more</span>
                 </p>
             </div>
         </article>
