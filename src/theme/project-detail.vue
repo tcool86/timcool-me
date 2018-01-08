@@ -1,5 +1,10 @@
 <template>
     <div class="detail-view-wrapper">
+        <transition name="fade">
+            <div class="project-image-detail-wrapper" v-if="selectedImage !== null">
+                <img :src="selectedImage"/>
+            </div>
+        </transition>
         <article class="project-article detail-view" >
             <span v-on:click="closeButtonClick">
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
@@ -24,7 +29,7 @@
             <div class="separator"></div>
             <div class="images-container columns">
                 <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
-                    <figure>
+                    <figure v-on:click="getImageDetail">
                         <img class="project-image" :src="projectImage.image">
                         <figcaption>
                             {{ projectImage.caption }}
@@ -38,10 +43,20 @@
 <script>
     import './icons'
     export default {
+        data : function () {
+            return {
+                'selectedImage' : null
+            }
+        },
         props : ['project'],
         methods : {
             closeButtonClick (event) {
                 this.$emit('close')
+            },
+            getImageDetail (event) {
+                let figureNode = event.target.parentElement
+                let imageElement = figureNode.querySelector('img')
+                this.selectedImage = imageElement.src
             }
         }
     }
@@ -52,6 +67,21 @@
         height: 100%;
         background-color: transparent;
         position: relative;
+    }
+    .project-image-detail-wrapper {
+        width: 100%;
+        height: 85%;
+        position: fixed;
+        z-index: 2;
+        display: inline-flex;
+        img {
+            max-width: max-content;
+            max-height: max-content;
+            margin: auto;
+            border: 0.23rem black solid;
+            border-radius: 0.66rem;
+            box-shadow: 0 0 5px, 0 0 5px;
+        }
     }
     .project-article.detail-view {
         cursor: default;
