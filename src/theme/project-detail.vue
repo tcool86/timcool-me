@@ -138,12 +138,13 @@
                 max-width: 400px;
                 img {
                     border: 1px solid;
+                    width: 100%;
                 }
             }
             figcaption {
                 text-align: center;
                 left: 0;
-                bottom: 1%;
+                bottom: 0;
                 position: absolute;
                 padding: 1rem;
                 width: 100%;
