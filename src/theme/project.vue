@@ -27,11 +27,11 @@
             </div>
             <div class="title-wrapper skew-20">
                 <h2 class="project-title">{{project.title}}</h2>
-                <span class="project-date last-updated" v-if="showDates">
-                    <span v-if="fullText">Updated: </span><b>{{ formattedDate(project.last_updated) }}</b>
+                <span class="project-date last-updated skew-minus-20" v-if="showDates">
+                    <span v-if="fullText">Updated:&nbsp;</span><b>{{ formattedDate(project.last_updated) }}</b>
                 </span>
-                <span class="project-date" v-if="showDates">
-                    <span v-if="fullText">Started: </span><b>{{ formattedDate(project.date_started) }}</b>
+                <span class="project-date skew-minus-20" v-if="showDates">
+                    <span v-if="fullText">Created:&nbsp;</span><b>{{ formattedDate(project.date_started) }}</b>
                 </span>
             </div>
             <div class="project-description-wrapper">
@@ -205,16 +205,17 @@
             position: absolute;
             right: -1.75rem;
             top: 2.88rem;
-            color: whitesmoke;
+            color: black;
             padding: 0.1rem 0.35rem;
-            background-color: #3C4162;
+            background-color: $color3;
             border: #0A0E28 0.1rem solid;
-            transform: skew(-40deg);
+            font-size: small;
             border-radius: 4px;
-            padding-right: 2rem;
             box-shadow: #0A0E28 1px 1px 6px;
             transition: all 0.3s ease;
             &.last-updated {
+                background-color: $color4;
+                color: whitesmoke;
                 top: 0.5rem;
             }
         }

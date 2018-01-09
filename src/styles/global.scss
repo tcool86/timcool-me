@@ -28,6 +28,13 @@ body {
     transform: skew(20deg);
 }
 
+.skew-minus-20 {
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    transform: skew(-20deg);
+}
+
 .title-wrapper {
     background-color: $titleBackgroundColor;
     text-align: center;
@@ -134,11 +141,11 @@ h2 {
 .close-button {
     position: absolute;
     cursor: pointer;
-    margin-right: 15%;
+    margin-right: 8%;
     top: -1rem;
     right: -0.5rem;
     border-radius: 100%;
-    z-index: 1;
+    z-index: 2;
     path{
         &:first-child {
             fill: black;

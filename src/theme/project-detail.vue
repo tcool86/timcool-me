@@ -1,7 +1,7 @@
 <template>
     <div class="detail-view-wrapper">
         <transition name="fade">
-            <div class="project-image-detail-wrapper" v-if="selectedImage !== null">
+            <div class="project-image-detail-wrapper" v-if="selectedImage !== null" v-on:click="closeImageDetailClick">
                 <div class="detail-image-wrapper">
                     <span class="close-button-wrapper" v-on:click="closeImageDetailClick">
                         <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
@@ -14,7 +14,7 @@
             <span v-on:click="closeButtonClick">
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             </span>
-            <div class="title-wrapper skew-20">
+            <div class="title-wrapper">
                 <h2 class="project-title">{{project.title}}</h2>
             </div>
             <div class="meta-info level">
@@ -22,7 +22,7 @@
                     <span>Updated:&nbsp;<b>{{ project.lastUpdatedFormatted }}</b></span>
                 </div>
                 <div class="project-date level-left">
-                    <span>Started:&nbsp;<b>{{ project.createdDateFormatted }}</b></span>
+                    <span>Created:&nbsp;<b>{{ project.createdDateFormatted }}</b></span>
                 </div>
             </div>
             <div class="project-description-wrapper">
@@ -32,14 +32,16 @@
                 </p>
             </div>
             <div class="separator"></div>
-            <div class="images-container columns">
-                <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
-                    <figure v-on:click="getImageDetail">
-                        <img class="project-image" :src="projectImage.image">
-                        <figcaption>
-                            {{ projectImage.caption }}
-                        </figcaption>
-                    </figure>
+            <div class="images-wrapper">
+                <div class="images-container columns">
+                    <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
+                        <figure v-on:click="getImageDetail">
+                            <img class="project-image" :src="projectImage.image">
+                            <figcaption>
+                                {{ projectImage.caption }}
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </article>
@@ -59,9 +61,11 @@
                 this.$emit('close')
             },
             closeImageDetailClick (event) {
+                event.stopPropagation()
                 this.selectedImage = null
             },
             getImageDetail (event) {
+                event.stopPropagation()
                 let figureNode = event.target.parentElement
                 let imageElement = figureNode.querySelector('img')
                 this.selectedImage = imageElement.src
@@ -105,21 +109,21 @@
         cursor: default;
         transition: all 0.2s ease;
         border: 1px solid $backgroundColor;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
+        padding: 0;
+        border-radius: 0;
         height: 75%;
         overflow: scroll;
         &.project-article {
-            margin: 6% 15% 15% 15%;
+            margin: 6% 8% 15% 8%;
         }
         .project-description {
             text-indent: 1rem;
             font-size: larger;
+            margin-right: 4%;
+            margin-left: 4%;
             img {
                 float: left;
-                text-indent: 0;
-                padding: 0 0.75rem;
+                margin-right: 1rem;
             }
         }
         .images-container {
@@ -129,7 +133,9 @@
                 position: relative;
                 display: block;
                 overflow: hidden;
-                margin: 0.6rem;
+                margin: auto;
+                min-width: 256px;
+                max-width: 400px;
                 img {
                     border: 1px solid;
                 }
@@ -152,20 +158,29 @@
             background-color: $titleBackgroundColor;
             border: 0.2rem $color1;
             border-radius: 20%;
-            margin: 2rem auto;
+            margin: 3rem auto;
             box-shadow: 0px 0px 3px $backgroundColor;
+        }
+        .images-wrapper {
+            display: block;
+            width: 100%;
         }
         .title-wrapper {
             position: sticky;
-            top: -1rem;
+            top: 0;
+            width: 100%;
             text-align: center;
+            padding: 0.1rem;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
             text-indent: 0;
+            margin: 0;
             margin-bottom: 0.66rem;
             z-index: 1;
-            padding: 0.1rem;
         }
         .meta-info {
             margin: auto;
+            margin-top: 1rem;
             margin-bottom: 1.54rem;
             z-index: 0;
         }
@@ -173,7 +188,6 @@
             position: relative;
             left: 0;
             top: 0;
-            transform: skew(0);
             margin: 0.5rem;
         }
     }
