@@ -21,7 +21,7 @@
             </div>
         </transition>
         <section id="project-section">
-            <div class="project-container" v-for="project in projects" v-bind:key="project._id">
+            <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" v-for="project in projects" v-bind:key="project._id">
                 <project :project="project"></project>
             </div>
         </section>
@@ -47,7 +47,8 @@
         },
         data : function () {
             return {
-                'showSpinner' : true
+                'showSpinner' : true,
+                'animateProjects' : false
             }
         },
         methods : {
@@ -60,6 +61,12 @@
                 } else {
                     this.showSpinner = true
                 }
+            },
+            checkForDeeplink () {
+                let deeplink = this.$route.params.deeplink
+                if (typeof (deeplink) === 'undefined') {
+                    this.animateProjects = true
+                }
             }
         },
         watch : {
@@ -71,6 +78,7 @@
             }
         },
         created () {
+            this.checkForDeeplink()
             this.loadProjects()
             this.updateSpinner()
         }
@@ -104,6 +112,9 @@
         margin: 1em;
         margin-top: 2em;
         position: relative;
+    }
+
+    .push-up-animation {
         animation-duration: 0.5s;
         -moz-animation-duration: 0.5s;
         -webkit-animation-duration: 0.5s;

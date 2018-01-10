@@ -92,8 +92,10 @@
                 event.stopPropagation()
                 if (closeableClasses.includes(targetClass)) {
                     let deeplink = this.$route.params.deeplink
-                    if (typeof (deeplink) !== 'undefined') {
-                        window.location.replace(window.location.origin + '/portfolio')
+                    if (typeof deeplink !== 'undefined') {
+                        if (typeof window !== 'undefined') {
+                            window.location.assign(window.location.origin + '/portfolio')
+                        }
                     } else {
                         this.showDetail = false
                     }
@@ -108,8 +110,9 @@
             let deeplink = this.$route.params.deeplink
             if (typeof (deeplink) !== 'undefined') {
                 if (deeplink === this.deeplinkName()) {
-                    this.showDetailBackground = true
-                    this.showDetail = true
+                    setTimeout(() => {
+                        this.showDetailBackground = true
+                    }, 200)
                 }
             }
         }
