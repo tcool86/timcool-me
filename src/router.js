@@ -23,6 +23,9 @@ const router = new VueRouter({
         path : '/portfolio',
         component : portfolio
     }, {
+        path : '/portfolio/:deeplink',
+        component : portfolio
+    }, {
         path : '/blog',
         component : blog
     }, {

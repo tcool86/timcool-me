@@ -93,6 +93,19 @@
                 if (closeableClasses.includes(targetClass)) {
                     this.showDetail = false
                 }
+            },
+            deeplinkName : function () {
+                let name = this.project.title
+                return name.toLowerCase().replace(/\s/, '-')
+            }
+        },
+        created () {
+            let deeplink = this.$route.params.deeplink
+            if (typeof (deeplink) !== 'undefined') {
+                if (deeplink === this.deeplinkName()) {
+                    this.showDetailBackground = true
+                    this.showDetail = true
+                }
             }
         }
     }
