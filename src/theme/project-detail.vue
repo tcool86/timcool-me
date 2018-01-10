@@ -134,8 +134,9 @@
                 display: block;
                 overflow: hidden;
                 margin: auto;
-                min-width: 256px;
-                max-width: 400px;
+                min-width: 200px;
+                max-width: 300px;
+                max-height: 300px;
                 img {
                     border: 1px solid;
                     width: 100%;
