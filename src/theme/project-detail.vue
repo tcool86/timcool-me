@@ -95,8 +95,8 @@
             }
         }
         img {
-            max-width: max-content;
-            max-height: max-content;
+            max-width: 100%;
+            max-height: 100%;
             border: 0.23rem black solid;
             border-radius: 0.66rem;
             box-shadow: 0 0 5px, 0 0 5px;
