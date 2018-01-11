@@ -5,7 +5,7 @@
             <div class="column is-half is-offset-one-quarter">
                 <section id="portfolio-section" class="columns level">
                     <div class="column level-item has-text-centered">
-                        <h2 class="button">Business</h2>
+                        <h2 class="button">Resume</h2>
                     </div>
                     <div class="column level-item has-text-centered">
                         <h2 class="button">Projects</h2>
