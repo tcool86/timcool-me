@@ -5,14 +5,19 @@
             <div class="column is-half is-offset-one-quarter">
                 <section id="portfolio-section" class="columns level">
                     <div class="column level-item has-text-centered">
-                        <h2 class="button">Resume</h2>
+                        <h2 class="button" v-on:click="currentSection = 'resume'">Resume</h2>
                     </div>
                     <div class="column level-item has-text-centered">
-                        <h2 class="button">Projects</h2>
+                        <h2 class="button" v-on:click="currentSection = 'projects'">Projects</h2>
                     </div>
                 </section>
             </div>
         </div>
+        <transition name="fade">
+            <div v-if="currentSection == 'resume'">
+                <resume></resume>
+            </div>
+        </transition>
         <transition name="fade">
             <div class="spinner-container content" v-if="showSpinner">
                 <div class="spinner">
@@ -20,15 +25,18 @@
                 </div>
             </div>
         </transition>
-        <section id="project-section">
-            <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" v-for="project in projects" v-bind:key="project._id">
-                <project :project="project"></project>
-            </div>
-        </section>
+        <transition name="fade">
+            <section id="project-section" v-if="currentSection == 'projects'">
+                <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" v-for="project in projects" v-bind:key="project._id">
+                    <project :project="project"></project>
+                </div>
+            </section>
+        </transition>
     </div>
 </template>
 <script>
     import project from './project.vue'
+    import resume from './resume.vue'
     import { mapGetters } from 'vuex'
 
     const fetchInitialData = (store, route) => {
@@ -40,13 +48,15 @@
             return fetchInitialData(store, route)
         },
         components : {
-            'project' : project
+            'project' : project,
+            'resume' : resume
         },
         computed : {
             ...mapGetters('projectsModule', ['projects'])
         },
         data : function () {
             return {
+                'currentSection' : 'resume',
                 'showSpinner' : true,
                 'animateProjects' : false
             }
