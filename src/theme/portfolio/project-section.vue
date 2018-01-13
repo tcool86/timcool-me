@@ -1,42 +1,23 @@
 <template>
-    <div class="portfolio-container">
-        <h1 class="content-title">Portfolio</h1>
-        <div class="protfolio-section-wrapper columns">
-            <div class="column is-half is-offset-one-quarter">
-                <section id="portfolio-section" class="columns level">
-                    <div class="column level-item has-text-centered">
-                        <h2 class="button" v-on:click="currentSection = 'resume'">Resume</h2>
-                    </div>
-                    <div class="column level-item has-text-centered">
-                        <h2 class="button" v-on:click="currentSection = 'projects'">Projects</h2>
-                    </div>
-                </section>
-            </div>
-        </div>
+    <section id="project-section">
         <transition name="fade">
-            <div v-if="currentSection == 'resume'">
-                <resume></resume>
-            </div>
-        </transition>
-        <transition name="fade">
-            <div class="spinner-container content" v-if="showSpinner">
+            <div class="spinner-container content" v-if="showSpinner && currentSection == 'projects'">
                 <div class="spinner">
                     <div class="loader"></div>
                 </div>
             </div>
         </transition>
         <transition name="fade">
-            <section id="project-section" v-if="currentSection == 'projects'">
+            <div class="projects-container">
                 <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" v-for="project in projects" v-bind:key="project._id">
                     <project :project="project"></project>
                 </div>
-            </section>
+            </div>
         </transition>
-    </div>
+    </section>
 </template>
 <script>
     import project from './project.vue'
-    import resume from './resume.vue'
     import { mapGetters } from 'vuex'
 
     const fetchInitialData = (store, route) => {
@@ -48,15 +29,13 @@
             return fetchInitialData(store, route)
         },
         components : {
-            'project' : project,
-            'resume' : resume
+            'project' : project
         },
         computed : {
             ...mapGetters('projectsModule', ['projects'])
         },
         data : function () {
             return {
-                'currentSection' : 'resume',
                 'showSpinner' : true,
                 'animateProjects' : false
             }
@@ -95,7 +74,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../styles/style-vars.scss';
+    @import '../../styles/style-vars.scss';
     .spinner-container {
         height: 10rem;
         background-color: $backgroundColor;
@@ -122,16 +101,5 @@
         margin: 1em;
         margin-top: 2em;
         position: relative;
-    }
-
-    .push-up-animation {
-        animation-duration: 0.5s;
-        -moz-animation-duration: 0.5s;
-        -webkit-animation-duration: 0.5s;
-        transition: top, opacity;
-        -moz-transition: top, opacity;
-        -webkit-transition: top, opacity;
-        -moz-animation-name: pushUp;
-        -webkit-animation-name: pushUp;
     }
 </style>

@@ -48,7 +48,7 @@
     </div>
 </template>
 <script>
-    import './icons'
+    import '../icons'
     export default {
         data : function () {
             return {
@@ -74,7 +74,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../styles/style-vars.scss';
+    @import '../../styles/style-vars.scss';
     .detail-view-wrapper {
         height: 100%;
         background-color: transparent;

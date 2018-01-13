@@ -119,7 +119,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../styles/style-vars.scss';
+    @import '../../styles/style-vars.scss';
     .detail-modal-background {
         display: block;
         position: fixed;
