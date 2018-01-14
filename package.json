@@ -15,7 +15,8 @@
     "start:prod": "cross-env NODE_ENV=production npm run start",
     "start:dev": "cross-env NODE_ENV=development npm run start",
     "generate-icons": "vsvg -s ./src/assets/icons -t ./dist/assets/icons",
-    "generate-icons-dev": "vsvg -s ./src/assets/icons -t ./src/theme/icons"
+    "generate-icons-dev": "vsvg -s ./src/assets/icons -t ./src/theme/icons",
+    "build-dev" : "npm run generate-icons-dev; npm run build;"
   },
   "dependencies": {
     "axios-cache-adapter": "^2.0.0",
