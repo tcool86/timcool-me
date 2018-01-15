@@ -198,6 +198,13 @@ h2 {
     transform: translateY(5rem);
 }
 
+.fade-out-enter-active, .fade-out-leave-active {
+    transition: all .5s
+}
+.fade-out-enter, .fade-out-leave-to {
+    opacity: 0;
+}
+
 .closeModal-enter-active, .closeModal-leave-active {
     transition: all 0.3s ease-out;
 }

@@ -1,10 +1,10 @@
 <template>
     <div class="project-wrapper">
-        <transition name="fade" v-on:after-enter="showDetail = true">
+        <transition name="fade-out" mode="out-in" v-on:after-enter="showDetail = true">
             <div class="detail-modal-background"
                 v-on:click="closeModal"
                 v-if="showDetailBackground">
-                <transition name="bounce" v-on:after-leave="showDetailBackground = false">
+                <transition name="bounce" mode="out-in" v-on:after-leave="showDetailBackground = false">
                     <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
                 </transition>
             </div>
