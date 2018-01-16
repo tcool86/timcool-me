@@ -113,6 +113,6 @@
 
     .search-wrapper {
         width: 50%;
-        margin: auto;
+        margin: 3rem auto;
     }
 </style>

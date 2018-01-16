@@ -5,10 +5,10 @@
             <div class="column is-half is-offset-one-quarter">
                 <section id="portfolio-section" class="columns level">
                     <div class="column level-item has-text-centered">
-                        <h2 class="button" v-on:click="currentSection = 'resume'">Resume</h2>
+                        <h2 class="button" v-on:click="currentSection = resumeKey">Resume</h2>
                     </div>
                     <div class="column level-item has-text-centered">
-                        <h2 class="button" v-on:click="currentSection = 'project-section'">Projects</h2>
+                        <h2 class="button" v-on:click="currentSection = projectsKey">Projects</h2>
                     </div>
                 </section>
             </div>
@@ -22,6 +22,10 @@
     import projectSection from './project-section.vue'
     import resume from './resume.vue'
 
+    const fetchInitialData = (store, route) => {
+        return store.dispatch('projectsModule/updateProjects')
+    }
+
     export default {
         components : {
             'project-section' : projectSection,
@@ -29,8 +33,26 @@
         },
         data : function () {
             return {
-                'currentSection' : 'resume'
+                projectsKey : 'project-section',
+                resumeKey : 'resume',
+                'currentSection' : this.resumeKey
             }
+        },
+        methods : {
+            prefetchProjects () {
+                fetchInitialData(this.$store, this.$route)
+            },
+            checkForDeeplink (route) {
+                let deeplink = route.params.deeplink
+                if (typeof (deeplink) === 'undefined') {
+                    return this.resumeKey
+                }
+                return this.projectsKey
+            }
+        },
+        created () {
+            this.prefetchProjects()
+            this.currentSection = this.checkForDeeplink(this.$route)
         }
     }
 </script>
