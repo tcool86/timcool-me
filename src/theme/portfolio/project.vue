@@ -85,25 +85,33 @@
                 this.showDates = true
             },
             handleProjectOnClick () {
+                this.handleDeeplinkOpen()
                 this.showDetailBackground = true
             },
             closeModal : function (event) {
                 let targetClass = event.target.className
                 event.stopPropagation()
                 if (closeableClasses.includes(targetClass)) {
-                    let deeplink = this.$route.params.deeplink
-                    if (typeof deeplink !== 'undefined') {
-                        if (typeof window !== 'undefined') {
-                            window.location.assign(window.location.origin + '/portfolio')
-                        }
-                    } else {
-                        this.showDetail = false
+                    this.handleDeeplinkClose()
+                    this.showDetail = false
+                }
+            },
+            handleDeeplinkOpen : function () {
+                let url = window.location.origin + '/portfolio/' + this.deeplinkName()
+                window.history.pushState(null, null, url)
+            },
+            handleDeeplinkClose : function () {
+                let deeplink = this.$route.params.deeplink
+                if (typeof deeplink !== 'undefined') {
+                    if (typeof window !== 'undefined') {
+                        let url = window.location.origin + '/portfolio'
+                        window.history.pushState(null, null, url)
                     }
                 }
             },
             deeplinkName : function () {
                 let name = this.project.title
-                return name.toLowerCase().replace(/\s/, '-')
+                return name.toLowerCase().replace(/\s/g, '-')
             }
         },
         created () {
