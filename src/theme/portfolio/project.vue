@@ -101,12 +101,9 @@
                 window.history.pushState(null, null, url)
             },
             handleDeeplinkClose : function () {
-                let deeplink = this.$route.params.deeplink
-                if (typeof deeplink !== 'undefined') {
-                    if (typeof window !== 'undefined') {
-                        let url = window.location.origin + '/portfolio'
-                        window.history.pushState(null, null, url)
-                    }
+                if (typeof window !== 'undefined') {
+                    let url = window.location.origin + '/portfolio'
+                    window.history.pushState(null, null, url)
                 }
             },
             deeplinkName : function () {
