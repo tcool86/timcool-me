@@ -2,17 +2,39 @@
     <div class="friends-container">
         <h1>Friend Sites</h1>
         <ul class="friend-site-list">
-            <!-- <li class="friend-site-item" ng-repeat="friend in friends" ng-cloak>
-                <a href="{{friend.url}}" target="_blank">
+            <li class="friend-site-item" v-for="friend in friends" v-bind:key="friend.screenshot">
+                <a v-bind:href="friend.url" target="_blank">
                     <div class="friend-site-wrapper">
-                        <img class="site-image" src="{{friend.screenshot_url}}" />
-                        <span>{{friend.name}}</span>
+                        <img class="site-image" :src="friend.screenshot" />
+                        <span>{{ friend.name }}</span>
                     </div>
                 </a>
-            </li> -->
+            </li>
         </ul>
     </div>
 </template>
+<script>
+
+export default {
+    data : function () {
+        return {
+            friends : [
+                {
+                    name : 'Pat Cool',
+                    url : 'http://www.patrickcool.me/',
+                    screenshot : '//res.cloudinary.com/hnairgdu6/image/upload/v1516170988/pcool_dstxab.png'
+                },
+                {
+                    name : 'Tyler Kadish',
+                    url : 'http://tyler-kadish.squarespace.com/',
+                    screenshot : '//res.cloudinary.com/hnairgdu6/image/upload/v1516170989/tkadish_elxgfk.png'
+                }
+            ]
+        }
+    }
+}
+</script>
+
 <style lang="scss">
     @import '../styles/global.scss';
     .friend-site-list {
