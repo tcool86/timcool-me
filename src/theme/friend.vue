@@ -5,7 +5,7 @@
             <li class="friend-site-item" v-for="friend in friends" v-bind:key="friend.screenshot">
                 <a v-bind:href="friend.url" target="_blank">
                     <div class="friend-site-wrapper">
-                        <img class="site-image" :src="friend.screenshot" />
+                        <img class="site-image" :src="friend.screenshot" :alt="friend.name"/>
                         <span>{{ friend.name }}</span>
                     </div>
                 </a>
@@ -37,7 +37,9 @@ export default {
 
 <style lang="scss">
     @import '../styles/global.scss';
+
     .friend-site-list {
+        margin: 4rem;
         text-align: center;
         .friend-site-item {
             display: inline-block;
