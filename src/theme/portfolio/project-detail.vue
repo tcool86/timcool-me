@@ -84,10 +84,11 @@
         width: 100%;
         height: 85%;
         position: fixed;
-        z-index: 2;
+        z-index: 3;
         display: inline-flex;
         .detail-image-wrapper {
             position: relative;
+            max-width: 1200px;
             margin: auto;
             .close-button-wrapper {
                 position: absolute;
