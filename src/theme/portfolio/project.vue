@@ -199,14 +199,23 @@
             background-color: #6E312F;
             line-height: 0;
             transition: all 0.3s ease;
+            img {
+                min-width: 128px;
+            }
             @media (max-width: $tabletSize) {
                 top: -1.5rem;
                 left: 2rem;
                 box-shadow: -4px 3px 8px #565656;
+                img {
+                    min-width: 64px;
+                }
             }
             @media (max-width: $mobileSize) {
                 top: 0;
                 left: 3rem;
+                img {
+                    min-width: 32px;
+                }
             }
         }
         .title-wrapper {

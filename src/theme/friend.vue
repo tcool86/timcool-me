@@ -65,6 +65,7 @@ export default {
         height: 241px;
         margin: 1em;
         border: 2px solid white;
+        border-radius: 0 1rem 0;
         overflow: hidden;
         span {
             position: relative;
@@ -76,10 +77,7 @@ export default {
         &:hover {
             border-color: $highlightColor;
             .site-image {
-                animation: hoverImageFocus 0.3s linear both;
-            }
-            span {
-                text-shadow: -1px 0px 1px black, 1px 1px 1px black, 0px -1px 1px black, -1px -1px 1px black, -1px 0px 0px black, 1px 1px 0px black, 0px -1px 0px black, -1px -1px 0px black, -1px -1px 12px $highlightColor, 1px 1px 12px $highlightColor;
+                filter: grayscale(0)
             }
         }
     }
@@ -88,7 +86,6 @@ export default {
         max-height: 320px;
         width: 320px;
         border: 1px solid white;
-        -webkit-animation: hoverImageBlur 0.3s linear both;
-        animation: hoverImageBlur 0.3s linear both;
+        filter: grayscale(1)
     }
 </style>
