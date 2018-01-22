@@ -4,9 +4,6 @@
             <p class="control is-expanded">
                 <input class="input" type="text" placeholder="Search projects...">
             </p>
-            <p class="control">
-                <a class="button is-info"> Search </a>
-            </p>
         </div>
         <transition name="fade">
             <div class="spinner-container content" v-if="showSpinner && currentSection == 'projects'">

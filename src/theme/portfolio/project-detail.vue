@@ -15,7 +15,7 @@
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             </span>
             <div class="title-wrapper">
-                <h2 class="project-title">{{project.title}}</h2>
+                <h2 class="project-title">{{ project.title }}</h2>
             </div>
             <div class="meta-info level">
                 <div class="project-date last-updated level-left">
