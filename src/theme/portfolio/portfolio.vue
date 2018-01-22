@@ -4,11 +4,13 @@
         <div class="protfolio-section-wrapper columns">
             <div class="column is-half is-offset-one-quarter">
                 <section id="portfolio-section" class="columns level">
-                    <div class="column level-item has-text-centered">
-                        <h2 class="button" v-on:click="currentSection = resumeKey">Resume</h2>
-                    </div>
-                    <div class="column level-item has-text-centered">
-                        <h2 class="button" v-on:click="currentSection = projectsKey">Projects</h2>
+                    <div class="column has-text-centered">
+                        <div class="button" v-on:click="currentSection = resumeKey">
+                            <h2>Resume</h2>
+                        </div>
+                        <div class="button" v-on:click="currentSection = projectsKey">
+                            <h2>Projects</h2>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -57,6 +59,7 @@
     }
 </script>
 <style lang="scss">
+    @import '../../styles/style-vars.scss';
     .push-up-animation {
         animation-duration: 0.5s;
         -moz-animation-duration: 0.5s;
@@ -66,5 +69,28 @@
         -webkit-transition: top, opacity;
         -moz-animation-name: pushUp;
         -webkit-animation-name: pushUp;
+    }
+    .button {
+        margin-right: 1rem;
+        width: 8rem;
+        height: 3.5rem;
+        transition: all 0.2s;
+        h2 {
+            font-size: 1rem;
+            color: black;
+        }
+        &:hover {
+            h2 {
+                font-size: 1.1rem;
+                color: $color3;
+            }
+            background-color: black;
+        }
+        &:active {
+            h2 {
+                font-size: 1.2rem;
+                color: white;
+            }
+        }
     }
 </style>

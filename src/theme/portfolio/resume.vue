@@ -1,7 +1,7 @@
 <template>
     <section class="resume section">
         <div class="resume-wrapper container">
-            <article class="content">
+            <article class="content" id="rewardstyle-section">
                 <figure class="employer">
                     <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png"/>
                     <figcaption>
@@ -43,7 +43,7 @@
                     </ol>
                 </p>
             </article>
-            <article class="content">
+            <article class="content" id="thismoment-section">
                 <figure class="employer">
                     <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/tmlogo_rylvaw.png"/>
                     <figcaption>
@@ -83,7 +83,7 @@
                     Designed and wrote documentation for software features and presented those in a biweekly review.
                 </p>
             </article>
-            <article class="content">
+            <article class="content" id="hobbyfan-section">
                 <figure class="employer">
                     <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/hflogo_c4xfx1.png"/>
                     <figcaption>
