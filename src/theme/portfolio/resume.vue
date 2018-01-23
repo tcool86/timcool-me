@@ -1,9 +1,9 @@
 <template>
     <section class="resume section">
         <div class="resume-wrapper container">
-            <rs-blurb></rs-blurb>
-            <tm-blurb></tm-blurb>
-            <hf-blurb></hf-blurb>
+            <rs-blurb :show-blurb="scrollY"></rs-blurb>
+            <tm-blurb :show-blurb="scrollY"></tm-blurb>
+            <hf-blurb :show-blurb="scrollY"></hf-blurb>
         </div>
     </section>
 </template>
@@ -13,10 +13,30 @@
     import hobbyfanBlurb from './hf-blurb.vue'
 
     export default {
+        data : function () {
+            return {
+                scrollY : 0
+            }
+        },
         components : {
             'rs-blurb' : rewardStyleBlurb,
             'tm-blurb' : thismomentBlurb,
             'hf-blurb' : hobbyfanBlurb
+        },
+        methods : {
+            handleScrollEvent : function (event) {
+                this.$data.scrollY = window.scrollY
+            }
+        },
+        created () {
+            if (typeof window !== 'undefined') {
+                window.addEventListener('scroll', this.handleScrollEvent)
+            }
+        },
+        destroyed () {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('scroll', this.handleScrollEvent)
+            }
         }
     }
 </script>
@@ -29,7 +49,6 @@
                 margin-bottom: 4rem;
             }
             padding-bottom: 4rem;
-            border-bottom: 0.1rem solid darkgrey;
             p {
                 background-color: $paragraphBackground;
                 border-radius: 1rem;
@@ -43,6 +62,7 @@
         .employer-image-wrapper {
             width: 100%;
             margin: auto;
+            margin-top: 4rem;
             text-align: center;
         }
         .employer-image {
@@ -103,6 +123,29 @@
                 }
             }
         }
+        .blurb-section {
+            transform: translate(0, 10rem);
+            opacity: 0.05;
+            transition: all 1s ease-in-out;
+            .business-content {
+                transform: translate(-20rem, 10rem);
+                transition: all 1s ease-in-out;
+            }
+            .technical-content {
+                transform: translate(20rem, 10rem);
+                transition: all 1s ease-in-out;
+            }
+        }
+        .blurb-move {
+            transform: translate(0, 0);
+            opacity: 1;
+            .business-content {
+                transform: translate(0, 0);
+            }
+            .technical-content {
+                transform: translate(0, 0);
+            }
+        }
         .resume-block {
             display: inline-grid;
             box-sizing: border-box;
@@ -110,6 +153,9 @@
             @media (max-width: $tabletSize) {
                 width: 100%;
             }
+        }
+        .add-on-block {
+            margin-top: 4rem;
         }
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <article class="content space-below" id="thismoment-section">
+    <article :class="showClasses">
         <div class="employer-wrapper columns">
             <div class="column">
                 <div class="employer-title-wrapper">
@@ -57,5 +57,16 @@
     </article>
 </template>
 <script>
-    export default {}
+    export default {
+        props : ['showBlurb'],
+        computed : {
+            'showClasses' : function () {
+                let showClasses = 'content blurb-section'
+                if (this.showBlurb > 1100) {
+                    showClasses = 'content blurb-section blurb-move'
+                }
+                return showClasses
+            }
+        }
+    }
 </script>

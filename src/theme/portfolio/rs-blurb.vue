@@ -1,5 +1,5 @@
 <template>
-    <article class="content space-below" id="rewardstyle-section">
+    <article :class="showClasses">
         <div class="employer-wrapper columns">
             <div class="column">
                 <div class="employer-title-wrapper">
@@ -23,12 +23,6 @@
                 <li> generating $210 million in sales to retail partners </li>
                 <li> 1k+ original pieces of content published daily </li>
             </ol>
-            <figure class="products">
-                <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png"/>
-                <figcaption>
-                    (right to left) rewardStyle mobile app, LTK consumer app + website
-                </figcaption>
-            </figure>
         </div>
         <div class="technical-content resume-block">
             <h3>Technical</h3>
@@ -58,8 +52,32 @@
                 <li> Gulp for the build system, minifying, and linting.</li>
             </ol>
         </div>
+        <div class="content add-on-block">
+            <figure class="products">
+                <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png"/>
+                <figcaption>
+                    (right to left) rewardStyle mobile app, LTK consumer app + website
+                </figcaption>
+            </figure>
+        </div>
     </article>
 </template>
 <script>
-    export default {}
+    export default {
+        props : ['showBlurb'],
+        data : function () {
+            return {
+                'hasDisplayed' : false
+            }
+        },
+        computed : {
+            'showClasses' : function () {
+                let showClasses = 'content blurb-section'
+                if (this.showBlurb >= 0) {
+                    showClasses = 'content blurb-section blurb-move'
+                }
+                return showClasses
+            }
+        }
+    }
 </script>
