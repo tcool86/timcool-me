@@ -2,7 +2,7 @@
     <section id="project-section">
         <div class="field is-grouped search-wrapper">
             <p class="control is-expanded">
-                <input class="input" type="text" placeholder="Search projects...">
+                <input @keyup="searchFilter" class="input" type="text" placeholder="Search projects...">
             </p>
         </div>
         <transition name="fade">
@@ -12,9 +12,18 @@
                 </div>
             </div>
         </transition>
-        <transition name="fade">
+        <transition name="fade" mode="out-in">
             <div class="projects-container">
-                <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" v-for="project in projects" v-bind:key="project._id">
+                <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
+                    v-for="project in projects" 
+                    v-bind:key="project._id"
+                    v-if="!searchActive">
+                    <project :project="project"></project>
+                </div>
+                <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
+                    v-for="project in searchProjects" 
+                    v-bind:key="project._id"
+                    v-if="searchActive">
                     <project :project="project"></project>
                 </div>
             </div>
@@ -42,7 +51,9 @@
         data : function () {
             return {
                 'showSpinner' : true,
-                'animateProjects' : false
+                'animateProjects' : false,
+                'searchProjects' : [],
+                'searchActive' : false
             }
         },
         methods : {
@@ -61,6 +72,18 @@
                 if (typeof (deeplink) === 'undefined') {
                     this.animateProjects = true
                 }
+            },
+            searchFilter (event) {
+                let userInput = event.target.value
+                this.searchActive = (userInput !== '')
+                let regex = new RegExp(userInput)
+                let filtered = this.projects.filter((project) => {
+                    return project.searchableDescription.search(regex) > -1
+                })
+                this.searchProjects = filtered
+            },
+            getProjectData () {
+                return (this.searchActive) ? this.searchProjects : this.projects
             }
         },
         watch : {
