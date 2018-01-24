@@ -125,7 +125,7 @@
         }
         .blurb-section {
             transform: translate(0, 10rem);
-            opacity: 0;
+            opacity: 0.01;
             transition: all 1s ease-in-out;
             .business-content {
                 transform: translate(-20rem, 10rem);

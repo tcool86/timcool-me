@@ -1,5 +1,5 @@
 <template>
-    <article :class="showClasses">
+    <article v-bind:class="showClasses">
         <div class="employer-wrapper columns">
             <div class="column">
                 <div class="employer-title-wrapper">
@@ -59,19 +59,34 @@
 <script>
     export default {
         props : ['showBlurb'],
-        computed : {
-            'showClasses' : function () {
+        data : function () {
+            return {
+                'boundary' : 0,
+                'showClasses' : 'content blurb-section'
+            }
+        },
+        methods : {
+            setBlurbMove : function () {
                 let showClasses = 'content blurb-section'
                 let element = this.$el
                 if (typeof element !== 'undefined') {
-                    let offsetTop = element.offsetTop
-                    let paddedHeight = element.children[0].offsetTop
-                    let boundary = offsetTop - paddedHeight
-                    if (this.showBlurb > boundary) {
+                    this.boundary = this.getBoundary(element)
+                    if (this.showBlurb > this.boundary) {
                         showClasses = 'content blurb-section blurb-move'
                     }
                 }
                 return showClasses
+            },
+            getBoundary : function (element) {
+                let offsetTop = element.offsetTop
+                let paddedHeight = element.children[0].offsetTop
+                let boundary = offsetTop - paddedHeight
+                return boundary
+            }
+        },
+        watch : {
+            'showBlurb' : function (val) {
+                this.showClasses = this.setBlurbMove()
             }
         }
     }
