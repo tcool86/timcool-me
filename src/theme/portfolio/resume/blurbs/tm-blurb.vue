@@ -62,8 +62,14 @@
         computed : {
             'showClasses' : function () {
                 let showClasses = 'content blurb-section'
-                if (this.showBlurb > 1100) {
-                    showClasses = 'content blurb-section blurb-move'
+                let element = this.$el
+                if (typeof element !== 'undefined') {
+                    let offsetTop = element.offsetTop
+                    let paddedHeight = element.children[0].offsetTop
+                    let boundary = offsetTop - paddedHeight
+                    if (this.showBlurb > boundary) {
+                        showClasses = 'content blurb-section blurb-move'
+                    }
                 }
                 return showClasses
             }

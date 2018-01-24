@@ -22,7 +22,7 @@
 </template>
 <script>
     import projectSection from './project-section.vue'
-    import resume from './resume.vue'
+    import resume from './resume/resume.vue'
 
     const fetchInitialData = (store, route) => {
         return store.dispatch('projectsModule/updateProjects')
@@ -69,6 +69,9 @@
         -webkit-transition: top, opacity;
         -moz-animation-name: pushUp;
         -webkit-animation-name: pushUp;
+    }
+    #portfolio-section {
+        margin: 5rem 2rem;
     }
     .button {
         margin-right: 1rem;

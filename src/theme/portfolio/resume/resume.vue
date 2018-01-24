@@ -8,9 +8,9 @@
     </section>
 </template>
 <script>
-    import rewardStyleBlurb from './rs-blurb.vue'
-    import thismomentBlurb from './tm-blurb.vue'
-    import hobbyfanBlurb from './hf-blurb.vue'
+    import rewardStyleBlurb from './blurbs/rs-blurb.vue'
+    import thismomentBlurb from './blurbs/tm-blurb.vue'
+    import hobbyfanBlurb from './blurbs/hf-blurb.vue'
 
     export default {
         data : function () {
@@ -41,7 +41,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../../styles/style-vars.scss';
+    @import '../../../styles/style-vars.scss';
     .resume-wrapper {
         color: silver;
         article {
@@ -125,7 +125,7 @@
         }
         .blurb-section {
             transform: translate(0, 10rem);
-            opacity: 0.05;
+            opacity: 0;
             transition: all 1s ease-in-out;
             .business-content {
                 transform: translate(-20rem, 10rem);

@@ -112,12 +112,6 @@
             margin: auto;
         }
     }
-    #portfolio-section {
-        margin-top: 1rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-
     @mixin projectFadeIn($n) {
         &:nth-child(#{$n}) {
             -moz-animation-duration: (0.5 + $n/4)s;

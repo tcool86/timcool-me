@@ -73,7 +73,12 @@
         computed : {
             'showClasses' : function () {
                 let showClasses = 'content blurb-section'
-                if (this.showBlurb >= 0) {
+                if (this.showBlurb >= 0 && typeof window !== 'undefined') {
+                    window.setTimeout(() => {
+                        this.hasDisplayed = true
+                    }, 10)
+                }
+                if (this.hasDisplayed) {
                     showClasses = 'content blurb-section blurb-move'
                 }
                 return showClasses
