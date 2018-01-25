@@ -1,6 +1,6 @@
 <template>
-    <article v-bind:class="showClasses">
-        <div class="employer-wrapper columns">
+    <article :class="showClasses">
+        <div class="employer-wrapper columns" ref="boundsPadding">
             <div class="column">
                 <div class="employer-title-wrapper">
                     <h2>thismoment</h2>
@@ -57,37 +57,8 @@
     </article>
 </template>
 <script>
+    import { blurbMove } from './blurb-move'
     export default {
-        props : ['showBlurb'],
-        data : function () {
-            return {
-                'boundary' : 0,
-                'showClasses' : 'content blurb-section'
-            }
-        },
-        methods : {
-            setBlurbMove : function () {
-                let showClasses = 'content blurb-section'
-                let element = this.$el
-                if (typeof element !== 'undefined') {
-                    this.boundary = this.getBoundary(element)
-                    if (this.showBlurb > this.boundary) {
-                        showClasses = 'content blurb-section blurb-move'
-                    }
-                }
-                return showClasses
-            },
-            getBoundary : function (element) {
-                let offsetTop = element.offsetTop
-                let paddedHeight = element.children[0].offsetTop
-                let boundary = offsetTop - paddedHeight
-                return boundary
-            }
-        },
-        watch : {
-            'showBlurb' : function (val) {
-                this.showClasses = this.setBlurbMove()
-            }
-        }
+        mixins : [blurbMove]
     }
 </script>
