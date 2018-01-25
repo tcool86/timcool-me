@@ -24,6 +24,9 @@ export const blurbMove = {
             }
             let offsetTop = element.offsetTop
             let paddingElement = this.$refs.boundsPadding
+            if (typeof paddingElement === 'undefined') {
+                console.warn('element: ' + element + 'missing ref for boundsPadding')
+            }
             let paddedHeight = paddingElement.offsetHeight * 4
             let boundary = offsetTop - paddedHeight
             this.boundary = boundary
