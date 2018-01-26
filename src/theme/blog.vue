@@ -100,10 +100,11 @@
             border-style: solid;
             border-radius: 8px;
             padding: 2rem;
+            ul {
+                text-indent: 2rem;
+                margin: 0.5rem;
+            }
             p {
-                &:first-child {
-                    text-indent: 4rem;
-                }
                 strong {
                     color: white;
                 }

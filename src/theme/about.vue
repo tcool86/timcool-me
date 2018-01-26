@@ -17,7 +17,7 @@
                         technology, video games, comics, and movies. 
                         I started creating my own computer games when I was around 10 years old, 
                         using the visual programming application CocoaDR3, along with programs like 
-                        Hypercard and Hyperstudio on my family's Macintosh performa. 
+                        Hypercard and Hyperstudio on my family's Macintosh Performa 550. 
                         From there I would graduate to more advanced programming languages like realBASIC, then C++. 
                         For most of my academic and professional life, I’ve had a fascination with digitally 
                         interactive media and software application programming. 

@@ -39,7 +39,7 @@
                 <li> Purelayout for dynamic layouts programmatically, used interface builder for legacy views.</li>
                 <li> Third party API integrations for sharing products to Facebook, Tumblr, Twitter, and Pinterest.</li>
             </ol>
-            <p>Implementation of new rewardStyle API's for mobile app consumption.</p>
+            <p>Integration of new rewardStyle API's for mobile app consumption.</p>
             <ol>
                 <li> Python and PHP for legacy endpoints.</li>
                 <li> Stoplight for mocking up web services.</li>
@@ -56,7 +56,7 @@
             <figure class="products">
                 <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png"/>
                 <figcaption>
-                    (right to left) rewardStyle mobile app, LTK consumer app + website
+                    (left to right) rewardStyle mobile app, LTK consumer app + website
                 </figcaption>
             </figure>
         </div>
@@ -83,6 +83,9 @@
                 }
                 return showClasses
             }
+        },
+        mounted : function () {
+            this.hasDisplayed = false
         }
     }
 </script>
