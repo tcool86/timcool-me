@@ -49,7 +49,8 @@
             padding-top: 0.75rem;
         }
     }
-    .footer {
+    .footer-with-social {
+        padding-top: 3rem;
         .icon-large {
             fill : black;
         }

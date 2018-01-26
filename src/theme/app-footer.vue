@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer class="footer-with-social">
         <media :query="{maxWidth: 1158}">
             <social-links class="level is-mobile"></social-links>
         </media>
@@ -21,3 +21,10 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+    footer {
+        .container {
+            padding: 4rem;
+        }
+    }
+</style>

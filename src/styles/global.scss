@@ -1,8 +1,16 @@
 
 @import 'style-vars.scss';
 
+html {
+    background-color: $footerColor;
+}
+
 body {
     background-color: $backgroundColor;
+}
+
+footer {
+    background-color: $footerColor;
 }
 
 .noselect {
@@ -140,7 +148,8 @@ h2 {
 }
 
 .main-section {
-    min-height: 20rem;
+    min-height: 33rem;
+    padding-bottom: 4rem;
 }
 
 .close-button {
