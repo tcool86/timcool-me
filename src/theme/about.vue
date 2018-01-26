@@ -25,7 +25,9 @@
                         I hope to continue doing this work for as long as I can.
                     </p>
                     <p>
-                        From my LinkedIn: I'm a software developer, technology enthusiast, artist, and engineer. My objective is to work with otherself-motivated individuals to create great things. I love games, challenges, and solving interesting problems.
+                        <b>From my LinkedIn:</b> I'm a software developer, technology enthusiast, artist, and engineer. 
+                        My main objective is to work with other self-motivated individuals to create great things. 
+                        I love games, challenges, and solving interesting problems.
                     </p>
                     <p>
                         My other interests include going to the gym, philosophical discussions about space-time, Japanese culture, and driving around in my Mustang.
@@ -44,6 +46,9 @@
     @import '../styles/style-vars.scss';
     #about-section {
         margin: 0 17%;
+        @media (max-width: $tabletSize) {
+            margin: 0 10%;
+        }
         * {
             -moz-animation-duration: 1.6s;
             -webkit-animation-duration: 1.6s;

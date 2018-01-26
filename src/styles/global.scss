@@ -11,6 +11,11 @@ body {
 
 footer {
     background-color: $footerColor;
+    &.footer-with-social {
+        .container {
+            padding: 2rem;
+        }
+    }
 }
 
 .noselect {
