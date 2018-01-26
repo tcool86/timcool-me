@@ -35,6 +35,11 @@ body {
     transform: skew(-20deg);
 }
 
+.cool-shadow {
+    box-shadow: 0 0 1rem #565656, 
+                0 0 0.5rem #005656;
+}
+
 .title-wrapper {
     background-color: $titleBackgroundColor;
     text-align: center;

@@ -15,11 +15,11 @@
                 <svgicon icon="linkedin" class="icon-large clickable linkedin-color"></svgicon>
             </a>
         </li>
-        <li class="level-item">
+        <!-- <li class="level-item">
             <a href="//stackoverflow.com/users/1347616/tcool" target="_blank" alt="stackoverflow">
                 <svgicon icon="stackoverflow" class="icon-large clickable stackoverflow-color"></svgicon>
             </a>
-        </li>
+        </li> -->
         <li class="level-item">
             <a href="//github.com/tcool86" target="_blank" alt="github">
                 <svgicon icon="github" class="icon-large clickable github-color"></svgicon>

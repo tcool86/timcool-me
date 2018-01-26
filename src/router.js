@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import blog from './theme/blog.vue'
 import about from './theme/about.vue'
 import friend from './theme/friend.vue'
-import stuff from './theme/stuff.vue'
+// import stuff from './theme/stuff.vue'
 import portfolio from './theme/portfolio/portfolio.vue'
 import notFound from './theme/not-found.vue'
 
@@ -33,9 +33,6 @@ const router = new VueRouter({
     }, {
         path : '/friends',
         component : friend
-    }, {
-        path : '/stuff',
-        component : stuff
     }, {
         path : '*',
         component : notFound

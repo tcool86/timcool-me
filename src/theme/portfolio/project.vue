@@ -10,7 +10,7 @@
             </div>
         </transition>
         <article class="project-article" v-on:click="handleProjectOnClick">
-            <div class="project-icon-wrapper">
+            <div class="project-icon-wrapper cool-shadow">
                 <media :query="{minWidth: 1158}">
                     <img :src="project.icon">
                 </media>
@@ -195,7 +195,7 @@
             border-width: 0.25rem;
             border-style: solid;
             box-sizing: content-box;
-            box-shadow: -8px 6px 16px #565656;
+            // box-shadow: -4px 2px 8px #565656;
             background-color: #6E312F;
             line-height: 0;
             transition: all 0.3s ease;

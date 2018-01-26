@@ -10,11 +10,11 @@
             <router-link class="navbar-item level-item" to="/blog">Blog</router-link>
         </li>
         <li class="skew-20">
-            <router-link class="navbar-item level-item" to="/friends">Friends</router-link>
+            <router-link class="navbar-item level-item" to="/friends">Friend Sites</router-link>
         </li>
-        <li class="skew-20">
+        <!-- <li class="skew-20">
             <router-link class="navbar-item level-item" to="/stuff">Stuff</router-link>
-        </li>
+        </li> -->
     </ul>
 </template>
 <style lang="scss">
@@ -24,7 +24,6 @@
         .nav-wrapper {
             &.site-nav li {
                 display: inline-block;
-                width: min-content;
                 border-bottom: 2px solid $borderColor;
                 border-top: 2px solid $borderColor;
                 border-left: 1px solid $borderColor;
