@@ -1307,6 +1307,9 @@ var closeableClasses = ['detail-modal-background', 'detail-view-wrapper'];
             }
             return showClasses;
         }
+    },
+    mounted: function mounted() {
+        this.hasDisplayed = false;
     }
 });
 
@@ -2406,7 +2409,7 @@ module.exports = require("vue-router");
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_blog_vue__ = __webpack_require__(13);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3495682a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_171bc67a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__ = __webpack_require__(78);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(75),i.__inject__&&i.__inject__(ssrContext),i)
@@ -2427,7 +2430,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "54517bb4"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_blog_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3495682a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_171bc67a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_blog_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -2502,7 +2505,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3aa8512c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_about_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0141a23c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_about_vue__ = __webpack_require__(81);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(80),i.__inject__&&i.__inject__(ssrContext),i)
@@ -2522,7 +2525,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "a329472a"
 var Component = normalizeComponent(
   __vue_script__,
-  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3aa8512c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_about_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0141a23c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_about_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -2543,7 +2546,7 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"about-container"},[_vm._ssrNode("<h1 class=\"content-title\">About</h1> <section id=\"about-section\" class=\"content-section columns\"><div class=\"column is-narrow\"><figure class=\"avatar-wrapper image is-256x256\"><img src=\"//res.cloudinary.com/hnairgdu6/image/upload/v1516937711/timcool-profile-image_b6m3bc.jpg\" class=\"cool-shadow\"></figure></div> <div class=\"column about-text\"><h2>Tim Cool</h2> <div class=\"text-wrapper\"><p>\n                    I’m Tim Cool and this is my website. \n                    I live in Oakland, CA and work full time as a Software Engineer. \n                    Ever since I was a young lad I’ve always been interested in science, \n                    technology, video games, comics, and movies. \n                    I started creating my own computer games when I was around 10 years old, \n                    using the visual programming application CocoaDR3, along with programs like \n                    Hypercard and Hyperstudio on my family's Macintosh performa. \n                    From there I would graduate to more advanced programming languages like realBASIC, then C++. \n                    For most of my academic and professional life, I’ve had a fascination with digitally \n                    interactive media and software application programming. \n                    I’ve been building iOS apps and developing websites for the past 8 years or so. \n                    I hope to continue doing this work for as long as I can.\n                </p> <p>\n                    From my LinkedIn: I'm a software developer, technology enthusiast, artist, and engineer. My objective is to work with otherself-motivated individuals to create great things. I love games, challenges, and solving interesting problems.\n                </p> <p>\n                    My other interests include going to the gym, philosophical discussions about space-time, Japanese culture, and driving around in my Mustang.\n                </p> <p>\n                    Currently interested in: Quantum assembly, Rick and Morty, and Dragon Ball Fighterz.\n                </p></div></div></section> <section id=\"about-photos\"></section> <section id=\"about-skill-stats\"></section>")])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"about-container"},[_vm._ssrNode("<h1 class=\"content-title\">About</h1> <section id=\"about-section\" class=\"content-section columns\"><div class=\"column is-narrow\"><figure class=\"avatar-wrapper image is-256x256\"><img src=\"//res.cloudinary.com/hnairgdu6/image/upload/v1516937711/timcool-profile-image_b6m3bc.jpg\" class=\"cool-shadow\"></figure></div> <div class=\"column about-text\"><h2>Tim Cool</h2> <div class=\"text-wrapper\"><p>\n                    I’m Tim Cool and this is my website. \n                    I live in Oakland, CA and work full time as a Software Engineer. \n                    Ever since I was a young lad I’ve always been interested in science, \n                    technology, video games, comics, and movies. \n                    I started creating my own computer games when I was around 10 years old, \n                    using the visual programming application CocoaDR3, along with programs like \n                    Hypercard and Hyperstudio on my family's Macintosh Performa 550. \n                    From there I would graduate to more advanced programming languages like realBASIC, then C++. \n                    For most of my academic and professional life, I’ve had a fascination with digitally \n                    interactive media and software application programming. \n                    I’ve been building iOS apps and developing websites for the past 8 years or so. \n                    I hope to continue doing this work for as long as I can.\n                </p> <p>\n                    From my LinkedIn: I'm a software developer, technology enthusiast, artist, and engineer. My objective is to work with otherself-motivated individuals to create great things. I love games, challenges, and solving interesting problems.\n                </p> <p>\n                    My other interests include going to the gym, philosophical discussions about space-time, Japanese culture, and driving around in my Mustang.\n                </p> <p>\n                    Currently interested in: Quantum assembly, Rick and Morty, and Dragon Ball Fighterz.\n                </p></div></div></section> <section id=\"about-photos\"></section> <section id=\"about-skill-stats\"></section>")])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -2859,7 +2862,7 @@ var Component = normalizeComponent(
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_rs_blurb_vue__ = __webpack_require__(22);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3cba9651_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_rs_blurb_vue__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4d9d9afe_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_rs_blurb_vue__ = __webpack_require__(99);
 var normalizeComponent = __webpack_require__(1)
 /* script */
 
@@ -2876,7 +2879,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "692b2246"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_rs_blurb_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3cba9651_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_rs_blurb_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4d9d9afe_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_rs_blurb_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -2891,7 +2894,7 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{class:_vm.showClasses},[_vm._ssrNode("<div class=\"employer-wrapper columns\"><div class=\"column\"><div class=\"employer-title-wrapper\"><h2>rewardStyle + LIKEtoKNOW.it</h2></div></div></div> <div class=\"business-content resume-block\"><h3>Business</h3> <div class=\"employer-image-wrapper\"><img src=\"//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png\" class=\"employer-image\"></div> <p>\n            More than 11,000 global influencers leverage rewardStyle’s turn-key ecosystem \n            of simple-to-use tech products, strategic consulting, educational services \n            and the LIKEtoKNOW.it mobile publishing and distribution platform \n            to maximize the economic success of their content across all platforms: web, mobile and social.\n        </p> <ol><li> 2.3M+ LIKEtoKNOW.it users </li> <li> generating $210 million in sales to retail partners </li> <li> 1k+ original pieces of content published daily </li></ol></div> <div class=\"technical-content resume-block\"><h3>Technical</h3> <p>Built and maintained features inside the rewardStyle iOS mobile app (influencer app and utilized technologies from the consumer app LIKEtoKNOW.it)</p> <ol><li> Objective-C and Swift.</li> <li> CoreData for persisting favorited items within up to thousands of directories. </li> <li> MVVM + MVC + MVP architectures.</li> <li> CocoaPods for pod dependency management.</li> <li> Bitrise for continuous integration, pushing to a branch deploys a build on TestFlight.</li> <li> IGListKit for complex list views with multiple controllers.</li> <li> AFNetworking with a custom wrapper for network calls.</li> <li> Amplitude for analytics across most of the app.</li> <li> Purelayout for dynamic layouts programmatically, used interface builder for legacy views.</li> <li> Third party API integrations for sharing products to Facebook, Tumblr, Twitter, and Pinterest.</li></ol> <p>Implementation of new rewardStyle API's for mobile app consumption.</p> <ol><li> Python and PHP for legacy endpoints.</li> <li> Stoplight for mocking up web services.</li> <li> Paw for organizing and outlining the revised LTK API.</li></ol> <p>Built part of the front end web experience for rewardStyle's Display product</p> <ol><li> Javascript with AngularJS for the application framework. </li> <li> SASS for extending and generating CSS.</li> <li> Gulp for the build system, minifying, and linting.</li></ol></div> <div class=\"content add-on-block\"><figure class=\"products\"><img src=\"//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png\"> <figcaption>\n                (right to left) rewardStyle mobile app, LTK consumer app + website\n            </figcaption></figure></div>")])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{class:_vm.showClasses},[_vm._ssrNode("<div class=\"employer-wrapper columns\"><div class=\"column\"><div class=\"employer-title-wrapper\"><h2>rewardStyle + LIKEtoKNOW.it</h2></div></div></div> <div class=\"business-content resume-block\"><h3>Business</h3> <div class=\"employer-image-wrapper\"><img src=\"//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png\" class=\"employer-image\"></div> <p>\n            More than 11,000 global influencers leverage rewardStyle’s turn-key ecosystem \n            of simple-to-use tech products, strategic consulting, educational services \n            and the LIKEtoKNOW.it mobile publishing and distribution platform \n            to maximize the economic success of their content across all platforms: web, mobile and social.\n        </p> <ol><li> 2.3M+ LIKEtoKNOW.it users </li> <li> generating $210 million in sales to retail partners </li> <li> 1k+ original pieces of content published daily </li></ol></div> <div class=\"technical-content resume-block\"><h3>Technical</h3> <p>Built and maintained features inside the rewardStyle iOS mobile app (influencer app and utilized technologies from the consumer app LIKEtoKNOW.it)</p> <ol><li> Objective-C and Swift.</li> <li> CoreData for persisting favorited items within up to thousands of directories. </li> <li> MVVM + MVC + MVP architectures.</li> <li> CocoaPods for pod dependency management.</li> <li> Bitrise for continuous integration, pushing to a branch deploys a build on TestFlight.</li> <li> IGListKit for complex list views with multiple controllers.</li> <li> AFNetworking with a custom wrapper for network calls.</li> <li> Amplitude for analytics across most of the app.</li> <li> Purelayout for dynamic layouts programmatically, used interface builder for legacy views.</li> <li> Third party API integrations for sharing products to Facebook, Tumblr, Twitter, and Pinterest.</li></ol> <p>Integration of new rewardStyle API's for mobile app consumption.</p> <ol><li> Python and PHP for legacy endpoints.</li> <li> Stoplight for mocking up web services.</li> <li> Paw for organizing and outlining the revised LTK API.</li></ol> <p>Built part of the front end web experience for rewardStyle's Display product</p> <ol><li> Javascript with AngularJS for the application framework. </li> <li> SASS for extending and generating CSS.</li> <li> Gulp for the build system, minifying, and linting.</li></ol></div> <div class=\"content add-on-block\"><figure class=\"products\"><img src=\"//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png\"> <figcaption>\n                (left to right) rewardStyle mobile app, LTK consumer app + website\n            </figcaption></figure></div>")])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
