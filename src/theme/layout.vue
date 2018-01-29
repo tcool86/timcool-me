@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <message></message>
         <app-header></app-header>
         <section class="main-section">
             <div class="container-content">
@@ -12,11 +13,13 @@
 <script>
     import appHeader from './header/app-header.vue'
     import appFooter from './app-footer.vue'
+    import message from './message.vue'
 
     export default {
         components : {
             'app-header' : appHeader,
-            'app-footer' : appFooter
+            'app-footer' : appFooter,
+            'message' : message
         }
     }
 </script>
