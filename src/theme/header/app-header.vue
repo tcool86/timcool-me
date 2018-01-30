@@ -83,8 +83,8 @@
         },
         created () {
             if (typeof window !== 'undefined') {
-                window.addEventListener('scroll', this.handleScrollEvent)
-                window.addEventListener('resize', this.updateNavigationMenus)
+                window.addEventListener('scroll', this.handleScrollEvent, {passive : true})
+                window.addEventListener('resize', this.updateNavigationMenus, {passive : true})
             }
         },
         destroyed () {

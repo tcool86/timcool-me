@@ -1,7 +1,7 @@
 <template>
     <section class="resume section">
         <div class="resume-wrapper container">
-            <rs-blurb :show-blurb="scrollY"></rs-blurb>
+            <rs-blurb></rs-blurb>
             <tm-blurb :show-blurb="scrollY"></tm-blurb>
             <hf-blurb :show-blurb="scrollY"></hf-blurb>
         </div>
@@ -15,7 +15,8 @@
     export default {
         data : function () {
             return {
-                scrollY : 0
+                scrollY : 0,
+                scrollTimeout : null
             }
         },
         components : {
@@ -30,7 +31,7 @@
         },
         created () {
             if (typeof window !== 'undefined') {
-                window.addEventListener('scroll', this.handleScrollEvent)
+                window.addEventListener('scroll', this.handleScrollEvent, {passive : true})
             }
         },
         destroyed () {
@@ -126,14 +127,14 @@
         .blurb-section {
             transform: translate(0, 10rem);
             opacity: 0.01;
-            transition: all 1s ease-in-out;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
             .business-content {
                 transform: translate(-20rem, 10rem);
-                transition: all 1s ease-in-out;
+                transition: transform 1s ease-in-out, opacity 1s ease-in-out;
             }
             .technical-content {
                 transform: translate(20rem, 10rem);
-                transition: all 1s ease-in-out;
+                transition: transform 1s ease-in-out, opacity 1s ease-in-out;
             }
         }
         .blurb-move {

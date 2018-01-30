@@ -28,28 +28,28 @@
             <h3>Technical</h3>
             <p>Built and maintained features inside the rewardStyle iOS mobile app (influencer app and utilized technologies from the consumer app LIKEtoKNOW.it)</p>
             <ol>
-                <li> Objective-C and Swift.</li>
-                <li> CoreData for persisting favorited items within up to thousands of directories. </li>
-                <li> MVVM + MVC + MVP architectures.</li>
-                <li> CocoaPods for pod dependency management.</li>
-                <li> Bitrise for continuous integration, pushing to a branch deploys a build on TestFlight.</li>
-                <li> IGListKit for complex list views with multiple controllers.</li>
-                <li> AFNetworking with a custom wrapper for network calls.</li>
-                <li> Amplitude for analytics across most of the app.</li>
-                <li> Purelayout for dynamic layouts programmatically, used interface builder for legacy views.</li>
-                <li> Third party API integrations for sharing products to Facebook, Tumblr, Twitter, and Pinterest.</li>
+                <li>Objective-C and Swift.</li>
+                <li>CoreData for persisting favorited items within up to thousands of directories. </li>
+                <li>MVVM + MVC + MVP architectures.</li>
+                <li>CocoaPods for pod dependency management.</li>
+                <li>Bitrise for continuous integration, pushing to a branch deploys a build on TestFlight.</li>
+                <li>IGListKit for complex list views with multiple controllers.</li>
+                <li>AFNetworking with a custom wrapper for network calls.</li>
+                <li>Amplitude for analytics across most of the app.</li>
+                <li>Purelayout for dynamic layouts programmatically, used interface builder for legacy views.</li>
+                <li>Third party API integrations for sharing products to Facebook, Tumblr, Twitter, and Pinterest.</li>
             </ol>
             <p>Integration of new rewardStyle API's for mobile app consumption.</p>
             <ol>
-                <li> Python and PHP for legacy endpoints.</li>
-                <li> Stoplight for mocking up web services.</li>
-                <li> Paw for organizing and outlining the revised LTK API.</li>
+                <li>Python and PHP for legacy endpoints.</li>
+                <li>Stoplight for mocking up web services.</li>
+                <li>Paw for organizing and outlining the revised LTK API.</li>
             </ol>
             <p>Built part of the front end web experience for rewardStyle's Display product</p>
             <ol>
-                <li> Javascript with AngularJS for the application framework. </li>
-                <li> SASS for extending and generating CSS.</li>
-                <li> Gulp for the build system, minifying, and linting.</li>
+                <li>Javascript with AngularJS for the application framework. </li>
+                <li>SASS for extending and generating CSS.</li>
+                <li>Gulp for the build system, minifying, and linting.</li>
             </ol>
         </div>
         <div class="content add-on-block">
@@ -64,28 +64,15 @@
 </template>
 <script>
     export default {
-        props : ['showBlurb'],
         data : function () {
             return {
-                'hasDisplayed' : false
-            }
-        },
-        computed : {
-            'showClasses' : function () {
-                let showClasses = 'content blurb-section'
-                if (this.showBlurb >= 0 && typeof window !== 'undefined') {
-                    window.setTimeout(() => {
-                        this.hasDisplayed = true
-                    }, 10)
-                }
-                if (this.hasDisplayed) {
-                    showClasses = 'content blurb-section blurb-move'
-                }
-                return showClasses
+                'showClasses' : 'content blurb-section'
             }
         },
         mounted : function () {
-            this.hasDisplayed = false
+            this.$nextTick(() => {
+                this.showClasses = 'content blurb-section blurb-move'
+            })
         }
     }
 </script>
