@@ -18,8 +18,11 @@
                 <h2 class="project-title">
                     {{ project.title }}
                     <span v-on:click="linkClick">
-                        <svgicon icon="link" class="icon-large clickable"></svgicon>
+                        <svgicon icon="link" class="icon-large clickable icon-link"></svgicon>
                     </span>
+                    <transition name="fade">
+                        <div v-if="linkCopied" class="link--copy-message">link copied</div>
+                    </transition>
                 </h2>
             </div>
             <div class="meta-info level">
@@ -58,7 +61,8 @@
     export default {
         data : function () {
             return {
-                'selectedImage' : null
+                'selectedImage' : null,
+                'linkCopied' : false
             }
         },
         props : ['project', 'deeplink'],
@@ -78,7 +82,10 @@
             },
             linkClick (event) {
                 this.$copyText(this.deeplink).then(() => {
-                    window.alert('copied link')
+                    this.linkCopied = true
+                    setTimeout(() => {
+                        this.linkCopied = false
+                    }, 1000)
                 })
             }
         }
@@ -206,6 +213,17 @@
             left: 0;
             top: 0;
             margin: 0.5rem;
+        }
+    }
+    .link--copy-message {
+        position: absolute;
+        display: inline;
+        margin-left: 2rem;
+        @media (max-width: $tabletSize) {
+            display: block;
+            position: relative;
+            width: 100%;
+            margin: 0;
         }
     }
 </style>

@@ -133,6 +133,10 @@ footer {
     fill: $apple;
 }
 
+:hover.icon-link {
+    fill: $highlightColor;
+}
+
 .clickable {
     cursor: pointer;
 }
