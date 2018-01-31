@@ -1,10 +1,10 @@
 <template>
     <section id="project-section">
-        <div class="field is-grouped search-wrapper">
+        <!-- <div class="field is-grouped search-wrapper">
             <p class="control is-expanded">
                 <input @keyup="searchFilter" class="input" type="text" placeholder="Search projects...">
             </p>
-        </div>
+        </div> -->
         <transition name="fade">
             <div class="spinner-container content" v-if="showSpinner && currentSection == 'projects'">
                 <div class="spinner">
