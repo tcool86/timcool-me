@@ -53,15 +53,22 @@ footer {
                 0 0 0.5rem #005656;
 }
 
+@mixin coolShadow() {
+    box-shadow: 0 0 1rem #565656, 
+                0 0 0.5rem #005656,
+                0 0 1.5rem #005656,
+                0 0 2.5rem #005656;
+}
+
 .title-wrapper {
     background-color: $titleBackgroundColor;
     text-align: center;
     width: 50%;
-    padding: 1rem;
+    padding: 0.25rem;
     margin-left: 1.75rem;
-    border-radius: 8px;
+    border-radius: 0;
     border-color: $color1;
-    border-width: 0.25rem;
+    border-width: 0.1rem;
     border-style: solid;
     top: 1rem;
     position: relative;
@@ -69,6 +76,11 @@ footer {
         width: auto;
         margin-right: 1.75rem;
     }
+}
+
+.title-text {
+    font-size: 2.5rem;
+    text-shadow: black -2px 2px 7px;
 }
 
 .icon-large {

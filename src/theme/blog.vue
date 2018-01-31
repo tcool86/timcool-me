@@ -10,7 +10,7 @@
         </transition>
         <div class="list-group-item" v-for="post in posts" v-bind:key="post.id">
             <blog-post :categories='post.categories'>
-                <h2 slot="title" v-html="post.title.rendered"></h2>
+                <h2 slot="title" class="title-text" v-html="post.title.rendered"></h2>
                 <div class="text-wrapper" slot="content" v-html="post.content.rendered"></div>
             </blog-post>
             <br/>

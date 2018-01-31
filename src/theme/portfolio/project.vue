@@ -10,7 +10,7 @@
             </div>
         </transition>
         <article class="project-article" v-on:click="handleProjectOnClick">
-            <div class="project-icon-wrapper cool-shadow">
+            <div class="project-icon-wrapper">
                 <media :query="{minWidth: 1158}">
                     <img :src="project.icon">
                 </media>
@@ -26,7 +26,7 @@
                 </media>
             </div>
             <div class="title-wrapper skew-20">
-                <h2 class="project-title">{{project.title}}</h2>
+                <h2 class="project-title title-text">{{project.title}}</h2>
                 <span class="project-date last-updated skew-minus-20" v-if="showDates">
                     <span v-if="fullText">Updated:&nbsp;</span><b>{{ formattedDate(project.last_updated) }}</b>
                 </span>
@@ -125,6 +125,7 @@
 </script>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
+    @import '../../styles/global.scss';
     .detail-modal-background {
         display: block;
         position: fixed;
@@ -139,15 +140,11 @@
     }
     .project-article {
         &:hover {
-            box-shadow:
-                2px 2px #4a4b4e,
-                5px 5px 8px whitesmoke,
-                -3px 5px 8px whitesmoke,
-                -3px -3px 8px whitesmoke,
-                5px -3px 8px whitesmoke;
+            @include coolShadow();
             transition: all 0.2s ease;
             cursor: pointer;
             .project-icon-wrapper {
+                @include coolShadow();
                 left: 5rem;
             }
             .title-wrapper {
@@ -155,13 +152,6 @@
             }
             .project-date {
                 right: -2.3rem;
-            }
-        }
-        h2 {
-            font-size: 2.5em;
-            text-shadow: black -2px 2px 7px;
-            @media (max-width: $mobileSize) {
-                font-size: 1.5em;
             }
         }
         .description-more {
@@ -195,7 +185,6 @@
             border-width: 0.25rem;
             border-style: solid;
             box-sizing: content-box;
-            // box-shadow: -4px 2px 8px #565656;
             background-color: #6E312F;
             line-height: 0;
             transition: all 0.3s ease;
@@ -239,7 +228,7 @@
         .project-date {
             position: absolute;
             right: -1.75rem;
-            top: 2.88rem;
+            top: 2.3rem;
             color: black;
             padding: 0.1rem 0.35rem;
             background-color: $color3;
@@ -251,7 +240,7 @@
             &.last-updated {
                 background-color: $color4;
                 color: whitesmoke;
-                top: 0.5rem;
+                top: 0.25rem;
             }
         }
         .project-description-wrapper {

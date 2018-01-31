@@ -5,7 +5,7 @@
         </div>
         <div class="content-wrapper media-content">
             <div class="title-wrapper skew-20">
-                <slot name='title' class="blog-title"></slot>
+                <slot name='title'></slot>
             </div>
             <div class="topics" >
                 <span v-for="filter in filters" v-bind:key="filter.id"> 
