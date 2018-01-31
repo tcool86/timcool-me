@@ -15,7 +15,12 @@
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             </span>
             <div class="title-wrapper">
-                <h2 class="project-title">{{ project.title }}</h2>
+                <h2 class="project-title">
+                    {{ project.title }}
+                    <span v-on:click="linkClick">
+                        <svgicon icon="link" class="icon-large clickable"></svgicon>
+                    </span>
+                </h2>
             </div>
             <div class="meta-info level">
                 <div class="project-date last-updated level-left">
@@ -49,13 +54,14 @@
 </template>
 <script>
     import '../icons'
+
     export default {
         data : function () {
             return {
                 'selectedImage' : null
             }
         },
-        props : ['project'],
+        props : ['project', 'deeplink'],
         methods : {
             closeButtonClick (event) {
                 this.$emit('close')
@@ -69,6 +75,11 @@
                 let figureNode = event.target.parentElement
                 let imageElement = figureNode.querySelector('img')
                 this.selectedImage = imageElement.src
+            },
+            linkClick (event) {
+                this.$copyText(this.deeplink).then(() => {
+                    window.alert('copied link')
+                })
             }
         }
     }
@@ -180,6 +191,9 @@
             margin: 0;
             margin-bottom: 0.66rem;
             z-index: 1;
+            span {
+                vertical-align: middle;
+            }
         }
         .meta-info {
             margin: auto;

@@ -5,7 +5,7 @@
                 v-on:click="closeModal"
                 v-if="showDetailBackground">
                 <transition name="bounce" mode="out-in" v-on:after-leave="showDetailBackground = false">
-                    <project-detail :project="project" v-if="showDetail" @close="showDetail = false"></project-detail>
+                    <project-detail :project="project" :deeplink="getFullDeeplink()" v-if="showDetail" @close="showDetail = false"></project-detail>
                 </transition>
             </div>
         </transition>
@@ -46,6 +46,7 @@
     import Media from 'vue-media'
     import DateFormatter from 'dateformat'
     import projectDetail from './project-detail.vue'
+    import '../icons'
 
     let closeableClasses = ['detail-modal-background', 'detail-view-wrapper']
 
@@ -97,7 +98,7 @@
                 }
             },
             handleDeeplinkOpen : function () {
-                let url = window.location.origin + '/portfolio/' + this.deeplinkName()
+                let url = this.getFullDeeplink()
                 window.history.pushState(null, null, url)
             },
             handleDeeplinkClose : function () {
@@ -105,6 +106,9 @@
                     let url = window.location.origin + '/portfolio'
                     window.history.pushState(null, null, url)
                 }
+            },
+            getFullDeeplink : function () {
+                return window.location.origin + '/portfolio/' + this.deeplinkName()
             },
             deeplinkName : function () {
                 let name = this.project.title

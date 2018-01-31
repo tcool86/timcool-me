@@ -16,7 +16,7 @@
     "start:dev": "cross-env NODE_ENV=development npm run start",
     "generate-icons": "vsvg -s ./src/assets/icons -t ./dist/assets/icons",
     "generate-icons-dev": "vsvg -s ./src/assets/icons -t ./src/theme/icons",
-    "build-dev" : "npm run generate-icons-dev; npm run build;"
+    "build-dev": "npm run generate-icons-dev; npm run build;"
   },
   "dependencies": {
     "axios-cache-adapter": "^2.0.0",
@@ -41,6 +41,7 @@
     "truncate": "^2.0.0",
     "uglify-js": "^3.3.4",
     "vue": "^2.5.13",
+    "vue-clipboard2": "0.0.8",
     "vue-media": "^1.1.1",
     "vue-server-renderer": "^2.5.13",
     "vuex": "^3.0.1"
