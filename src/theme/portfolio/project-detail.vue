@@ -130,10 +130,10 @@
         border: 1px solid $backgroundColor;
         padding: 0;
         border-radius: 0;
-        height: 75%;
+        height: 95%;
         overflow: scroll;
         &.project-article {
-            margin: 6% 8% 15% 8%;
+            margin: 2%;
         }
         .project-description {
             text-indent: 1rem;
