@@ -20,7 +20,7 @@
                     <span v-on:click="linkClick">
                         <svgicon icon="link" class="icon-large clickable icon-link"></svgicon>
                     </span>
-                    <transition name="fade">
+                    <transition name="fade-out">
                         <div v-if="linkCopied" class="link--copy-message">link copied</div>
                     </transition>
                 </h2>

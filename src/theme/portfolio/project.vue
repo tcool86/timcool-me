@@ -149,13 +149,29 @@
             cursor: pointer;
             .project-icon-wrapper {
                 @include coolShadow();
-                left: 5rem;
+                transform: translateX(-2rem);
+                @media (max-width: $tabletSize) {
+                    transform: translateX(0);
+                }
             }
             .title-wrapper {
                 text-indent: 5rem;
+                @media (max-width: $tabletSize) {
+                    text-indent: 0;
+                }
             }
             .project-date {
-                right: -2.3rem;
+                transform: translateX(2rem) skew(-20deg);
+                @media (max-width: $tabletSize) {
+                    transform: skew(-20deg);
+                }
+            }
+        }
+        &.detail-view {
+            &:hover {
+                .project-date {
+                    transform: none;
+                }
             }
         }
         .description-more {
@@ -171,19 +187,16 @@
         align-content: flex-start;
         background-color: #444;
         padding: 1em;
-        border-radius: 1em;
+        margin-top: 5rem;
+        margin-bottom: 7rem;
+        border-radius: 0.5rem;
         border: 2px solid #888;
-        margin: 4em 8rem 8rem 8rem;
         background-image: url(//res.cloudinary.com/hnairgdu6/image/upload/v1513915883/project-back_pyilud.png);
-        @media (max-width: $tabletSize) {
-            margin: 0.25rem;
-            margin-bottom: 4rem;
-        }
         .project-icon-wrapper {
             position: absolute;
             z-index: 1;
-            top: -2.5rem;
-            left: 6rem;
+            top: -3rem;
+            left: -2rem;
             border-radius: 8px;
             border-color: #3B0908;
             border-width: 0.25rem;
@@ -205,7 +218,6 @@
             }
             @media (max-width: $mobileSize) {
                 top: 0;
-                left: 3rem;
                 img {
                     min-width: 32px;
                 }

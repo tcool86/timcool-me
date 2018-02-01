@@ -1,11 +1,6 @@
 <template>
     <section id="project-section">
-        <div class="level container">
-            <!-- <div class="field is-grouped search-wrapper">
-                <p class="control is-expanded">
-                    <input @keyup="searchFilter" class="input" type="text" placeholder="Search projects...">
-                </p>
-            </div> -->
+        <div class="level">
             <div class="level-right filter-controls">
                 <div class="level-item">
                     <button class="button" v-on:click="filterDateCreated">
@@ -142,6 +137,13 @@
 </script>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
+    #project-section {
+        margin: 4em 10rem 8rem 10rem;
+        @media (max-width: $tabletSize) {
+            margin: 0.25rem;
+            margin-bottom: 4rem;
+        }
+    }
     .spinner-container {
         height: 10rem;
         background-color: $backgroundColor;
@@ -158,8 +160,6 @@
         }
     }
     .project-container {
-        margin: 1em;
-        margin-top: 2em;
         position: relative;
     }
     .search-wrapper {
