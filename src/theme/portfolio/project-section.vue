@@ -1,10 +1,30 @@
 <template>
     <section id="project-section">
-        <!-- <div class="field is-grouped search-wrapper">
-            <p class="control is-expanded">
-                <input @keyup="searchFilter" class="input" type="text" placeholder="Search projects...">
-            </p>
-        </div> -->
+        <div class="level container">
+            <!-- <div class="field is-grouped search-wrapper">
+                <p class="control is-expanded">
+                    <input @keyup="searchFilter" class="input" type="text" placeholder="Search projects...">
+                </p>
+            </div> -->
+            <div class="level-right filter-controls">
+                <div class="level-item">
+                    <button class="button" v-on:click="filterDateCreated">
+                        <span>Date Created</span>
+                        <span class="icon is-small icon--text">
+                            &#9660;
+                        </span>
+                    </button>
+                </div>
+                <div class="level-item">
+                    <button class="button" v-on:click="filterLastUpdated">
+                        <span>Last Update</span>
+                        <span class="icon is-small icon--text">
+                            &#9660;
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
         <transition name="fade">
             <div class="spinner-container content" v-if="showSpinner && currentSection == 'projects'">
                 <div class="spinner">
@@ -15,15 +35,8 @@
         <transition name="fade" mode="out-in">
             <div class="projects-container">
                 <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
-                    v-for="project in projects" 
-                    v-bind:key="project._id"
-                    v-if="!searchActive">
-                    <project :project="project"></project>
-                </div>
-                <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
-                    v-for="project in searchProjects" 
-                    v-bind:key="project._id"
-                    v-if="searchActive">
+                    v-for="project in projectsModel" 
+                    v-bind:key="project._id">
                     <project :project="project"></project>
                 </div>
             </div>
@@ -53,6 +66,7 @@
                 'showSpinner' : true,
                 'animateProjects' : false,
                 'searchProjects' : [],
+                'projectsModel' : [],
                 'searchActive' : false
             }
         },
@@ -61,8 +75,10 @@
                 fetchInitialData(this.$store, this.$route)
             },
             updateSpinner () {
-                if (this.$store.getters['projectsModule/projects'].length !== 0) {
+                let storedProjects = this.$store.getters['projectsModule/projects']
+                if (storedProjects.length !== 0) {
                     this.showSpinner = false
+                    this.projectsModel = storedProjects
                 } else {
                     this.showSpinner = true
                 }
@@ -84,6 +100,26 @@
             },
             getProjectData () {
                 return (this.searchActive) ? this.searchProjects : this.projects
+            },
+            filterDateCreated () {
+                this.projectsModel.sort((projectA, projectB) => {
+                    if (projectA.date_started < projectB.date_started) {
+                        return 1
+                    } else if (projectA.date_started > projectB.date_started) {
+                        return -1
+                    }
+                    return 0
+                })
+            },
+            filterLastUpdated () {
+                this.projectsModel.sort((projectA, projectB) => {
+                    if (projectA.last_updated < projectB.last_updated) {
+                        return 1
+                    } else if (projectA.last_updated > projectB.last_updated) {
+                        return -1
+                    }
+                    return 0
+                })
             }
         },
         watch : {
@@ -92,6 +128,9 @@
             },
             'projects' () {
                 this.updateSpinner()
+            },
+            'projectsModel' (val) {
+                console.log(val)
             }
         },
         created () {
@@ -118,15 +157,19 @@
             -webkit-animation-duration: (0.5 + $n/4)s;
         }
     }
-
     .project-container {
         margin: 1em;
         margin-top: 2em;
         position: relative;
     }
-
     .search-wrapper {
         width: 50%;
         margin: 3rem auto;
+    }
+    .filter-controls {
+        width: 100%;
+    }
+    .icon--text {
+        font-size: 0.75rem;
     }
 </style>

@@ -6,10 +6,10 @@
                 <section id="portfolio-section" class="columns level">
                     <div class="column has-text-centered">
                         <div class="button" v-on:click="currentSection = resumeKey">
-                            <h2>Resume</h2>
+                            <span>Resume</span>
                         </div>
                         <div class="button" v-on:click="currentSection = projectsKey">
-                            <h2>Projects</h2>
+                            <span>Projects</span>
                         </div>
                     </div>
                 </section>
@@ -72,28 +72,29 @@
     }
     #portfolio-section {
         margin: 5rem 2rem;
+        .button {
+            margin: 0 0.5rem;
+        }
     }
     .button {
-        margin-right: 1rem;
-        width: 8rem;
+        min-width: 8rem;
         height: 3.5rem;
-        transition: all 0.2s;
-        h2 {
+        transition: all 1s;
+        background-color: $backgroundColor;
+        span {
+            text-transform: uppercase;
+            font-family: 'Exo 2';
             font-size: 1rem;
-            color: black;
+            color: whitesmoke;
         }
         &:hover {
-            h2 {
-                font-size: 1.1rem;
-                color: $color3;
+            span {
+                color: black;
             }
-            background-color: black;
+            background-color: $highlightColor;
         }
         &:active {
-            h2 {
-                font-size: 1.2rem;
-                color: white;
-            }
+            background-color: $activeColor;
         }
     }
 </style>
