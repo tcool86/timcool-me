@@ -11,18 +11,14 @@
                 <h2>Tim Cool</h2>
                 <div class="text-wrapper">
                     <p>
-                        I’m Tim Cool and this is my website. 
-                        I live in Oakland, CA and work full time as a Software Engineer. 
-                        Ever since I was a young lad I’ve always been interested in science, 
-                        technology, video games, comics, and movies. 
-                        I started creating my own computer games when I was around 10 years old, 
-                        using the visual programming application CocoaDR3, along with programs like 
-                        Hypercard and Hyperstudio on my family's Macintosh Performa 550. 
-                        From there I would graduate to more advanced programming languages like realBASIC, then C++. 
-                        For most of my academic and professional life, I’ve had a fascination with digitally 
-                        interactive media and software application programming. 
-                        I’ve been building iOS apps and developing websites for the past 8 years or so. 
-                        I hope to continue doing this work for as long as I can.
+                        I’m Tim Cool, and this is my website. I live in Oakland, CA and work full time as a Software Engineer. 
+                        Ever since I was young, I’ve always been interested in science, technology, video games, comics, and movies. 
+                        I started creating computer games when I was around ten years old, using the visual programming application 
+                        CocoaDR3, along with programs like Hypercard and Hyperstudio on my family's Macintosh Performa 550. 
+                        From there I would graduate to more advanced programming languages like REALbasic, then C++ (mostly for school, and fun). 
+                        For most of my academic and professional life, I’ve enjoyed working with interactive media and writing software applications. 
+                        I’ve been building iOS apps and developing websites for the past eight years or so. 
+                        Every day I strive to be more competent at what I do than the day before, it's a motto that I believe could benefit everyone.
                     </p>
                     <p>
                         <b>From my LinkedIn:</b> I'm a software developer, technology enthusiast, artist, and engineer. 
@@ -33,7 +29,7 @@
                         My other interests include going to the gym, philosophical discussions about space-time, Japanese culture, and driving around in my Mustang.
                     </p>
                     <p>
-                        Currently interested in: Quantum assembly, Rick and Morty, and Dragon Ball Fighterz.
+                        Current interests: Quantum assembly, Rick and Morty, and Dragon Ball Fighterz.
                     </p>
                 </div>
             </div>
