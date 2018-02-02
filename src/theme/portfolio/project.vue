@@ -5,7 +5,7 @@
                 v-on:click="closeModal"
                 v-if="showDetailBackground">
                 <transition name="bounce" mode="out-in" v-on:after-leave="showDetailBackground = false">
-                    <project-detail :project="project" :deeplink="getFullDeeplink()" v-if="showDetail" @close="showDetail = false"></project-detail>
+                    <project-detail :project="project" :deeplink="getFullDeeplink()" v-if="showDetail" @close="closeDetail"></project-detail>
                 </transition>
             </div>
         </transition>
@@ -48,7 +48,7 @@
     import projectDetail from './project-detail.vue'
     import '../icons'
 
-    let closeableClasses = ['detail-modal-background', 'detail-view-wrapper']
+    let closeableClasses = ['detail-modal-background', 'detail-view-wrapper', 'button--close']
 
     export default {
         components : {
@@ -93,9 +93,12 @@
                 let targetClass = event.target.className
                 event.stopPropagation()
                 if (closeableClasses.includes(targetClass)) {
-                    this.handleDeeplinkClose()
-                    this.showDetail = false
+                    this.closeDetail()
                 }
+            },
+            closeDetail : function () {
+                this.handleDeeplinkClose()
+                this.showDetail = false
             },
             handleDeeplinkOpen : function () {
                 let url = this.getFullDeeplink()
@@ -117,7 +120,11 @@
         },
         created () {
             let deeplink = this.$route.params.deeplink
-            if (typeof (deeplink) !== 'undefined') {
+            let locationPath = ''
+            if (typeof (window) !== 'undefined') {
+                locationPath = window.location.pathname
+            }
+            if (typeof (deeplink) !== 'undefined' && locationPath !== '/portfolio') {
                 if (deeplink === this.deeplinkName()) {
                     setTimeout(() => {
                         this.showDetailBackground = true

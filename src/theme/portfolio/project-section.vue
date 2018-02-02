@@ -21,7 +21,7 @@
             </div>
         </div>
         <transition name="fade">
-            <div class="spinner-container content" v-if="showSpinner && currentSection == 'projects'">
+            <div class="spinner-container content" v-if="showSpinner">
                 <div class="spinner">
                     <div class="loader"></div>
                 </div>

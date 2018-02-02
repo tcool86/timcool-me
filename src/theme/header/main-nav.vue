@@ -50,14 +50,8 @@
                 text-transform: uppercase;
                 color: white;
                 background-color: $backgroundColor;
-                transition: 0.5s;
+                transition: 0.33s;
                 padding: 1.5rem;
-                &:active {
-                    cursor: pointer;
-                    transition: 0.1s;
-                    background-color: $activeColor;
-                    color: black;
-                }
                 &.router-link-exact-active {
                     line-height: 0;
                     background-color: white;
@@ -68,6 +62,11 @@
                     &:hover {
                         cursor: pointer;
                         background-color: $highlightColor;
+                        color: black;
+                    }
+                    &:active {
+                        cursor: pointer;
+                        background-color: $activeColor;
                         color: black;
                     }
                 }

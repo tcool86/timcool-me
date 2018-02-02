@@ -11,7 +11,7 @@
             </div>
         </transition>
         <article class="project-article detail-view">
-            <span v-on:click="closeButtonClick">
+            <span v-on:click="closeButtonClick" class="button--close">
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             </span>
             <div class="title-wrapper">

@@ -5,10 +5,10 @@
             <div class="column is-half is-offset-one-quarter">
                 <section id="portfolio-section" class="columns level">
                     <div class="column has-text-centered">
-                        <div class="button" v-on:click="currentSection = resumeKey">
+                        <div :class="determinButtonActive(resumeKey)" v-on:click="currentSection = resumeKey">
                             <span>Resume</span>
                         </div>
-                        <div class="button" v-on:click="currentSection = projectsKey">
+                        <div :class="determinButtonActive(projectsKey)" v-on:click="currentSection = projectsKey">
                             <span>Projects</span>
                         </div>
                     </div>
@@ -50,6 +50,12 @@
                     return this.resumeKey
                 }
                 return this.projectsKey
+            },
+            determinButtonActive (key) {
+                if (key === this.currentSection) {
+                    return 'button button--active'
+                }
+                return 'button'
             }
         },
         created () {
@@ -79,7 +85,7 @@
     .button {
         min-width: 8rem;
         height: 3.5rem;
-        transition: all 1s;
+        transition: all 0.33s;
         background-color: $backgroundColor;
         span {
             text-transform: uppercase;
@@ -96,5 +102,11 @@
         &:active {
             background-color: $activeColor;
         }
+    }
+    .button--active {
+        span {
+            color: black;
+        }
+        background-color: white;
     }
 </style>
