@@ -4,7 +4,9 @@ import AppLayout from './theme/layout.vue'
 import router from './router.js'
 import VueSVGIcon from 'vue-svgicon'
 import VueClipboard from 'vue-clipboard2'
+import VueLazyload from 'vue-lazyload'
 
+Vue.use(VueLazyload)
 Vue.use(VueSVGIcon)
 Vue.use(VueClipboard)
 

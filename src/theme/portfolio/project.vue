@@ -12,17 +12,17 @@
         <article class="project-article" v-on:click="handleProjectOnClick">
             <div class="project-icon-wrapper">
                 <media :query="{minWidth: 1158}">
-                    <img :src="project.icon">
+                    <img v-lazy="project.icon">
                 </media>
                 <media :query="{maxWidth: 1158, minWidth:800}"
                     @media-enter="mediaEnterMedium"
                     @media-leave="mediaLeaveMedium">
-                    <img :src="project.icon_medium">
+                    <img v-lazy="project.icon_medium">
                 </media>
                 <media :query="{maxWidth: 800}"
                     @media-enter="mediaEnterSmall"
                     @media-leave="mediaLeaveSmall">
-                    <img :src="project.icon_small">
+                    <img v-lazy="project.icon_small">
                 </media>
             </div>
             <div class="title-wrapper skew-20">

@@ -10,13 +10,13 @@
         <div class="business-content resume-block">
             <h3>Business</h3>
             <div class="employer-image-wrapper">
-                <img class="employer-image" src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/hflogo_c4xfx1.png"/>
+                <img class="employer-image" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/hflogo_c4xfx1.png'" />
             </div>
             <p>
                 Unassuming shop selling collectable anime plush toys, models &amp; figurines for adult comic lovers.
             </p>
             <figure class="products">
-                <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911751/hf-frontend_toveca.png"/>
+                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911751/hf-frontend_toveca.png'" />
                 <figcaption>
                     Hobbyfan's client facing retail site.
                 </figcaption>
@@ -36,7 +36,7 @@
                 <li> HTML/CSS/JS with jQuery and AJAX techniques for web site and administrative site frontend.</li>
             </ol>
             <figure class="products">
-                <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/hf-backend-tools_jnvctl.png"/>
+                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/hf-backend-tools_jnvctl.png'" />
                 <figcaption>
                     Administration tools
                 </figcaption>

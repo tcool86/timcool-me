@@ -10,7 +10,7 @@
         <div class="business-content resume-block">
             <h3>Business</h3>
             <div class="employer-image-wrapper">
-                <img class="employer-image" src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png"/>
+                <img class="employer-image" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png'" />
             </div>
             <p>
                 More than 11,000 global influencers leverage rewardStyle’s turn-key ecosystem 
@@ -54,7 +54,7 @@
         </div>
         <div class="content add-on-block">
             <figure class="products">
-                <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png"/>
+                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png'" />
                 <figcaption>
                     (left to right) rewardStyle mobile app, LTK consumer app + website
                 </figcaption>

@@ -44,7 +44,7 @@
                 <div class="images-container columns">
                     <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
                         <figure v-on:click="getImageDetail">
-                            <img class="project-image" :src="projectImage.image">
+                            <img class="project-image" v-lazy="projectImage.image">
                             <figcaption>
                                 {{ projectImage.caption }}
                             </figcaption>

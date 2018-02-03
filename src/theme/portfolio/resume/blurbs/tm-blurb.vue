@@ -10,14 +10,14 @@
         <div class="business-content resume-block">
             <h3>Business</h3>
             <div class="employer-image-wrapper">
-                <img class="employer-image" src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/tmlogo_rylvaw.png"/>
+                <img class="employer-image" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/tmlogo_rylvaw.png'" />
             </div>
             <p>
                 The technologies provided by thismoment helped power campaigns and custom solutions 
                 for more than a quarter of the Fortune 500 brands.
             </p>
             <figure class="products">
-                    <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/thismoment-clients_prein5.png"/>
+                    <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/thismoment-clients_prein5.png'" />
                 <figcaption>
                     a few examples of sites built with DEC + Content Cloud
                 </figcaption>
@@ -48,7 +48,7 @@
             </ol>
             <p>Designed and wrote documentation for software features and presented those in a biweekly review.</p>
             <figure class="products">
-                <img src="//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/thismoment-content-cloud_muf8y6.png"/>
+                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/thismoment-content-cloud_muf8y6.png'" />
                 <figcaption>
                     Content Cloud
                 </figcaption>
