@@ -3,7 +3,7 @@
         <transition name="fade">
             <div class="project-image-detail-wrapper" v-if="selectedImage !== null" v-on:click="closeImageDetailClick">
                 <div class="detail-image-wrapper">
-                    <span class="close-button-wrapper" v-on:click="closeImageDetailClick">
+                    <span class="close-button-wrapper" tabindex="0" v-on:click="closeImageDetailClick" v-on:keyup.enter="closeImageDetailClick">
                         <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
                     </span>
                     <img :src="selectedImage"/>
@@ -11,7 +11,7 @@
             </div>
         </transition>
         <article class="project-article detail-view">
-            <span v-on:click="closeButtonClick" class="button--close">
+            <span v-on:click="closeButtonClick" tabindex="0" aria-label="close detail view" class="button--close"  v-on:keyup.enter="closeButtonClick">
                 <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
             </span>
             <div class="title-wrapper">
@@ -33,7 +33,7 @@
                     <span>Created:&nbsp;<b>{{ project.createdDateFormatted }}</b></span>
                 </div>
             </div>
-            <div class="project-description-wrapper">
+            <div class="project-description-wrapper" tabindex="0">
                 <p class="project-description">
                     <img :src="project.icon">
                     {{project.description}}
@@ -43,7 +43,7 @@
             <div class="images-wrapper">
                 <div class="images-container columns">
                     <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
-                        <figure v-on:click="getImageDetail">
+                        <figure v-on:click="getImageDetail" v-on:keyup.enter="getImageDetail" tabindex="0">
                             <img class="project-image" v-lazy="projectImage.image">
                             <figcaption>
                                 {{ projectImage.caption }}

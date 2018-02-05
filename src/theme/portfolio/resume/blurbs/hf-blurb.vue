@@ -2,21 +2,21 @@
     <article :class="showClasses">
         <div class="employer-wrapper columns" ref="boundsPadding">
             <div class="column">
-                <div class="employer-title-wrapper">
+                <div class="employer-title-wrapper" tabindex="1">
                     <h2>hobbyfan.com</h2>
                 </div>
             </div>
         </div>
         <div class="business-content resume-block">
             <h3>Business</h3>
-            <div class="employer-image-wrapper">
-                <img class="employer-image" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/hflogo_c4xfx1.png'" />
+            <div class="employer-image-wrapper" tabindex="1">
+                <img class="employer-image" alt="Hobbyfan Logo" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/hflogo_c4xfx1.png'" />
             </div>
             <p>
                 Unassuming shop selling collectable anime plush toys, models &amp; figurines for adult comic lovers.
             </p>
-            <figure class="products">
-                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911751/hf-frontend_toveca.png'" />
+            <figure class="products" tabindex="1">
+                <img alt="Hobbyfan retail site" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911751/hf-frontend_toveca.png'" />
                 <figcaption>
                     Hobbyfan's client facing retail site.
                 </figcaption>
@@ -35,8 +35,8 @@
                 <li> Implemented Prestashop cart and developed custom module for preorders. </li>
                 <li> HTML/CSS/JS with jQuery and AJAX techniques for web site and administrative site frontend.</li>
             </ol>
-            <figure class="products">
-                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/hf-backend-tools_jnvctl.png'" />
+            <figure class="products" tabindex="1">
+                <img alt="Hobbyfan admin tools" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/hf-backend-tools_jnvctl.png'" />
                 <figcaption>
                     Administration tools
                 </figcaption>

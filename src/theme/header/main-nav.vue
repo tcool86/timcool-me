@@ -1,15 +1,15 @@
 <template>
     <ul class="nav-wrapper site-nav level-left">
-        <li class="skew-20">
+        <li class="skew-20" aria-label="show about">
             <router-link class="navbar-item level-item" to="/about">About</router-link>
         </li>
-        <li class="skew-20">
+        <li class="skew-20" aria-label="show portfolio">
             <router-link class="navbar-item level-item" to="/portfolio">Portfolio</router-link>
         </li>
-        <li class="skew-20">
+        <li class="skew-20" aria-label="show blog">
             <router-link class="navbar-item level-item" to="/blog">Blog</router-link>
         </li>
-        <li class="skew-20">
+        <li class="skew-20" aria-label="show friend sites">
             <router-link class="navbar-item level-item" to="/friends">Friend Sites</router-link>
         </li>
         <!-- <li class="skew-20">

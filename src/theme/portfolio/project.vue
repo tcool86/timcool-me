@@ -9,7 +9,7 @@
                 </transition>
             </div>
         </transition>
-        <article class="project-article" v-on:click="handleProjectOnClick">
+        <article class="project-article" tabindex="0" v-on:click="handleProjectOnClick" v-on:keyup.enter="handleProjectOnClick">
             <div class="project-icon-wrapper">
                 <media :query="{minWidth: 1158}">
                     <img v-lazy="project.icon">

@@ -5,10 +5,18 @@
             <div class="column is-half is-offset-one-quarter">
                 <section id="portfolio-section" class="columns level">
                     <div class="column has-text-centered">
-                        <div :class="determinButtonActive(resumeKey)" v-on:click="currentSection = resumeKey">
+                        <div tabindex="0"
+                            :class="determinButtonActive(resumeKey)" 
+                            aria-label="click to show resume" 
+                            v-on:click="currentSection = resumeKey"
+                            v-on:keyup.enter="currentSection = resumeKey">
                             <span>Resume</span>
                         </div>
-                        <div :class="determinButtonActive(projectsKey)" v-on:click="currentSection = projectsKey">
+                        <div tabindex="0"
+                            :class="determinButtonActive(projectsKey)" 
+                            aria-label="click to show projects" 
+                            v-on:click="currentSection = projectsKey"
+                            v-on:keyup.enter="currentSection = projectsKey">
                             <span>Projects</span>
                         </div>
                     </div>

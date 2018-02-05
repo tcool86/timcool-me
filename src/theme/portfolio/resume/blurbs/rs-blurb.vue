@@ -2,15 +2,15 @@
     <article :class="showClasses">
         <div class="employer-wrapper columns">
             <div class="column">
-                <div class="employer-title-wrapper">
+                <div class="employer-title-wrapper" tabindex="1">
                     <h2>rewardStyle + LIKEtoKNOW.it</h2>
                 </div>
             </div>
         </div>
         <div class="business-content resume-block">
             <h3>Business</h3>
-            <div class="employer-image-wrapper">
-                <img class="employer-image" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png'" />
+            <div class="employer-image-wrapper" tabindex="1">
+                <img class="employer-image" alt="reward style logo" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911748/rs_ltk_byc28h.png'" />
             </div>
             <p>
                 More than 11,000 global influencers leverage rewardStyle’s turn-key ecosystem 
@@ -53,8 +53,8 @@
             </ol>
         </div>
         <div class="content add-on-block">
-            <figure class="products">
-                <img :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png'" />
+            <figure class="products" tabindex="1">
+                <img alt="reward style app ensemble" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1515911749/rewardstyle-ltk_xaacwj.png'" />
                 <figcaption>
                     (left to right) rewardStyle mobile app, LTK consumer app + website
                 </figcaption>

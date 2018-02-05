@@ -3,7 +3,7 @@
         <div class="level">
             <div class="level-right filter-controls">
                 <div class="level-item">
-                    <button class="button" v-on:click="filterDateCreated">
+                    <button aria-label="sort projects by date created" class="button" v-on:click="filterDateCreated">
                         <span>Date Created</span>
                         <span class="icon is-small icon--text">
                             &#9660;
@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <div class="level-item">
-                    <button class="button" v-on:click="filterLastUpdated">
+                    <button aria-label="sort projects by last updated" class="button" v-on:click="filterLastUpdated">
                         <span>Last Update</span>
                         <span class="icon is-small icon--text">
                             &#9660;
@@ -29,7 +29,8 @@
         </transition>
         <transition name="fade" mode="out-in">
             <div class="projects-container">
-                <div v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
+                <div
+                    v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
                     v-for="project in projectsModel" 
                     v-bind:key="project._id">
                     <project :project="project"></project>
