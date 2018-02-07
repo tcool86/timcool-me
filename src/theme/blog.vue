@@ -75,6 +75,7 @@
 <style lang="scss">
     @import '../styles/style-vars.scss';
     .spinner-container {
+        position: absolute;
         height: 10rem;
         background-color: $backgroundColor;
         width: 100%;
