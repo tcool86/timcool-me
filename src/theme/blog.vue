@@ -76,12 +76,12 @@
     @import '../styles/style-vars.scss';
     .spinner-container {
         height: 10rem;
-        position: absolute;
         background-color: $backgroundColor;
         width: 100%;
         display: grid;
         .spinner {
             margin: auto;
+            align-content: center;
         }
     }
     .post-wrapper {
