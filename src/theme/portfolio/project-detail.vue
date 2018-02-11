@@ -34,10 +34,7 @@
                 </div>
             </div>
             <div class="project-description-wrapper" tabindex="0">
-                <p class="project-description">
-                    <img :src="project.icon">
-                    {{project.description}}
-                </p>
+                <p class="project-description" v-html="project.description"></p>
             </div>
             <div class="separator"></div>
             <div class="images-wrapper">

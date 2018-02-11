@@ -1,6 +1,8 @@
 import appServices from '../app.service.js'
 import truncate from 'truncate'
 import DateFormatter from 'dateformat'
+import HTMLDecoder from 'decode-html'
+import stripTags from 'striptags'
 
 const defaultState = {
     projects : []
@@ -21,9 +23,12 @@ const actions = {
     updateProjects (context) {
         return appServices.getProjects().then(data => {
             data.map((project) => {
-                let shortDescription = truncate(project.description, 450)
+                let decodedDescription = HTMLDecoder(project.description)
+                project.description = decodedDescription
+                let strippedDescription = stripTags(project.description)
+                let shortDescription = truncate(strippedDescription, 450)
                 project.shortDescription = shortDescription
-                let searchableDescription = project.description.toLowerCase() + project.title.toLowerCase()
+                let searchableDescription = strippedDescription.toLowerCase() + project.title.toLowerCase()
                 project.searchableDescription = searchableDescription
                 project.lastUpdatedFormatted = DateFormatter(new Date(project.last_updated), 'mmmm dS, yyyy')
                 project.createdDateFormatted = DateFormatter(new Date(project.date_started), 'mmmm dS, yyyy')
