@@ -2,7 +2,7 @@ import appServices from '../app.service.js'
 import truncate from 'truncate'
 import DateFormatter from 'dateformat'
 import HTMLDecoder from 'decode-html'
-import stripTags from 'striptags'
+import striphtml from 'js-striphtml'
 
 const defaultState = {
     projects : []
@@ -25,7 +25,7 @@ const actions = {
             data.map((project) => {
                 let decodedDescription = HTMLDecoder(project.description)
                 project.description = decodedDescription
-                let strippedDescription = stripTags(project.description)
+                let strippedDescription = striphtml.stripTags(project.description)
                 let shortDescription = truncate(strippedDescription, 450)
                 project.shortDescription = shortDescription
                 let searchableDescription = strippedDescription.toLowerCase() + project.title.toLowerCase()
