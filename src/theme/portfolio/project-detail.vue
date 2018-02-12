@@ -10,10 +10,7 @@
                 </div>
             </div>
         </transition>
-        <article class="project-article detail-view">
-            <span v-on:click="closeButtonClick" tabindex="0" aria-label="close detail view" class="button--close"  v-on:keyup.enter="closeButtonClick">
-                <svgicon icon="closebutton" class="icon-large close-button"></svgicon>
-            </span>
+        <article class="project-article detail-view view--hide-scroll-bar">
             <div class="title-wrapper">
                 <h2 class="project-title">
                     {{ project.title }}
@@ -48,6 +45,9 @@
                         </figure>
                     </div>
                 </div>
+            </div>
+            <div class="button button--long" v-on:click="closeButtonClick">
+                close
             </div>
         </article>
     </div>
@@ -119,16 +119,19 @@
         }
     }
     .project-article.detail-view {
+        position: absolute;
+
+        padding: 0;
+        border: 1px solid $backgroundColor;
+        border-radius: 0;
+        max-height: 95%;
+
+        overflow: scroll;
+        cursor: default;
+        transition: all 0.2s ease;
         &:hover {
             box-shadow: none;
         }
-        cursor: default;
-        transition: all 0.2s ease;
-        border: 1px solid $backgroundColor;
-        padding: 0;
-        border-radius: 0;
-        height: 95%;
-        overflow: scroll;
         &.project-article {
             margin: 2%;
         }
@@ -189,8 +192,7 @@
             width: 100%;
             text-align: center;
             padding: 0.1rem;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+            border: 0;
             text-indent: 0;
             margin: 0;
             margin-bottom: 0.66rem;
@@ -221,6 +223,24 @@
             position: relative;
             width: 100%;
             margin: 0;
+        }
+    }
+    .view--hide-scroll-bar::-webkit-scrollbar {
+        display: none;
+    }
+    .button.button--long {
+        position: relative;
+        bottom: 0;
+
+        width: 100%;
+        margin-top: 2rem;
+
+        color: whitesmoke;
+
+        text-transform: uppercase;
+
+        &:hover {
+            color: black;
         }
     }
 </style>
