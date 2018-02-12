@@ -20,4 +20,12 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    .message.is-info {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+    }
+</style>
+
 

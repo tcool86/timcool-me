@@ -2,14 +2,12 @@
     <div class="about-container">
         <h1 class="content-title">About</h1>
         <section id="about-section" class="content-section columns">
-            <div class="column is-narrow">
-                <figure class="avatar-wrapper image is-256x256" tabindex="0">
-                    <img class="cool-shadow" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1516937711/timcool-profile-image_b6m3bc.jpg'" />
-                </figure>
-            </div>
             <div class="column about-text" tabindex="0">
                 <h2>Tim Cool</h2>
                 <div class="text-wrapper">
+                    <figure class="avatar-wrapper" tabindex="0">
+                        <img class="cool-shadow" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1516937711/timcool-profile-image_b6m3bc.jpg'" />
+                    </figure>
                     <p>
                         I’m Tim Cool, and this is my website. I live in Oakland, CA and work full time as a Software Engineer. 
                         Ever since I was young, I’ve always been interested in science, technology, video games, comics, and movies. 
@@ -20,16 +18,18 @@
                         I’ve been building iOS apps and developing websites for the past eight years or so. 
                         Every day I strive to be more competent at what I do than the day before, it's a motto that I believe could benefit everyone.
                     </p>
+                </div>
+                <div class="text-wrapper">
                     <p>
-                        <b>From my LinkedIn:</b> I'm a software developer, technology enthusiast, artist, and engineer. 
+                        <strong>From my LinkedIn:</strong> I'm a software developer, technology enthusiast, artist, and engineer. 
                         My main objective is to work with other self-motivated individuals to create great things. 
                         I love games, challenges, and solving interesting problems.
                     </p>
                     <p>
-                        My other interests include going to the gym, philosophical discussions about space-time, Japanese culture, and driving around in my Mustang.
+                        My other interests include going to the gym, philosophy, Japanese culture, and my mustang.
                     </p>
                     <p>
-                        Current interests: Quantum assembly, Rick and Morty, and Dragon Ball Fighterz.
+                        Current interests: Vue, Quantum assembly, Unity Engine, VR, and Dragon Ball Fighterz.
                     </p>
                 </div>
             </div>
@@ -38,7 +38,7 @@
         <section id="about-skill-stats"></section>
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../styles/style-vars.scss';
     #about-section {
         margin: 0 17%;
@@ -51,18 +51,31 @@
             -moz-animation-name: fadeIn;
             -webkit-animation-name: fadeIn;
         }
+        h2 {
+            text-align: center;
+        }
+        strong {
+            color: inherit;
+        }
     }
-
     .avatar-wrapper {
         margin: auto;
         width: 100%;
-        max-width: 256px;
         img {
+            float: left;
             border-radius: 50%;
-            margin-top: 30%;
+            shape-outside: circle();
+            margin: 1rem;
+            max-width: 256px;
+            max-height: 256px;
             @media (max-width: $mobileSize) {
-                margin-top: 0;
+                float: none;
+                shape-outside: none;
             }
+        }
+        @media (max-width: $mobileSize) {
+            display: flex; 
+            justify-content: center;
         }
     }
     .about-text {
