@@ -34,11 +34,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../styles/global.scss';
 
     .friend-site-list {
-        margin: 4rem;
         text-align: center;
         .friend-site-item {
             display: inline-block;

@@ -1,9 +1,9 @@
 <template>
     <section class="resume section">
         <div class="resume-wrapper container">
-            <rs-blurb></rs-blurb>
-            <tm-blurb :show-blurb="scrollY"></tm-blurb>
-            <hf-blurb :show-blurb="scrollY"></hf-blurb>
+            <rs-blurb class="view-height" id="rs-id"></rs-blurb>
+            <tm-blurb class="view-height" id="tm-id" :show-blurb="scrollY"></tm-blurb>
+            <hf-blurb class="view-height" id="hf-id" :show-blurb="scrollY"></hf-blurb>
         </div>
     </section>
 </template>

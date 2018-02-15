@@ -255,10 +255,9 @@
             color: black;
             padding: 0.1rem 0.35rem;
             background-color: $color3;
-            border: #0A0E28 0.1rem solid;
+            border: #0A0E28 1px solid;
             font-size: small;
             border-radius: 4px;
-            box-shadow: #0A0E28 1px 1px 6px;
             transition: all 0.3s ease;
             &.last-updated {
                 background-color: $color4;

@@ -1,7 +1,7 @@
 <template>
     <div class="about-container">
         <h1 class="content-title">About</h1>
-        <section id="about-section" class="content-section columns">
+        <section id="about-section" class="view-height content-section columns">
             <div class="column about-text" tabindex="0">
                 <h2>Tim Cool</h2>
                 <div class="text-wrapper about-background">
@@ -36,14 +36,27 @@
                 </div>
             </div>
         </section>
-        <section id="about-photos"></section>
-        <section id="about-skill-stats"></section>
+        <section id="about-friend-sites" class="view-height">
+            <friend-sites></friend-sites>
+        </section>
     </div>
 </template>
+<script>
+/*
+    <!-- <section id="about-photos"></section>
+    <section id="about-skill-stats"></section> -->
+*/
+import friend from './friend.vue'
+export default {
+    components : {
+        'friend-sites' : friend
+    }
+}
+</script>
+
 <style lang="scss" scoped>
     @import '../styles/style-vars.scss';
     #about-section {
-        height: 100vh;
         margin: 0 17%;
         @media (max-width: $tabletSize) {
             margin: 0 10%;
@@ -98,5 +111,8 @@
     .about-interests {
         clear: both;
         padding-top: 1rem;
+    }
+    #about-friend-sites {
+        background-color: cornflowerblue;
     }
 </style>

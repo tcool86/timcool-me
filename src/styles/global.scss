@@ -142,18 +142,34 @@ footer {
 }
 
 h1 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border: none;
+    border-color: black;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    border: none;
+    
+    color: white;
+    
     font-family: 'Audiowide', sans-serif;
     font-size: 4em;
-    color: #FFF;
     text-align: center;
     -o-text-overflow: clip;
     text-overflow: clip;
-    border-color: black;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 1px 0 rgb(128, 141, 147), -1px 0 0 rgb(205, 210, 213), -1px 2px 0 rgb(128, 141, 147), -2px 1px 0 rgb(205, 210, 213), -2px 3px 0 rgb(128, 141, 147), -3px 2px 0 rgb(205, 210, 213), -3px 4px 0 rgb(128, 141, 147), -4px 3px 0 rgb(205, 210, 213);
+    text-shadow: -1px -1px 0 #000, 
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000,
+                0 1px 0 rgb(128, 141, 147),
+                -1px 0 0 rgb(205, 210, 213),
+                -1px 2px 0 rgb(128, 141, 147),
+                -2px 1px 0 rgb(205, 210, 213),
+                -2px 3px 0 rgb(128, 141, 147),
+                -3px 2px 0 rgb(205, 210, 213),
+                -3px 4px 0 rgb(128, 141, 147),
+                -4px 3px 0 rgb(205, 210, 213);
+    
     -webkit-animation: slideIn 2s linear both;
     animation: slideIn 2s linear both;
 }
@@ -168,9 +184,8 @@ h2 {
     color: #EEE;
 }
 
-.main-section {
+.view-height {
     min-height: 100vh;
-    padding-bottom: 4rem;
 }
 
 .close-button {

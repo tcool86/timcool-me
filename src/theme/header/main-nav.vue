@@ -9,9 +9,9 @@
         <li class="skew-20" aria-label="show blog">
             <router-link class="navbar-item level-item" to="/blog">Blog</router-link>
         </li>
-        <li class="skew-20" aria-label="show friend sites">
+        <!-- <li class="skew-20" aria-label="show friend sites">
             <router-link class="navbar-item level-item" to="/friends">Friend Sites</router-link>
-        </li>
+        </li> -->
         <!-- <li class="skew-20">
             <router-link class="navbar-item level-item" to="/stuff">Stuff</router-link>
         </li> -->

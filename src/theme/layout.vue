@@ -2,7 +2,7 @@
     <div id="app">
         <message></message>
         <app-header></app-header>
-        <section class="main-section">
+        <section class="view-height">
             <div class="container-content">
                 <router-view></router-view>
             </div>

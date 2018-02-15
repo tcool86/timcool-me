@@ -91,13 +91,13 @@
 <style lang="scss">
     @import '../../styles/style-vars.scss';
     .detail-view-wrapper {
-        height: 100%;
+        height: 100vh;
         background-color: transparent;
         position: relative;
     }
     .project-image-detail-wrapper {
-        width: 100%;
-        height: 85%;
+        width: 100vw;
+        height: 85vh;
         position: fixed;
         z-index: 3;
         display: inline-flex;
@@ -111,8 +111,8 @@
             }
         }
         img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
             border: 0.23rem black solid;
             border-radius: 0.66rem;
             box-shadow: 0 0 5px, 0 0 5px;
@@ -124,7 +124,7 @@
         padding: 0;
         border: 1px solid $backgroundColor;
         border-radius: 0;
-        max-height: 95%;
+        max-height: 90vh;
 
         overflow: scroll;
         cursor: default;
@@ -136,7 +136,7 @@
             margin: 2%;
         }
         .project-description {
-            text-indent: 1rem;
+            text-indent: 0;
             font-size: larger;
             margin-right: 4%;
             margin-left: 4%;
