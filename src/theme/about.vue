@@ -113,6 +113,6 @@ export default {
         padding-top: 1rem;
     }
     #about-friend-sites {
-        background-color: cornflowerblue;
+        background-color: $backgroundColorBlue;
     }
 </style>

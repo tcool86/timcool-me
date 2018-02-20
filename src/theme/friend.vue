@@ -1,6 +1,6 @@
 <template>
     <div class="friends-container">
-        <h1>Friend Sites</h1>
+        <h1>Cool Sites</h1>
         <ul class="friend-site-list">
             <li class="friend-site-item" v-for="friend in friends" v-bind:key="friend.screenshot">
                 <a v-bind:href="friend.url" target="_blank">
@@ -58,19 +58,24 @@ export default {
 
     .friend-site-wrapper {
         position: relative;
-        text-align: center;
+
         width: 320px;
-        height: 241px;
+        height: 240px;
         margin: 1em;
-        border: 2px solid white;
-        border-radius: 0 1rem 0;
+        border: 2px solid black;
+        
+        text-align: center;
+        
         overflow: hidden;
         span {
             position: relative;
-            text-shadow: 0px 0px 2px black, 1px 2px 2px black, 0px 3px 0px black;
-            color: white;
+            bottom: 25%;
+            
+            color: whitesmoke;
+            
             font-size: 21pt;
-            bottom: 4.8em;
+            text-shadow: 0px 0px 1px black,
+                        -1px 1px 1px black;
         }
         &:hover {
             border-color: $highlightColor;
