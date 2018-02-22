@@ -7,6 +7,12 @@ html {
 
 body {
     background-color: $backgroundColor;
+    z-index: -1;
+}
+
+section {
+    z-index: 1;
+    background-color: $backgroundColorTransparent;
 }
 
 footer {
