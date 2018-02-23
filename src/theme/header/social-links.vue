@@ -1,17 +1,17 @@
 <template>
     <ul class="nav-wrapper social-links-wrapper">
         <li class="level-item">
-            <a href="//www.facebook.com/timcool" target="_blank" alt="facebook">
+            <a href="//www.facebook.com/timcool" target="_blank" rel="noopener" alt="facebook">
                 <svgicon icon="facebook" class="icon-large clickable facebook-color"></svgicon>
             </a>
         </li>
         <li class="level-item">
-            <a href="//twitter.com/timothymcool" target="_blank" alt="twitter">
+            <a href="//twitter.com/timothymcool" target="_blank" rel="noopener" alt="twitter">
                 <svgicon icon="twitter" class="icon-large clickable twitter-color"></svgicon>
             </a>
         </li>
         <li class="level-item">
-            <a href="//www.linkedin.com/in/tim-cool-1898111b" target="_blank" alt="linkedin">
+            <a href="//www.linkedin.com/in/tim-cool-1898111b" rel="noopener" target="_blank" alt="linkedin">
                 <svgicon icon="linkedin" class="icon-large clickable linkedin-color"></svgicon>
             </a>
         </li>
@@ -21,7 +21,7 @@
             </a>
         </li> -->
         <li class="level-item">
-            <a href="//github.com/tcool86" target="_blank" alt="github">
+            <a href="//github.com/tcool86" target="_blank" rel="noopener" alt="github">
                 <svgicon icon="github" class="icon-large clickable github-color"></svgicon>
             </a>
         </li>

@@ -7,6 +7,7 @@
     </div>
 </template>
 <style lang="scss">
+    @import '../styles/style-vars.scss';
     .checkbox {
         position: absolute;
         top: 0;
@@ -14,6 +15,9 @@
         display: block;
 
         color: white;
+        &:hover {
+            color: $highlightColor;
+        }
     }
 </style>
 

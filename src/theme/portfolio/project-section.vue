@@ -125,9 +125,7 @@
             'projects' () {
                 this.updateSpinner()
             },
-            'projectsModel' (val) {
-                console.log(val)
-            }
+            'projectsModel' (val) {}
         },
         created () {
             this.checkForDeeplink()
