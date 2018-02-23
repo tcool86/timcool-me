@@ -6,13 +6,15 @@ html {
 }
 
 body {
-    background-color: $backgroundColor;
-    z-index: -1;
+    background-color: transparent;
 }
 
 section {
     z-index: 1;
-    background-color: $backgroundColorTransparent;
+}
+
+.container-content {
+//    background-color: $backgroundColor;
 }
 
 footer {

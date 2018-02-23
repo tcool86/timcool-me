@@ -20,8 +20,11 @@
 <style lang="scss">
     @import '../../styles/style-vars.scss';
     #nav-main {
+        background-color: $backgroundColor;
+        padding: 0.33rem;
         pointer-events: none;
         .nav-wrapper {
+            margin-top: 1rem;
             &.site-nav li {
                 display: inline-block;
                 border-bottom: 2px solid $borderColor;

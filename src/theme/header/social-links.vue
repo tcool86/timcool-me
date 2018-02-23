@@ -41,7 +41,7 @@
         .social-links-wrapper {
             position: relative;
             top: 0.25rem;
-            background-color: $backgroundColorTransparent;
+            background-color: $backgroundColorSocial;
             border: 3px solid $backgroundColor;
             border-radius: 5px;
             padding: 0.5rem;
