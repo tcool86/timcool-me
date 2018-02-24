@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <settings @updateBackground="toggleBackgroundAnimation"></settings>
         <animated-background ref="animBG"></animated-background>
         <message></message>
         <app-header></app-header>
@@ -9,6 +8,7 @@
                 <router-view></router-view>
             </div>
         </section>
+        <settings @updateBackground="toggleBackgroundAnimation"></settings>
         <app-footer></app-footer>
     </div>
 </template>

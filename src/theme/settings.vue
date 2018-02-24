@@ -21,11 +21,11 @@ export default {
     @import '../styles/style-vars.scss';
     .checkbox {
         position: absolute;
-        top: 1rem;
+        bottom: 2rem;
         left: 1rem;
         display: block;
 
-        color: white;
+        color: black;
         &:hover {
             color: $highlightColor;
         }
