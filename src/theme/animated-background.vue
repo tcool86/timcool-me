@@ -10,8 +10,8 @@ export default {
                 y : 0
             },
             'box' : {
-                width : 20,
-                height : 20
+                width : 66,
+                height : 66
             },
             'timer' : 97,
             'delay' : 200,
@@ -19,7 +19,7 @@ export default {
             'marked' : [],
             'markedOff' : false,
             'backColor' : '#1f1f1f',
-            'squareFill' : '#2f2f2f',
+            'squareFill' : '#222222',
             'squareHighlight' : '#ffffff',
             'getCanvas' : function () {
                 return document.getElementById('backdrop-canvas')
@@ -41,7 +41,7 @@ export default {
         stopBackgroundAnimation : function () {
             this.marked = []
             this.markedOff = true
-            this.counter = 100
+            this.counter = 50
             this.pulseAnimation()
             clearInterval(this.animationInterval)
             this.animationInterval = null
@@ -124,6 +124,7 @@ export default {
             canvas.width = window.innerWidth
             canvas.height = window.innerHeight
             this.pulseAnimation()
+            this.getContext().save()
         },
         setupListeners : function () {
             let self = this
@@ -141,7 +142,7 @@ export default {
     mounted () {
         this.resizeCanvasToWindow()
         this.setupListeners()
-        this.runBackgroundAnimation()
+        this.stopBackgroundAnimation()
     }
 }
 </script>

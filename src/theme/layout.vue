@@ -1,6 +1,6 @@
 <template>
-    <div id="app">
-        <animated-background ref="animBG"></animated-background>
+    <div id="app" :class="showDefaultBackground()">
+        <animated-background v-if="displayBG" ref="animBG"></animated-background>
         <message></message>
         <app-header></app-header>
         <section class="view-height">
@@ -8,7 +8,7 @@
                 <router-view></router-view>
             </div>
         </section>
-        <settings @updateBackground="toggleBackgroundAnimation"></settings>
+        <settings @updateBackground="toggleBackgroundAnimation" v-if="displayBG"></settings>
         <app-footer></app-footer>
     </div>
 </template>
@@ -20,6 +20,11 @@
     import animatedBackground from './animated-background.vue'
 
     export default {
+        data : function () {
+            return {
+                'displayBG' : false
+            }
+        },
         components : {
             'app-header' : appHeader,
             'app-footer' : appFooter,
@@ -29,11 +34,35 @@
         },
         methods : {
             toggleBackgroundAnimation : function () {
-                this.$refs.animBG.toggleBackgroundAnimation()
+                if (this.$refs.animBG) {
+                    this.$refs.animBG.toggleBackgroundAnimation()
+                }
+            },
+            checkUserAgent : function () {
+                if (typeof window !== 'undefined') {
+                    let userAgent = window.navigator.userAgent
+                    let chromeCheck = userAgent.lastIndexOf('Chrome') !== -1
+                    let fireFoxCheck = userAgent.lastIndexOf('Firefox') !== -1
+                    let isMobile = userAgent.lastIndexOf('Mobile') !== -1
+                    if ((chromeCheck || fireFoxCheck) && !isMobile) {
+                        this.displayBG = true
+                    }
+                }
+            },
+            showDefaultBackground : function () {
+                if (this.displayBG) {
+                    return
+                }
+                return 'default-backdrop'
+            }
+        },
+        watch : {
+            $route () {
+                this.$refs.animBG.pulseAnimation()
             }
         },
         mounted () {
-            this.toggleBackgroundAnimation()
+            this.checkUserAgent()
         }
     }
 </script>
@@ -50,5 +79,12 @@
         top: 0;
 
         z-index: -1;
+    }
+    .default-backdrop {
+        background: -webkit-gradient(linear, left top, right top, from(#282829), color-stop(0.05, $backgroundColorSolid), color-stop(0.5, #282829), color-stop(0.95, $backgroundColorSolid), to(#282829));
+        background: -webkit-linear-gradient(left, #282829, $backgroundColorSolid 5%, #282829, $backgroundColorSolid 95%, #282829);
+        background: -moz-linear-gradient(left, #282829, $backgroundColorSolid 5%, #282829, $backgroundColorSolid 95%, #282829);
+        background: -ms-linear-gradient(left, #282829, $backgroundColorSolid 5%, #282829, $backgroundColorSolid 95%, #282829);
+        background: -o-linear-gradient(left, #282829, $backgroundColorSolid 5%, #282829, $backgroundColorSolid 95%, #282829);
     }
 </style>
