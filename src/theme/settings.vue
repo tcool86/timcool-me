@@ -1,8 +1,8 @@
 <template>
     <div class="settings-menu">
         <label class="checkbox">
-            <input type="checkbox" v-on:click="clickBGAnimationBox">
-            Turn off background animation
+            <input type="checkbox" v-on:click="bgCheckboxClick">
+            Toggle BG animation
         </label>
     </div>
 </template>
@@ -10,7 +10,7 @@
 
 export default {
     methods : {
-        clickBGAnimationBox : function () {
+        bgCheckboxClick : function () {
             this.$emit('updateBackground')
         }
     }

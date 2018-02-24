@@ -24,13 +24,16 @@
             'app-header' : appHeader,
             'app-footer' : appFooter,
             'message' : message,
-            'settings' : settings,
-            'animated-background' : animatedBackground
+            'animated-background' : animatedBackground,
+            'settings' : settings
         },
         methods : {
             toggleBackgroundAnimation : function () {
                 this.$refs.animBG.toggleBackgroundAnimation()
             }
+        },
+        mounted () {
+            this.toggleBackgroundAnimation()
         }
     }
 </script>
