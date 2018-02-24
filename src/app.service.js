@@ -39,9 +39,7 @@ const appService = {
 function getAllPosts () {
     return new Promise((resolve, reject) => {
         api.get(`/blog`).then(response => {
-            api.cache.length().then(length => {
-                console.log(length)
-            })
+            api.cache.length().then(length => {})
             resolve(response.data)
         }).catch(response => {
             reject(response.status)
