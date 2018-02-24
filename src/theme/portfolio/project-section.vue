@@ -131,6 +131,7 @@
             this.checkForDeeplink()
             this.loadProjects()
             this.updateSpinner()
+            this.filterLastUpdated()
         }
     }
 </script>
