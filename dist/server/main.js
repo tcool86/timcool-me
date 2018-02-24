@@ -336,6 +336,11 @@ module.exports = require("dateformat");
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+    data: function data() {
+        return {
+            'displayBG': false
+        };
+    },
     components: {
         'app-header': __WEBPACK_IMPORTED_MODULE_0__header_app_header_vue__["a" /* default */],
         'app-footer': __WEBPACK_IMPORTED_MODULE_1__app_footer_vue__["a" /* default */],
@@ -345,11 +350,35 @@ module.exports = require("dateformat");
     },
     methods: {
         toggleBackgroundAnimation: function toggleBackgroundAnimation() {
-            this.$refs.animBG.toggleBackgroundAnimation();
+            if (this.$refs.animBG) {
+                this.$refs.animBG.toggleBackgroundAnimation();
+            }
+        },
+        checkUserAgent: function checkUserAgent() {
+            if (typeof window !== 'undefined') {
+                var userAgent = window.navigator.userAgent;
+                var chromeCheck = userAgent.lastIndexOf('Chrome') !== -1;
+                var fireFoxCheck = userAgent.lastIndexOf('Firefox') !== -1;
+                var isMobile = userAgent.lastIndexOf('Mobile') !== -1;
+                if ((chromeCheck || fireFoxCheck) && !isMobile) {
+                    this.displayBG = true;
+                }
+            }
+        },
+        showDefaultBackground: function showDefaultBackground() {
+            if (this.displayBG) {
+                return;
+            }
+            return 'default-backdrop';
+        }
+    },
+    watch: {
+        $route: function $route() {
+            this.$refs.animBG.pulseAnimation();
         }
     },
     mounted: function mounted() {
-        this.toggleBackgroundAnimation();
+        this.checkUserAgent();
     }
 });
 
@@ -635,8 +664,8 @@ var Component = normalizeComponent(
                 y: 0
             },
             'box': {
-                width: 20,
-                height: 20
+                width: 66,
+                height: 66
             },
             'timer': 97,
             'delay': 200,
@@ -644,7 +673,7 @@ var Component = normalizeComponent(
             'marked': [],
             'markedOff': false,
             'backColor': '#1f1f1f',
-            'squareFill': '#2f2f2f',
+            'squareFill': '#222222',
             'squareHighlight': '#ffffff',
             'getCanvas': function getCanvas() {
                 return document.getElementById('backdrop-canvas');
@@ -666,7 +695,7 @@ var Component = normalizeComponent(
         stopBackgroundAnimation: function stopBackgroundAnimation() {
             this.marked = [];
             this.markedOff = true;
-            this.counter = 100;
+            this.counter = 50;
             this.pulseAnimation();
             clearInterval(this.animationInterval);
             this.animationInterval = null;
@@ -744,6 +773,7 @@ var Component = normalizeComponent(
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             this.pulseAnimation();
+            this.getContext().save();
         },
         setupListeners: function setupListeners() {
             var self = this;
@@ -761,7 +791,7 @@ var Component = normalizeComponent(
     mounted: function mounted() {
         this.resizeCanvasToWindow();
         this.setupListeners();
-        this.runBackgroundAnimation();
+        this.stopBackgroundAnimation();
     }
 });
 
@@ -2119,7 +2149,7 @@ module.exports = require("js-striphtml");
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_layout_vue__ = __webpack_require__(8);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0da4b53e_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_layout_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_bbd36708_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_layout_vue__ = __webpack_require__(87);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(41),i.__inject__&&i.__inject__(ssrContext),i)
@@ -2140,7 +2170,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "3e8ee688"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_layout_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0da4b53e_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_layout_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_bbd36708_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_layout_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -2868,7 +2898,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_animated_background_vue__ = __webpack_require__(15);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2363f93b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_animated_background_vue__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0548351a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_animated_background_vue__ = __webpack_require__(86);
 var normalizeComponent = __webpack_require__(1)
 /* script */
 
@@ -2885,7 +2915,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = "ce06a714"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_animated_background_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2363f93b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_animated_background_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0548351a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_animated_background_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -2910,7 +2940,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('animated-background',{ref:"animBG"}),_vm._ssrNode(" "),_c('message'),_vm._ssrNode(" "),_c('app-header'),_vm._ssrNode(" "),_vm._ssrNode("<section class=\"view-height\">","</section>",[_vm._ssrNode("<div class=\"container-content\">","</div>",[_c('router-view')],1)]),_vm._ssrNode(" "),_c('settings',{on:{"updateBackground":_vm.toggleBackgroundAnimation}}),_vm._ssrNode(" "),_c('app-footer')],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.showDefaultBackground(),attrs:{"id":"app"}},[(_vm.displayBG)?_c('animated-background',{ref:"animBG"}):_vm._e(),_vm._ssrNode(" "),_c('message'),_vm._ssrNode(" "),_c('app-header'),_vm._ssrNode(" "),_vm._ssrNode("<section class=\"view-height\">","</section>",[_vm._ssrNode("<div class=\"container-content\">","</div>",[_c('router-view')],1)]),_vm._ssrNode(" "),(_vm.displayBG)?_c('settings',{on:{"updateBackground":_vm.toggleBackgroundAnimation}}):_vm._e(),_vm._ssrNode(" "),_c('app-footer')],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
