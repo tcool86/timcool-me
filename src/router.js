@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import blog from './theme/blog.vue'
 import about from './theme/about.vue'
 import extra from './theme/extra.vue'
-import portfolio from './theme/portfolio/portfolio.vue'
 import projects from './theme/projects/projects.vue'
 import resume from './theme/resume/resume.vue'
 import notFound from './theme/not-found.vue'
@@ -25,9 +24,6 @@ const router = new VueRouter({
     }, {
         path : '/resume',
         component : resume
-    }, {
-        path : '/portfolio',
-        component : portfolio
     }, {
         path : '/projects',
         component : projects
