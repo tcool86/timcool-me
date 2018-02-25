@@ -36,9 +36,6 @@
                 </div>
             </div>
         </section>
-        <section id="about-friend-sites" class="view-height">
-            <friend-sites></friend-sites>
-        </section>
     </div>
 </template>
 <script>
@@ -46,14 +43,7 @@
     <!-- <section id="about-photos"></section>
     <section id="about-skill-stats"></section> -->
 */
-import friend from './friend.vue'
-export default {
-    components : {
-        'friend-sites' : friend
-    }
-}
 </script>
-
 <style lang="scss" scoped>
     @import '../styles/style-vars.scss';
     #about-section {
@@ -111,8 +101,5 @@ export default {
     .about-interests {
         clear: both;
         padding-top: 1rem;
-    }
-    #about-friend-sites {
-        background-color: $backgroundColorBlue;
     }
 </style>

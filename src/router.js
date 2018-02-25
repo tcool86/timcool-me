@@ -2,9 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import blog from './theme/blog.vue'
 import about from './theme/about.vue'
-import friend from './theme/friend.vue'
-// import stuff from './theme/stuff.vue'
+import extra from './theme/extra.vue'
 import portfolio from './theme/portfolio/portfolio.vue'
+import projects from './theme/projects/projects.vue'
+import resume from './theme/resume/resume.vue'
 import notFound from './theme/not-found.vue'
 
 // const notFound = () => System.import('./theme/not-found.vue')
@@ -22,17 +23,23 @@ const router = new VueRouter({
         path : '/about',
         component : about
     }, {
+        path : '/resume',
+        component : resume
+    }, {
         path : '/portfolio',
         component : portfolio
     }, {
-        path : '/portfolio/:deeplink',
-        component : portfolio
+        path : '/projects',
+        component : projects
+    }, {
+        path : '/projects/:deeplink',
+        component : projects
     }, {
         path : '/blog',
         component : blog
     }, {
-        path : '/friends',
-        component : friend
+        path : '/extra',
+        component : extra
     }, {
         path : '*',
         component : notFound

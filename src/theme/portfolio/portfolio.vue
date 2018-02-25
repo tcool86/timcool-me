@@ -29,7 +29,7 @@
     </div>
 </template>
 <script>
-    import projectSection from './project-section.vue'
+    // import projectSection from './project-section.vue'
     import resume from './resume/resume.vue'
 
     const fetchInitialData = (store, route) => {
@@ -38,7 +38,7 @@
 
     export default {
         components : {
-            'project-section' : projectSection,
+            // 'project-section' : projectSection,
             'resume' : resume
         },
         data : function () {

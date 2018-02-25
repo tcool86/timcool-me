@@ -47,7 +47,7 @@
     import DateFormatter from 'dateformat'
     import projectDetail from './project-detail.vue'
     import '../icons'
-
+    const parentPathName = '/projects'
     let closeableClasses = ['detail-modal-background', 'detail-view-wrapper', 'button--close']
 
     export default {
@@ -106,12 +106,12 @@
             },
             handleDeeplinkClose : function () {
                 if (typeof window !== 'undefined') {
-                    let url = window.location.origin + '/portfolio'
+                    let url = window.location.origin + parentPathName
                     window.history.pushState(null, null, url)
                 }
             },
             getFullDeeplink : function () {
-                return window.location.origin + '/portfolio/' + this.deeplinkName()
+                return window.location.origin + parentPathName + '/' + this.deeplinkName()
             },
             deeplinkName : function () {
                 let name = this.project.title
@@ -124,7 +124,7 @@
             if (typeof (window) !== 'undefined') {
                 locationPath = window.location.pathname
             }
-            if (typeof (deeplink) !== 'undefined' && locationPath !== '/portfolio') {
+            if (typeof (deeplink) !== 'undefined' && locationPath !== parentPathName) {
                 if (deeplink === this.deeplinkName()) {
                     setTimeout(() => {
                         this.showDetailBackground = true

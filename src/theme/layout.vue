@@ -15,7 +15,7 @@
 <script>
     import appHeader from './header/app-header.vue'
     import appFooter from './app-footer.vue'
-    import message from './message.vue'
+    import message from './utility/message.vue'
     import settings from './settings.vue'
     import animatedBackground from './animated-background.vue'
 

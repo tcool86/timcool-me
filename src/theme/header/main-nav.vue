@@ -3,18 +3,18 @@
         <li class="" aria-label="show about">
             <router-link class="navbar-item level-item" to="/about">About</router-link>
         </li>
-        <li class="" aria-label="show portfolio">
-            <router-link class="navbar-item level-item" to="/portfolio">Portfolio</router-link>
+        <li class="" aria-label="show resume">
+            <router-link class="navbar-item level-item" to="/resume">Resume</router-link>
+        </li>
+        <li class="" aria-label="show projects">
+            <router-link class="navbar-item level-item" to="/projects">Projects</router-link>
         </li>
         <li class="" aria-label="show blog">
             <router-link class="navbar-item level-item" to="/blog">Blog</router-link>
         </li>
-        <!-- <li class="skew-20" aria-label="show friend sites">
-            <router-link class="navbar-item level-item" to="/friends">Friend Sites</router-link>
-        </li> -->
-        <!-- <li class="skew-20">
-            <router-link class="navbar-item level-item" to="/stuff">Stuff</router-link>
-        </li> -->
+        <li class="" aria-label="show extra">
+            <router-link class="navbar-item level-item" to="/extra">Extra</router-link>
+        </li>
     </ul>
 </template>
 <style lang="scss">

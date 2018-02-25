@@ -1,6 +1,6 @@
 <template>
-    <div class="friends-container">
-        <h1>Cool Sites</h1>
+    <div class="friends-container view-height">
+        <h1>Friends</h1>
         <ul class="friend-site-list">
             <li class="friend-site-item" v-for="friend in friends" v-bind:key="friend.screenshot">
                 <a v-bind:href="friend.url" target="_blank">
@@ -36,7 +36,9 @@ export default {
 
 <style lang="scss" scoped>
     @import '../styles/global.scss';
-
+    .friends-container {
+        background-color: $backgroundColorBlue;
+    }
     .friend-site-list {
         text-align: center;
         .friend-site-item {

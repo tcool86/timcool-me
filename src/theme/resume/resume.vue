@@ -1,11 +1,12 @@
 <template>
-    <section class="resume section">
+    <div class="resume-container">
+        <h1 class="content-title">Resume</h1>
         <div class="resume-wrapper container">
             <rs-blurb class="view-height" id="rs-id"></rs-blurb>
             <tm-blurb class="view-height" id="tm-id" :show-blurb="scrollY"></tm-blurb>
             <hf-blurb class="view-height" id="hf-id" :show-blurb="scrollY"></hf-blurb>
         </div>
-    </section>
+    </div>
 </template>
 <script>
     import rewardStyleBlurb from './blurbs/rs-blurb.vue'
@@ -42,7 +43,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../../../styles/style-vars.scss';
+    @import '../../styles/style-vars.scss';
     .resume-wrapper {
         color: silver;
         article {
