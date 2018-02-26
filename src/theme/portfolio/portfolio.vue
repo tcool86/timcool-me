@@ -90,31 +90,4 @@
             margin: 0 0.5rem;
         }
     }
-    .button {
-        min-width: 8rem;
-        height: 3.5rem;
-        transition: all 0.33s;
-        background-color: $backgroundColor;
-        span {
-            text-transform: uppercase;
-            font-family: 'Exo 2';
-            font-size: 1rem;
-            color: whitesmoke;
-        }
-        &:hover {
-            span {
-                color: black;
-            }
-            background-color: $highlightColor;
-        }
-        &:active {
-            background-color: $activeColor;
-        }
-    }
-    .button--active {
-        span {
-            color: black;
-        }
-        background-color: white;
-    }
 </style>
