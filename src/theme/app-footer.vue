@@ -21,10 +21,3 @@
         }
     }
 </script>
-<style lang="scss" scoped>
-    footer {
-        .container {
-            padding: 4rem;
-        }
-    }
-</style>

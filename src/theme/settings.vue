@@ -26,6 +26,8 @@ export default {
         display: block;
 
         color: black;
+
+        z-index: 1;
         &:hover {
             color: $highlightColor;
         }
