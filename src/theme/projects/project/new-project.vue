@@ -58,7 +58,7 @@
             .project-description {
                 margin-left: 1rem;
 
-                max-width: 40rem;
+                max-width: 64%;
                 max-height: 2.8rem;
 
                 font-size: 12pt;

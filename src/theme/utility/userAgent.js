@@ -24,5 +24,16 @@ export const userAgent = {
             }
             return false
         }
-    }
+    },
+    mobileClassMixin : {
+        methods : {
+            mobileClassWrapper : function (className) {
+                if (userAgent.isMobile()) {
+                    className += '--mobile'
+                }
+                return className
+            }
+        }
+    },
+    mobileSize : 800
 }
