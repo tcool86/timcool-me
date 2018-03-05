@@ -18,6 +18,7 @@
     import message from './utility/message.vue'
     import settings from './settings.vue'
     import animatedBackground from './animated-background.vue'
+    import { userAgent } from './userAgent.js'
 
     export default {
         data : function () {
@@ -38,17 +39,6 @@
                     this.$refs.animBG.toggleBackgroundAnimation()
                 }
             },
-            checkUserAgent : function () {
-                if (typeof window !== 'undefined') {
-                    let userAgent = window.navigator.userAgent
-                    let chromeCheck = userAgent.lastIndexOf('Chrome') !== -1
-                    let fireFoxCheck = userAgent.lastIndexOf('Firefox') !== -1
-                    let isMobile = userAgent.lastIndexOf('Mobile') !== -1
-                    if ((chromeCheck || fireFoxCheck) && !isMobile) {
-                        this.displayBG = true
-                    }
-                }
-            },
             showDefaultBackground : function () {
                 if (this.displayBG) {
                     return
@@ -62,7 +52,7 @@
             }
         },
         mounted () {
-            this.checkUserAgent()
+            this.displayBG = userAgent.canUseBackground()
         }
     }
 </script>
