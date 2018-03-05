@@ -5,18 +5,16 @@
         </div>
         <div class="project-media">
             <div class="project-title title-text" v-text="project.title"></div>
-            <project-tech></project-tech>
+            <project-tech :project="project"></project-tech>
             <div class="project-description" v-text="project.shortDescription"></div>
-            <div class="project-dates-container">
-                <div class="project-date date--updated" v-text="project.last_updated"></div>
-                <div class="project-date date--created" v-text="project.date_started"></div>
-            </div>
+            <project-dates :project="project"></project-dates>
         </div>
     </article>
 </template>
 <script>
     import Media from 'vue-media'
     import projectTech from './project-technology.vue'
+    import projectDates from './project-dates.vue'
     import projectDetail from '../project-detail.vue'
     import '../../icons'
 
@@ -24,7 +22,8 @@
         components : {
             Media,
             'project-detail' : projectDetail,
-            'project-tech' : projectTech
+            'project-tech' : projectTech,
+            'project-dates' : projectDates
         },
         props : ['project']
     }
@@ -70,9 +69,6 @@
                 text-overflow: ellipsis;
             }
 
-            .project-dates-container {
-                margin-left: 0.5rem;
-            }
         }
         * {
             background-color: wheat;

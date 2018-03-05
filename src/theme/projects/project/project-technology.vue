@@ -6,7 +6,9 @@
     </div>
 </template>
 <script>
-export default {}
+export default {
+    props : ['project']
+}
 </script>
 <style lang="scss" scoped>
     .project-tech {
