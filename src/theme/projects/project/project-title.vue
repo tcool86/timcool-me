@@ -12,6 +12,7 @@
     @import '../../../styles/global.scss';
     .project-title {
         position: relative;
+        top: -1rem;
         left: -3rem;
 
         padding-left: 4rem;
@@ -20,6 +21,7 @@
 
         min-width: fit-content;
         width: 64%;
+        height: min-content;
 
         text-overflow: ellipsis;
         white-space: nowrap;

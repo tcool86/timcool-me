@@ -45,12 +45,12 @@
             border-radius: 1rem;
             
             width: 100%;
-
-            background-color: wheat;
+            height: 142px;
+            @media (max-width: $mobileSize) {
+                padding-left: 2rem;
+                
+                height: auto;
+            }
         }
-        // * {
-        //     background-color: wheat;
-        //     height: inherit;
-        // }
     }
 </style>

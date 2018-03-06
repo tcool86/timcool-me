@@ -35,5 +35,6 @@ export const userAgent = {
             }
         }
     },
-    mobileSize : 800
+    mobileSize : 800,
+    tabletSize : 1158
 }

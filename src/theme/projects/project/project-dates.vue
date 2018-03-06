@@ -2,7 +2,11 @@
     <div class="project-dates">
         <media :query=" { maxWidth: mobileWidth } "
             @media-enter="mediaEnterMobile"
-            @media-leave="mediaLeaveMobile">
+            @media-leave="mediaEnterTablet">
+        </media>
+        <media :query=" { maxWidth: tabletWidth, minWidth: mobileWidth } "
+            @media-enter="mediaEnterTablet"
+            @media-leave="mediaLeaveTablet">
         </media>
         <div class="project-date date--updated">
             <span v-if="showFullDates">Updated:&nbsp;</span>
@@ -23,6 +27,7 @@
         data : function () {
             return {
                 mobileWidth : userAgent.mobileSize,
+                tabletWidth : userAgent.tabletSize,
                 showFullDates : true,
                 dateFormat : 'mmmm dS, yyyy',
                 formattedDate : (rawDate) => {
@@ -32,8 +37,11 @@
             }
         },
         methods : {
-            mediaLeaveMobile (query) {
+            mediaEnterTablet (query) {
                 this.showFullDates = true
+                this.dateFormat = 'mmm yyyy'
+            },
+            mediaLeaveTablet (query) {
                 this.dateFormat = 'mmmm dS, yyyy'
             },
             mediaEnterMobile (query) {
@@ -54,12 +62,15 @@
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        right: 0.25rem;
 
         margin-bottom: 0.5rem;
-
-        width: 33%;
         
         @media (max-width: $mobileSize) {
+            position: relative;
+
             width: 100%;
         }
         .project-date {

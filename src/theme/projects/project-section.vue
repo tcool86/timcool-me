@@ -138,7 +138,7 @@
 <style lang="scss">
     @import '../../styles/style-vars.scss';
     #project-section {
-        margin: 4em 10rem 8rem 10rem;
+        margin: 4em 6% 8rem 6%;
         @media (max-width: $tabletSize) {
             margin: 0.25rem;
             margin-bottom: 4rem;
@@ -162,7 +162,7 @@
     .project-container {
         position: relative;
 
-        margin: 2rem 0;
+        margin: 4.8rem 0;
     }
     .search-wrapper {
         margin: 3rem auto;
