@@ -56,8 +56,10 @@
         justify-content: flex-end;
 
         width: 33%;
-        margin-left: 0.5rem;
-
+        
+        @media (max-width: $mobileSize) {
+            width: 100%;
+        }
         .project-date {
             display: flex;
             align-self: flex-end;
@@ -79,7 +81,10 @@
                 color: whitesmoke;
             }
             @media (max-width: $mobileSize) {
-                align-self: flex-start;
+                margin-top: 10px;
+                margin-right: 10px;
+
+                font-size: 8pt;
             }
         }
     }

@@ -14,6 +14,7 @@
     }
 </script>
 <style lang="scss" scoped>
+    @import '../../../styles/style-vars.scss';
     .project-tech {
         display: flex;
         justify-content: flex-end;
@@ -25,6 +26,9 @@
             width: 32px;
             height: 32px;
             background-color: greenyellow;
+        }
+        @media (max-width: $mobileSize) {
+            display: none;
         }
     }
     .project-tech--mobile {

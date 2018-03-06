@@ -1,10 +1,10 @@
 <template>
     <article class="project">
-        <div class="project-image">
-            <img :src="project.icon" :alt="project.iconAlt" />
-        </div>
+        <project-icon :project="project"></project-icon>
         <div class="project-media">
-            <div class="project-title title-text" v-text="project.title"></div>
+            <div class="project-title title-text">
+                <h2>{{ project.title }}</h2>
+            </div>
             <project-tech :project="project"></project-tech>
             <div class="project-description" v-text="project.shortDescription"></div>
             <project-dates :project="project"></project-dates>
@@ -13,6 +13,7 @@
 </template>
 <script>
     import Media from 'vue-media'
+    import projectIcon from './project-icon.vue'
     import projectTech from './project-technology.vue'
     import projectDates from './project-dates.vue'
     import projectDetail from '../project-detail.vue'
@@ -21,6 +22,7 @@
     export default {
         components : {
             Media,
+            'project-icon' : projectIcon,
             'project-detail' : projectDetail,
             'project-tech' : projectTech,
             'project-dates' : projectDates
@@ -29,19 +31,11 @@
     }
 </script>
 <style lang="scss" scoped>
+    @import '../../../styles/style-vars.scss';
     .project {
         background-color: red;
         display: flex;
 
-        .project-image {
-            display: block;
-            img {
-                min-width: 144px;
-                min-height: 144px;
-                max-width: 144px;
-                max-height: 144px;
-            }
-        }
         .project-media {
             display: flex;
             flex-wrap: wrap;
@@ -53,6 +47,21 @@
                 margin-bottom: 0.5rem;
             
                 width: 64%;
+
+                h2 {
+                    font-size: 32pt;
+                }
+
+                @media (max-width: $mobileSize) {
+                    margin-left: 0.5rem;
+                    
+                    h2 {
+                        font-size: 16pt;
+                        text-shadow: black 0 0 2px,
+                                     black 0 0 2px,
+                                     black 0 0 2px;
+                    }
+                }
             }
 
             .project-description {
@@ -67,12 +76,21 @@
                 white-space: pre-line;
                 overflow: hidden;
                 text-overflow: ellipsis;
+
+                @media (max-width: $mobileSize) {
+                    margin-left: 0.5rem;
+
+                    max-width: 90%;
+                    max-height: fit-content;
+
+                    font-size: 10pt;
+                }
             }
 
         }
         * {
             background-color: wheat;
-            height: fit-content;
+            height: inherit;
         }
     }
 </style>

@@ -161,10 +161,13 @@
     }
     .project-container {
         position: relative;
+
+        margin: 2rem 0;
     }
     .search-wrapper {
-        width: 50%;
         margin: 3rem auto;
+        
+        width: 50%;
     }
     .filter-controls {
         width: 100%;
