@@ -17,11 +17,11 @@
     @import '../../../styles/style-vars.scss';
     .project-tech {
         display: flex;
-        justify-content: flex-end;
-        
-        width: 33%;
+        position: absolute;
+        right: 1rem;
+
         height: 32px;
-        background-color: purple;
+
         div {
             width: 32px;
             height: 32px;

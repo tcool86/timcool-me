@@ -1,7 +1,7 @@
 <template>
     <article class="project">
         <project-icon :project="project"></project-icon>
-        <div class="project-media">
+        <div class="project-media backdrop-sky">
             <project-title :title="project.title"></project-title>
             <project-tech :project="project"></project-tech>
             <project-description :description="project.shortDescription"></project-description>

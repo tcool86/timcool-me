@@ -1,5 +1,5 @@
 <template>
-    <div class="project-title title-text skew-20">
+    <div class="project-title title-text skew-20 backdrop-red ">
         <h2 class="skew-minus-20">{{ title }}</h2>
     </div>
 </template>
@@ -16,10 +16,10 @@
 
         padding-left: 4rem;
         margin-bottom: 0.5rem;
+        border: 0.1rem $titleBackgroundColor solid;
 
+        min-width: fit-content;
         width: 64%;
-
-        background-color: red;
 
         text-overflow: ellipsis;
         white-space: nowrap;
