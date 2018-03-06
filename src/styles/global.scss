@@ -73,6 +73,13 @@ footer {
                 0 0 2.5rem #005656;
 }
 
+@mixin smallOverlapLeft() {
+    position: relative;
+    left: -2rem;
+
+    padding-left: 3rem;
+}
+
 .title-wrapper {
     background-color: $titleBackgroundColor;
     text-align: center;

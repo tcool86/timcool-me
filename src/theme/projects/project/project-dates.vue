@@ -5,7 +5,7 @@
             @media-leave="mediaLeaveMobile">
         </media>
         <div class="project-date date--updated">
-            <span v-if="showFullDates">Last Update:&nbsp;</span>
+            <span v-if="showFullDates">Updated:&nbsp;</span>
             {{ formattedDate(project.last_updated) }}
         </div>
         <div v-if="showFullDates" class="project-date date--created">
@@ -55,6 +55,8 @@
         flex-wrap: wrap;
         justify-content: flex-end;
 
+        margin-bottom: 0.5rem;
+
         width: 33%;
         
         @media (max-width: $mobileSize) {
@@ -65,7 +67,7 @@
             align-self: flex-end;
 
             width: fit-content;
-            margin: 5px 1px;
+            margin: 3px 1px;
             padding: 0.1rem 0.35rem;
 
             border: #0A0E28 1px solid;
