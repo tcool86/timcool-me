@@ -1,37 +1,10 @@
 <template>
-    <div :class="mobileClassWrapper('project-tech')">
-        <div class="project-type"></div>
-        <div class="project-platform"></div>
-        <div class="project-code"></div>
+    <div class="project-tech-icons project--type">
+        <div class="tech-wrapper">
+            <i class="tech-icon tech-icon--app"></i>
+        </div>
     </div>
 </template>
 <script>
-    import { userAgent } from '../../utility/userAgent.js'
-
-    export default {
-        mixins : [userAgent.mobileClassMixin],
-        props : ['project']
-    }
+export default {}
 </script>
-<style lang="scss" scoped>
-    @import '../../../styles/style-vars.scss';
-    .project-tech {
-        display: flex;
-        position: absolute;
-        right: 1rem;
-
-        height: 32px;
-
-        div {
-            width: 32px;
-            height: 32px;
-            background-color: greenyellow;
-        }
-        @media (max-width: $mobileSize) {
-            display: none;
-        }
-    }
-    .project-tech--mobile {
-        display: none;
-    }
-</style>

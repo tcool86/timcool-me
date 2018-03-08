@@ -18,7 +18,7 @@
     import message from './utility/message.vue'
     import settings from './settings.vue'
     import animatedBackground from './animated-background.vue'
-    import { userAgent } from './utility/userAgent.js'
+    import { userAgent } from './utility/user-agent.js'
 
     export default {
         data : function () {

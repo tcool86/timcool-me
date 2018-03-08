@@ -1,8 +1,8 @@
 <template>
     <section id="project-section">
-        <div class="level">
-            <div class="level-right filter-controls">
-                <div class="level-item">
+        <div class="controls-container">
+            <div class="filter-controls">
+                <div class="filter-item">
                     <button aria-label="sort projects by date created" class="button" v-on:click="filterDateCreated">
                         <span>Date Created</span>
                         <span class="icon is-small icon--text">
@@ -10,7 +10,7 @@
                         </span>
                     </button>
                 </div>
-                <div class="level-item">
+                <div class="filter-item">
                     <button aria-label="sort projects by last updated" class="button" v-on:click="filterLastUpdated">
                         <span>Last Update</span>
                         <span class="icon is-small icon--text">
@@ -159,10 +159,21 @@
             -webkit-animation-duration: (0.5 + $n/4)s;
         }
     }
+    .projects-container {
+        margin: auto;
+
+        max-width: 1200px;
+    }
     .project-container {
         position: relative;
 
         margin: 4.8rem 0;
+
+        max-width: $contentMaxWidth;
+
+        @media (max-width: $tabletSize) {
+            left: 0.5rem;
+        }
     }
     .search-wrapper {
         margin: 3rem auto;
@@ -170,7 +181,27 @@
         width: 50%;
     }
     .filter-controls {
-        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        margin: auto;
+
+        width: 96%;
+        max-width: $contentMaxWidth;
+
+        @media (max-width: $mobileSize) {
+            flex-direction: column;
+        }
+    }
+    .filter-item {
+        display: flex;
+    
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+
+        @media (max-width: $mobileSize) {
+            justify-content: center;
+        }
     }
     .icon--text {
         font-size: 0.75rem;

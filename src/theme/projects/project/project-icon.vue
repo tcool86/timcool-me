@@ -9,11 +9,20 @@
     }
 </script>
 <style lang="scss" scoped>
-    @import '../../../styles/style-vars.scss';
+    @import '../../../styles/global.scss';
+    .project {
+        &:hover {
+            .project-image {
+                img {
+                    @include coolShadow();
+                }
+            }
+        }
+    }
     .project-image {
         display: flex;
         align-items: center;
-
+        
         img {
             border: 0.1rem $backgroundColor solid;
             border-radius: 20%;
@@ -24,6 +33,13 @@
             max-height: 144px;
 
             z-index: 1;
+            
+            &:hover {
+                cursor: pointer;
+            }
+
+            transition: all 0.33s;
+            
             @media (max-width: $mobileSize) {
                 min-width: 72px;
                 min-height: 72px;

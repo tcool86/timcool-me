@@ -21,7 +21,7 @@
 <script>
     import Media from 'vue-media'
     import DateFormatter from 'dateformat'
-    import { userAgent } from '../../utility/userAgent.js'
+    import { userAgent } from '../../utility/user-agent.js'
 
     export default {
         data : function () {
