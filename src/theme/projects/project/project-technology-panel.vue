@@ -1,28 +1,19 @@
 <template>
     <div :class="mobileClassWrapper('project-tech')">
-        <div class="project-tech-icons project--type">
-            <div class="tech-wrapper">
-                <i class="tech-icon tech-icon--app"></i>
-            </div>
-        </div>
-        <div class="project-tech-icons project--platform">
-            <div class="tech-wrapper">
-                <i class="tech-icon tech-icon--os-x"></i>
-            </div>
-        </div>
-        <div class="project-tech-icons project--language">
-            <div class="tech-wrapper">
-                <i class="tech-icon tech-icon--obj-c"></i>
-            </div>
-        </div>
+        <project-technology :tech="project.technologies.platforms"></project-technology>
+        <project-technology :tech="project.technologies.languages"></project-technology>
+        <project-technology :tech="project.technologies.frameworks"></project-technology>
     </div>
 </template>
 <script>
     import { userAgent } from '../../utility/user-agent.js'
-    import { technologyResolver } from './technology-resolver.js'
+    import projectTech from './project-technology.vue'
 
     export default {
         mixins : [userAgent.mobileClassMixin],
+        components : {
+            'project-technology' : projectTech
+        },
         data : function () {
             return {
                 'frameworks' : [],
@@ -31,18 +22,10 @@
             }
         },
         props : ['project'],
-        methods : {
-
-        },
-        created () {
-            this.project.technologies.platforms.forEach(tech => {
-                let test = technologyResolver.classNameForTech(tech)
-                console.log(test)
-            })
-        }
+        methods : {}
     }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
     @import '../../../styles/style-vars.scss';
     @import '../../../styles/tech-icon-sprites.scss';
 
@@ -50,40 +33,13 @@
         display: flex;
         flex-direction: row;
         position: absolute;
+        top: 0.5rem;
         right: 1rem;
 
         height: 32px;
 
-        div {
-            width: 32px;
-            height: 32px;
-            background-color: greenyellow;
-        }
         @media (max-width: $mobileSize) {
             display: none;
-        }
-    }
-    .project-tech-icons {
-        display: flex;
-        flex-direction: row;
-
-        margin: 0 2px;
-    }
-    .tech-wrapper {
-        display: block;
-        position: relative;
-        
-        margin: 0 2px;
-
-        width: 32px;
-        height: 32px;
-        i {
-            display: block;
-            position: relative;
-            top: -16px;
-            left: -16px;
-
-            transform: scale(0.5);
         }
     }
     .project-tech--mobile {

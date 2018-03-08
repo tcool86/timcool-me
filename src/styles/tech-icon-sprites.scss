@@ -4,7 +4,7 @@ $techIconsImageUrl: url('http://res.cloudinary.com/hnairgdu6/image/upload/v15204
     width: 63px;
     height: 63px;
 }
-.tech-icon--os-x {
+.tech-icon--osx {
     background: $techIconsImageUrl no-repeat 0 0;
 }
 .tech-icon--ios {
@@ -34,7 +34,7 @@ $techIconsImageUrl: url('http://res.cloudinary.com/hnairgdu6/image/upload/v15204
 .tech-icon--apache {
     background: $techIconsImageUrl no-repeat -64px -128px;
 }
-.tech-icon--obj-c {
+.tech-icon--objc {
     background: $techIconsImageUrl no-repeat -128px -128px;
 }
 .tech-icon--swift {

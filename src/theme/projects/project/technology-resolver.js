@@ -1,7 +1,7 @@
 const techDictionary = {
-    'UIKit' : 'apple',
-    'Foundation' : 'apple',
-    'OpenGL' : 'sss'
+    'uikit' : 'apple',
+    'foundation' : 'apple',
+    'superspritesurface' : 'sss'
 }
 
 export const technologyResolver = {
@@ -10,6 +10,6 @@ export const technologyResolver = {
         if (typeof techDictionary[tech] !== 'undefined') {
             name = techDictionary[tech]
         }
-        return '.tech-icon--' + name
+        return 'tech-icon--' + name
     }
 }
