@@ -14,7 +14,7 @@
         &:hover {
             .project-image {
                 img {
-                    @include coolShadow();
+                    @include coolShadowLight();
                 }
             }
         }
@@ -39,7 +39,7 @@
             }
 
             transition: all 0.33s;
-            
+
             @media (max-width: $mobileSize) {
                 min-width: 72px;
                 min-height: 72px;

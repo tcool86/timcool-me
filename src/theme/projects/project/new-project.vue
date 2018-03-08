@@ -100,7 +100,7 @@
         }
     }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
     @import '../../../styles/global.scss';
     .project {
         display: flex;
@@ -117,7 +117,9 @@
 
             box-shadow: 0 0 1px black, 0 0 1px black;
 
+            transition: all 0.33s;
             &:hover {
+                @include coolShadow();
                 cursor: pointer;
             }
 
