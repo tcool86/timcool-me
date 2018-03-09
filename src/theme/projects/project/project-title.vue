@@ -9,7 +9,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../../../styles/global.scss';
+    @import '../../../styles/style-vars.scss';
     .project-title {
         position: relative;
         top: -1rem;

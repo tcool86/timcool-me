@@ -1,17 +1,12 @@
 <template>
     <div class="project-detail-container">
-        <!-- Project detail container:
-                full screen and centered
-                slightly transparent black background
-                blur the background as well-->
+        <transition name="fade-out" mode="out-in">
+            <project-image-detail 
+                v-if="selectedImage !== null" 
+                :image="selectedImage"
+                @closeImage="selectedImage = null"></project-image-detail>
+        </transition>
         <div class="project-detail">
-            <!-- Project detail:
-                    % Margins on non mobile
-                    dark background, light text
-                    title bar
-                    project description markup
-                    close button-->
-                <!-- <image-detail></image-detail> -->
             <div class="project-title title-text backdrop-red">
                 <h2>
                     {{ project.title }}
@@ -31,20 +26,18 @@
                     <span>Created:&nbsp;<b>{{ project.createdDateFormatted }}</b></span>
                 </div>
             </div>
-            <div class="project-description-wrapper" tabindex="0">
+            <div class="project-description-container" tabindex="0">
                 <p class="project-description" v-html="project.description"></p>
             </div>
             <div class="separator"></div>
-            <div class="images-wrapper">
-                <div class="images-container columns">
-                    <div class="column" v-for="projectImage in project.images" v-bind:key="projectImage.image">
-                        <figure v-on:click="getImageDetail" v-on:keyup.enter="getImageDetail" tabindex="0">
-                            <img class="project-image" :src="projectImage.image">
-                            <figcaption>
-                                {{ projectImage.caption }}
-                            </figcaption>
-                        </figure>
-                    </div>
+            <div class="project-images-container">
+                <div class="project-image-container" v-for="projectImage in project.images" v-bind:key="projectImage.image">
+                    <figure v-on:click="getImageDetail" v-on:keyup.enter="getImageDetail" tabindex="0">
+                        <img class="project-image" :src="projectImage.image">
+                        <figcaption>
+                            {{ projectImage.caption }}
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -55,8 +48,13 @@
 </template>
 <script>
     import '../../icons'
+    import projectImageDetail from './project-image-detail.vue'
+
     // consider using global event bus for background blur
     export default {
+        components : {
+            'project-image-detail' : projectImageDetail
+        },
         data : function () {
             return {
                 'selectedImage' : null,
@@ -90,7 +88,7 @@
     }
 </script>
 <style lang="scss" scoped>
-    @import '../../../styles/global.scss';
+    @import '../../../styles/style-vars.scss';
     .project-detail-container {
         display: flex;
         justify-content: center;
@@ -117,8 +115,14 @@
 
         overflow: scroll;
 
-        .meta-info, .project-description-wrapper, .images-wrapper, .images-container {
+        .meta-info, .project-description-container {
             margin: 2rem;
+        }
+        .project-images-container {
+            display: flex;
+            flex-direction: row;
+
+            margin: 4rem 2rem;
         }
         .images-wrapper {
             margin-bottom: 4rem;
@@ -153,8 +157,8 @@
     }
     .button.button--long {
         position: absolute;
-        display: flex;
         bottom: 40px;
+        display: flex;
         
         width: 84%;
 
@@ -166,45 +170,58 @@
             color: black;
         }
     }
-    .images-container {
+    figure {
+        position: relative;
+        display: block;
+
         margin: auto;
 
-        figure {
+        cursor: pointer;
+        img {
             position: relative;
-            display: block;
+            border: 1px solid;
 
-            margin: auto;
-            
             min-width: 200px;
             max-width: 300px;
+            min-height: 200px;
             max-height: 300px;
-
-            overflow: hidden;
-            cursor: pointer;
-            img {
-                border: 1px solid;
-                width: 100%;
-            }
-        }
-        figcaption {
-            text-align: center;
-            left: 0;
-            bottom: 0;
-            position: absolute;
-            padding: 1rem;
-            width: 100%;
-            color: whitesmoke;
-            font-size: 16pt;
-            background-color: rgba(0,0,0,0.75);
         }
     }
+    figcaption {
+        position: absolute;
+        left: 0;
+        bottom: 12px;
+        
+        padding: 1rem;
+        width: 100%;
+        
+        background-color: rgba(0,0,0,0.75);
+
+        color: whitesmoke;
+        font-size: 16pt;
+        text-align: center;
+    }
+    .project-images-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .project-image-container {
+        margin: 1rem;
+
+        min-height: 200px;
+    }
     .separator {
+        margin: 3rem auto;
+
         width: 80%;
         height: 0.13rem;
-        background-color: $titleBackgroundColor;
+        
         border: 0.2rem $color1;
         border-radius: 20%;
-        margin: 3rem auto;
+        
+        background-color: $titleBackgroundColor;
         box-shadow: 0px 0px 3px $backgroundColor;
     }
 </style>

@@ -136,7 +136,6 @@
 </script>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
-    @import '../../styles/global.scss';
     .detail-modal-background {
         display: block;
         position: fixed;

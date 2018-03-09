@@ -9,7 +9,7 @@
     }
 </script>
 <style lang="scss" scoped>
-    @import '../../../styles/global.scss';
+    @import '../../../styles/style-vars.scss';
     .project {
         &:hover {
             .project-image {

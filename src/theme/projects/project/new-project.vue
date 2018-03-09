@@ -101,7 +101,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../../../styles/global.scss';
+    @import '../../../styles/style-vars.scss';
     .project {
         display: flex;
 

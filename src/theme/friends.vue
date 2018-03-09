@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '../styles/global.scss';
+    @import '../styles/style-vars.scss';
     .friends-container {
         background-color: $backgroundColorBlue;
     }
