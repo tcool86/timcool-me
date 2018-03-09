@@ -1649,6 +1649,8 @@ var closeableClasses = ['detail-modal-background', 'detail-view-wrapper', 'butto
 
 
 
+var closeableClasses = ['project-detail-container', 'close-detail'];
+
 // consider using global event bus for background blur
 /* harmony default export */ __webpack_exports__["a"] = ({
     components: {
@@ -1662,6 +1664,12 @@ var closeableClasses = ['detail-modal-background', 'detail-view-wrapper', 'butto
     },
     props: ['project', 'deeplink'],
     methods: {
+        closeOutsideClick: function closeOutsideClick(event) {
+            var className = event.target.className;
+            if (closeableClasses.includes(className)) {
+                this.closeButtonClick(event);
+            }
+        },
         closeButtonClick: function closeButtonClick(event) {
             this.$emit('close');
         },
@@ -3866,7 +3874,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_new_project_detail_vue__ = __webpack_require__(32);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e4d376ee_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_new_project_detail_vue__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_66859f8e_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_new_project_detail_vue__ = __webpack_require__(140);
 function injectStyle (ssrContext) {
 var i
 ;(i=__webpack_require__(136),i.__inject__&&i.__inject__(ssrContext),i)
@@ -3882,12 +3890,12 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-e4d376ee"
+var __vue_scopeId__ = "data-v-66859f8e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = "1bc9011b"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_new_project_detail_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e4d376ee_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_new_project_detail_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_66859f8e_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_new_project_detail_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -3962,7 +3970,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"project-detail-container"},[_c('transition',{attrs:{"name":"fade-out","mode":"out-in"}},[(_vm.selectedImage !== null)?_c('project-image-detail',{attrs:{"image":_vm.selectedImage},on:{"closeImage":function($event){_vm.selectedImage = null}}}):_vm._e()],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"project-detail\" data-v-e4d376ee>","</div>",[_vm._ssrNode("<div class=\"project-title title-text backdrop-red\" data-v-e4d376ee>","</div>",[_vm._ssrNode("<h2 data-v-e4d376ee>","</h2>",[_vm._ssrNode(_vm._ssrEscape("\n                "+_vm._s(_vm.project.title)+"\n                ")),_vm._ssrNode("<span data-v-e4d376ee>","</span>",[_c('svgicon',{staticClass:"icon-large clickable icon-link",attrs:{"icon":"link"}})],1),_vm._ssrNode(" "),_c('transition',{attrs:{"name":"fade-out"}},[(_vm.linkCopied)?_c('div',{staticClass:"link--copy-message"},[_vm._v("link copied")]):_vm._e()])],2)]),_vm._ssrNode(" <div class=\"meta-info level\" data-v-e4d376ee><div class=\"project-date last-updated level-left\" data-v-e4d376ee><span data-v-e4d376ee>Updated: <b data-v-e4d376ee>"+_vm._ssrEscape(_vm._s(_vm.project.lastUpdatedFormatted))+"</b></span></div> <div class=\"project-date level-left\" data-v-e4d376ee><span data-v-e4d376ee>Created: <b data-v-e4d376ee>"+_vm._ssrEscape(_vm._s(_vm.project.createdDateFormatted))+"</b></span></div></div> <div tabindex=\"0\" class=\"project-description-container\" data-v-e4d376ee><p class=\"project-description\" data-v-e4d376ee>"+(_vm._s(_vm.project.description))+"</p></div> <div class=\"separator\" data-v-e4d376ee></div> <div class=\"project-images-container\" data-v-e4d376ee>"+(_vm._ssrList((_vm.project.images),function(projectImage){return ("<div class=\"project-image-container\" data-v-e4d376ee><figure tabindex=\"0\" data-v-e4d376ee><img"+(_vm._ssrAttr("src",projectImage.image))+" class=\"project-image\" data-v-e4d376ee> <figcaption data-v-e4d376ee>"+_vm._ssrEscape("\n                        "+_vm._s(projectImage.caption)+"\n                    ")+"</figcaption></figure></div>")}))+"</div>")],2),_vm._ssrNode(" <div class=\"button button--long\" data-v-e4d376ee>\n        close\n    </div>")],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"project-detail-container",on:{"click":_vm.closeOutsideClick}},[_c('transition',{attrs:{"name":"fade-out","mode":"out-in"}},[(_vm.selectedImage !== null)?_c('project-image-detail',{attrs:{"image":_vm.selectedImage},on:{"closeImage":function($event){_vm.selectedImage = null}}}):_vm._e()],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"project-detail\" data-v-66859f8e>","</div>",[_vm._ssrNode("<div class=\"project-title title-text backdrop-red\" data-v-66859f8e>","</div>",[_vm._ssrNode("<h2 data-v-66859f8e>","</h2>",[_vm._ssrNode(_vm._ssrEscape("\n                "+_vm._s(_vm.project.title)+"\n                ")),_vm._ssrNode("<span data-v-66859f8e>","</span>",[_c('svgicon',{staticClass:"icon-large clickable icon-link",attrs:{"icon":"link"}})],1),_vm._ssrNode(" "),_c('transition',{attrs:{"name":"fade-out"}},[(_vm.linkCopied)?_c('div',{staticClass:"link--copy-message"},[_vm._v("link copied")]):_vm._e()])],2)]),_vm._ssrNode(" <div class=\"meta-info level\" data-v-66859f8e><div class=\"project-date last-updated level-left\" data-v-66859f8e><span data-v-66859f8e>Updated: <b data-v-66859f8e>"+_vm._ssrEscape(_vm._s(_vm.project.lastUpdatedFormatted))+"</b></span></div> <div class=\"project-date level-left\" data-v-66859f8e><span data-v-66859f8e>Created: <b data-v-66859f8e>"+_vm._ssrEscape(_vm._s(_vm.project.createdDateFormatted))+"</b></span></div></div> <div tabindex=\"0\" class=\"project-description-container\" data-v-66859f8e><p class=\"project-description\" data-v-66859f8e>"+(_vm._s(_vm.project.description))+"</p></div> <div class=\"separator\" data-v-66859f8e></div> <div class=\"project-images-container\" data-v-66859f8e>"+(_vm._ssrList((_vm.project.images),function(projectImage){return ("<div class=\"project-image-container\" data-v-66859f8e><figure tabindex=\"0\" data-v-66859f8e><img"+(_vm._ssrAttr("src",projectImage.image))+" class=\"project-image\" data-v-66859f8e> <figcaption data-v-66859f8e>"+_vm._ssrEscape("\n                        "+_vm._s(projectImage.caption)+"\n                    ")+"</figcaption></figure></div>")}))+"</div>")],2),_vm._ssrNode(" <div class=\"close-detail button button--long\" data-v-66859f8e>\n        close\n    </div>")],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
