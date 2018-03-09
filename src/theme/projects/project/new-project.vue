@@ -27,7 +27,7 @@
     import projectDescription from './project-description.vue'
     import projectTech from './project-technology-panel.vue'
     import projectDates from './project-dates.vue'
-    import projectDetail from '../project-detail.vue'
+    import projectDetail from './new-project-detail.vue'
     import '../../icons'
 
     const parentPathName = '/projects'

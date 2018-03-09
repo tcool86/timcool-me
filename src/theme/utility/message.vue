@@ -14,9 +14,15 @@
 <script>
 export default {
     methods : {
+        backdropChange : function (change) {
+            this.$refs.message.className = 'message is-info ' + 'message--' + change
+        },
         closeMessage : function () {
             this.$refs.message.remove()
         }
+    },
+    mounted () {
+        this.$on('backdropChange', this.backdropChange)
     }
 }
 </script>
@@ -25,6 +31,9 @@ export default {
         position: fixed;
         z-index: 100;
         width: 100%;
+    }
+    .message--blur {
+        filter: blur(20px)
     }
 </style>
 

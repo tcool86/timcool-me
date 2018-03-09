@@ -4,7 +4,7 @@
             <div class="post-image"></div>
         </div>
         <div class="content-wrapper media-content">
-            <div class="title-wrapper skew-20">
+            <div class="title-wrapper skew-20 backdrop-red">
                 <slot name='title'></slot>
             </div>
             <div class="topics" >

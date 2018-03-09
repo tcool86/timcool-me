@@ -1,5 +1,5 @@
 <template>
-    <div class="project-title title-text skew-20 backdrop-red ">
+    <div class="project-title title-text skew-20 backdrop-red">
         <h2 class="skew-minus-20">{{ title }}</h2>
     </div>
 </template>
@@ -8,7 +8,7 @@
         props : ['title']
     }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
     @import '../../../styles/global.scss';
     .project-title {
         position: relative;
