@@ -1,5 +1,5 @@
 <template>
-    <div class="project-detail-container">
+    <div class="project-detail-container" v-on:click="closeOutsideClick">
         <transition name="fade-out" mode="out-in">
             <project-image-detail 
                 v-if="selectedImage !== null" 
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="button button--long" v-on:click="closeButtonClick">
+        <div class="close-detail button button--long" v-on:click="closeButtonClick">
             close
         </div>
     </div>
@@ -49,6 +49,8 @@
 <script>
     import '../../icons'
     import projectImageDetail from './project-image-detail.vue'
+
+    let closeableClasses = ['project-detail-container', 'close-detail']
 
     // consider using global event bus for background blur
     export default {
@@ -63,6 +65,12 @@
         },
         props : ['project', 'deeplink'],
         methods : {
+            closeOutsideClick (event) {
+                let className = event.target.className
+                if (closeableClasses.includes(className)) {
+                    this.closeButtonClick(event)
+                }
+            },
             closeButtonClick (event) {
                 this.$emit('close')
             },
