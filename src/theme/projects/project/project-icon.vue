@@ -15,6 +15,7 @@
             .project-image {
                 img {
                     @include coolShadowLight();
+                    transform: translate(-0.5rem,-0.5rem);
                 }
             }
         }

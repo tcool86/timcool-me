@@ -1,6 +1,6 @@
 <template>
-    <div id="app" :class="showDefaultBackground()">
-        <animated-background v-if="displayBG" ref="animBG"></animated-background>
+    <div id="app" :class="appBackdropClass">
+        <!-- <animated-background v-if="displayBG" ref="animBG"></animated-background> -->
         <message></message>
         <app-header></app-header>
         <section class="view-height">
@@ -8,7 +8,7 @@
                 <router-view></router-view>
             </div>
         </section>
-        <settings @updateBackground="toggleBackgroundAnimation" v-if="displayBG"></settings>
+        <!-- <settings @updateBackground="toggleBackgroundAnimation" v-if="displayBG"></settings> -->
         <app-footer></app-footer>
     </div>
 </template>
@@ -23,7 +23,8 @@
     export default {
         data : function () {
             return {
-                'displayBG' : false
+                'displayBG' : false,
+                'appBackdropClass' : 'default-backdrop'
             }
         },
         components : {

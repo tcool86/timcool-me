@@ -1,5 +1,5 @@
 <template>
-    <canvas id="backdrop-canvas" width=2000 height=2000 v-once></canvas>
+    <canvas id="backdrop-canvas" width=2000 height=2000 ref="bgcanvas" class="hide"></canvas>
 </template>
 <script>
 export default {
@@ -39,6 +39,7 @@ export default {
             }
         },
         stopBackgroundAnimation : function () {
+            this.$refs.bgcanvas.className = 'hide'
             this.marked = []
             this.markedOff = true
             this.counter = 50
@@ -114,6 +115,7 @@ export default {
         },
         runBackgroundAnimation : function () {
             let self = this
+            this.$refs.bgcanvas.className = ''
             this.markedOff = false
             this.animationInterval = setInterval(function () {
                 self.pulseAnimation()
@@ -146,3 +148,8 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+    .hide {
+        display: none;
+    }
+</style>

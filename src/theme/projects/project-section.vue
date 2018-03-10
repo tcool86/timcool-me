@@ -40,7 +40,7 @@
     </section>
 </template>
 <script>
-    import project from './project/new-project.vue'
+    import project from './project/project.vue'
     import { mapGetters } from 'vuex'
 
     const fetchInitialData = (store, route) => {
