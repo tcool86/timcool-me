@@ -32,18 +32,23 @@
     }
     .close-button-wrapper {
         position: absolute;
-        right: 0rem;
+        right: -8px;
     }
     .project-image-detail {
-        position: absolute;
+        position: relative;
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        flex-direction: row-reverse;
 
-        height: fit-content;
-        width: fit-content;
         max-width: 92%;
+        max-height: 92%;
 
         img {
             border: 4px black solid;
             border-radius: 2px;
+
+            cursor: pointer;
         }
     }
 </style>

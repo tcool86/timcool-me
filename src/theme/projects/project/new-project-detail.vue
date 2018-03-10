@@ -1,6 +1,6 @@
 <template>
     <div class="project-detail-container" v-on:click="closeOutsideClick">
-        <transition name="fade-out" mode="out-in">
+        <transition name="fade" mode="out-in">
             <project-image-detail 
                 v-if="selectedImage !== null" 
                 :image="selectedImage"
@@ -112,6 +112,8 @@
         z-index: 100;
     }
     .project-detail {
+        position: relative;
+
         margin: 40px 8%;
 
         width: 100%;
@@ -137,6 +139,7 @@
         }
     }
     .project-title {
+        position: sticky;
         top: 0;
         left: 0;
 
@@ -166,6 +169,7 @@
     .button.button--long {
         position: absolute;
         bottom: 40px;
+        left: 8%;
         display: flex;
         
         width: 84%;
@@ -198,7 +202,7 @@
     figcaption {
         position: absolute;
         left: 0;
-        bottom: 12px;
+        bottom: 11px;
         
         padding: 1rem;
         width: 100%;

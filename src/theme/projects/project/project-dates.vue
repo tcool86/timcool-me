@@ -77,7 +77,6 @@
             display: flex;
             align-self: flex-end;
 
-            width: fit-content;
             margin: 3px 1px;
             padding: 0.1rem 0.35rem;
 

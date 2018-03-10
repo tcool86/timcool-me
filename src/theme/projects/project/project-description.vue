@@ -24,7 +24,6 @@
             margin-bottom: 0;
 
             max-width: 90%;
-            max-height: fit-content;
 
             font-size: 10pt;
         }

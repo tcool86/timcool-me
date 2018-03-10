@@ -19,15 +19,16 @@
         margin-bottom: 0.5rem;
         border: 0.1rem $titleBackgroundColor solid;
 
-        min-width: fit-content;
+        min-width: auto;
         width: 64%;
-        height: min-content;
-
-        text-overflow: ellipsis;
-        white-space: nowrap;
 
         h2 {
+            width: 100%;
+
             font-size: 32pt;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         @media (max-width: $mobileSize) {
