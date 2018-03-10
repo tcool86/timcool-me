@@ -17,8 +17,8 @@
     import appFooter from './app-footer.vue'
     import message from './utility/message.vue'
     import settings from './settings.vue'
-    import animatedBackground from './animated-background.vue'
-    import { userAgent } from './utility/user-agent.js'
+    // import animatedBackground from './animated-background.vue'
+    // import { userAgent } from './utility/user-agent.js'
 
     export default {
         data : function () {
@@ -31,7 +31,7 @@
             'app-header' : appHeader,
             'app-footer' : appFooter,
             'message' : message,
-            'animated-background' : animatedBackground,
+            // 'animated-background' : animatedBackground,
             'settings' : settings
         },
         methods : {
@@ -49,11 +49,11 @@
         },
         watch : {
             $route () {
-                this.$refs.animBG.pulseAnimation()
+                // this.$refs.animBG.pulseAnimation()
             }
         },
         mounted () {
-            this.displayBG = userAgent.canUseBackground()
+            // this.displayBG = userAgent.canUseBackground()
         }
     }
 </script>
