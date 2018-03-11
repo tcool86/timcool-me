@@ -69,20 +69,26 @@ footer {
 }
 
 .title-wrapper {
-    background-color: $titleBackgroundColor;
-    text-align: center;
-    width: 50%;
-    padding: 0.25rem;
+    position: relative;
+    top: 1rem;
+    
     margin-left: 1.75rem;
+    padding: 0.25rem;
+
+    width: 50%;
     border-radius: 0;
     border-color: $color1;
     border-width: 0.1rem;
     border-style: solid;
-    top: 1rem;
-    position: relative;
+    
+    background-color: $titleBackgroundColor;
+
+    text-align: center;
+
     @media (max-width: $tabletSize) {
-        width: auto;
         margin-right: 1.75rem;
+
+        width: auto;
     }
 }
 
@@ -94,13 +100,16 @@ footer {
 .button {
     min-width: 8rem;
     height: 3.5rem;
-    transition: all 0.33s;
+
     background-color: $backgroundColor;
+
+    transition: all 0.33s;
     span {
-        text-transform: uppercase;
+        color: whitesmoke;
+
         font-family: 'Exo 2';
         font-size: 1rem;
-        color: whitesmoke;
+        text-transform: uppercase;
     }
     &:hover {
         span {
@@ -120,11 +129,14 @@ footer {
 }
 
 .icon-large {
+    margin-left: 0.5rem;
+
     width: 2rem;
     height: 2rem;
-    margin-left: 0.5rem;
-    transition: 1s;
+    
     fill: white;
+
+    transition: 1s;
     &:hover {
         transition: 0.5s;
     }
@@ -207,9 +219,11 @@ h2 {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
+    
+    color: #EEE;
+
     font-family: 'Audiowide', sans-serif;
     font-size: 2em;
-    color: #EEE;
 }
 
 .view-height {
@@ -217,13 +231,15 @@ h2 {
 }
 
 .close-button {
+    z-index: 2;
     position: absolute;
-    cursor: pointer;
-    margin-right: 2%;
     top: -1rem;
     right: -0.5rem;
+
+    margin-right: 2%;
     border-radius: 100%;
-    z-index: 2;
+
+    cursor: pointer;
     path{
         &:first-child {
             fill: black;
