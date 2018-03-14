@@ -1,5 +1,5 @@
 <template>
-    <ul class="nav-wrapper social-links-wrapper">
+    <ul class="social-links-wrapper">
         <li class="level-item">
             <a href="//www.facebook.com/timcool" target="_blank" rel="noopener" alt="facebook">
                 <svgicon icon="facebook" class="icon-large clickable facebook-color"></svgicon>
@@ -34,19 +34,22 @@
 <style lang="scss">
     @import '../../styles/style-vars.scss';
     #nav-main {
-        .nav-wrapper {
-            z-index: 1;
-            transition: all 0.15s ease-out;
-        }
         .social-links-wrapper {
+            display: flex;
             position: relative;
             top: 0.25rem;
-            background-color: $backgroundColorSocial;
+            align-self: flex-end;
+            
             border: 3px solid $backgroundColor;
             border-radius: 5px;
             padding: 0.5rem;
             padding-right: 1rem;
             padding-top: 0.75rem;
+
+            background-color: $backgroundColorSocial;
+
+            transition: all 0.15s ease-out;
+            z-index: 1;
         }
     }
     .footer-with-social {

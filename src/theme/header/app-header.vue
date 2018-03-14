@@ -1,21 +1,15 @@
 <template>
     <div id="nav-main">
-        <nav class="level container" ref="staticmenu" v-bind:style="staticStyles">
-            <main-nav></main-nav>
+        <nav class="navigation" ref="staticmenu" v-bind:style="staticStyles">
+            <main-nav v-if="showMenu"></main-nav>
             <media :query="{minWidth: 1158}">
-                <social-links class="level-right"></social-links>
-            </media>
-        </nav>
-        <nav class="level container top-layer" ref="dynamicmenu" :key="resizeWidth" v-bind:style="styles">
-            <main-nav></main-nav>
-            <media :query="{minWidth: 1158}">
-                <social-links class="level-right"></social-links>
+                <social-links></social-links>
             </media>
         </nav>
     </div>
 </template>
 <script>
-    import mainNavigation from './main-nav.vue'
+    import mainNavigation from './new-navigation.vue'
     import socialLinks from './social-links.vue'
     import Media from 'vue-media'
     
@@ -28,7 +22,8 @@
         data : function () {
             return {
                 scrollDown : false,
-                resizeWidth : 0
+                resizeWidth : 0,
+                showMenu : true
             }
         },
         computed : {
@@ -95,4 +90,17 @@
         }
     }
 </script>
+<style lang="scss">
+    @import '../../styles/style-vars.scss';
+    .navigation {
+        display: flex;
+    }
+    @media (max-width: $tabletSize) {
+        .navigation {
+            flex-direction: column;
+            align-items: flex-end;
+            align-self: flex-start;
+        }
+    }
+</style>
 
