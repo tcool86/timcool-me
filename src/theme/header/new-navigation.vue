@@ -21,7 +21,9 @@
     @import '../../styles/style-vars.scss';
     .navigation-menu {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        position: relative;
+        top: 2rem;
     }
     .navigation-item {
         padding: 1.5rem;

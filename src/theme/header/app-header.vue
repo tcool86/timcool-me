@@ -94,10 +94,10 @@
     @import '../../styles/style-vars.scss';
     .navigation {
         display: flex;
+        flex-direction: column;
     }
     @media (max-width: $tabletSize) {
         .navigation {
-            flex-direction: column;
             align-items: flex-end;
             align-self: flex-start;
         }

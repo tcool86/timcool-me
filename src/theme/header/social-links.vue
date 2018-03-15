@@ -38,6 +38,7 @@
             display: flex;
             position: relative;
             top: 0.25rem;
+            right: 2rem;
             align-self: flex-end;
             
             border: 3px solid $backgroundColor;
