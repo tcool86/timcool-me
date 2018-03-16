@@ -95,6 +95,9 @@
     .navigation {
         display: flex;
         flex-direction: column;
+
+        height: 6rem;
+        width: 100%;
     }
     @media (max-width: $tabletSize) {
         .navigation {
