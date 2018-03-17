@@ -1,28 +1,43 @@
 <template>
-    <ul class="navigation-menu site-nav backdrop-sky">
-        <li aria-label="show about">
-            <router-link class="navigation-item" to="/about">About</router-link>
-        </li>
-        <li aria-label="show resume">
-            <router-link class="navigation-item" to="/resume">Resume</router-link>
-        </li>
-        <li aria-label="show projects">
-            <router-link class="navigation-item" to="/projects">Projects</router-link>
-        </li>
-        <li aria-label="show blog">
-            <router-link class="navigation-item" to="/blog">Blog</router-link>
-        </li>
-        <li aria-label="show extra">
-            <router-link class="navigation-item" to="/extra">Extra</router-link>
-        </li>
-    </ul>
+    <div class="navigation-container">
+        <div class="mobile-menu">
+            <svgicon icon="menu" class="icon-large clickable"></svgicon>
+        </div>
+        <ul class="navigation-menu site-nav backdrop-sky">
+            <li aria-label="show about">
+                <router-link class="navigation-item" to="/about">About</router-link>
+            </li>
+            <li aria-label="show resume">
+                <router-link class="navigation-item" to="/resume">Resume</router-link>
+            </li>
+            <li aria-label="show projects">
+                <router-link class="navigation-item" to="/projects">Projects</router-link>
+            </li>
+            <li aria-label="show blog">
+                <router-link class="navigation-item" to="/blog">Blog</router-link>
+            </li>
+            <li aria-label="show extra">
+                <router-link class="navigation-item" to="/extra">Extra</router-link>
+            </li>
+        </ul>
+    </div>
 </template>
+<script>
+    import '../icons'
+    export default {
+    
+    }
+</script>
+
 <style lang="scss">
     @import '../../styles/style-vars.scss';
+    .mobile-menu {
+        display: none;
+    }
     .navigation-menu {
-        display: flex;
         justify-content: flex-start;
         position: fixed;
+        display: flex;
 
         padding: 2rem 4rem;
         width: 100%;
@@ -63,9 +78,16 @@
         }
     }
     @media (max-width: $tabletSize) {
+        .mobile-menu {
+            position: relative;
+            right: 1rem;
+            top: 1rem;
+            display: block;
+        }
         .navigation-menu {
             flex-direction: column;
             align-items: flex-start;
+            display: none;
         }
         .navigation-item {
             padding: 0.5rem;

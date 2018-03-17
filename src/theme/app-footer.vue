@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-with-social">
         <media :query="{maxWidth: 1158}">
-            <social-links class="level is-mobile"></social-links>
+            <social-links class="social-links level is-mobile"></social-links>
         </media>
         <div class="container">
             <div class="content has-text-centered">
@@ -21,3 +21,11 @@
         }
     }
 </script>
+<style lang="scss">
+    .social-links.is-mobile {
+        margin: auto;
+        
+        max-width: 400px;
+    }
+</style>
+
