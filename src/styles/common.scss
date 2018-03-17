@@ -38,6 +38,12 @@ footer {
                 0 0 0.5rem $activeColor;
 }
 
+.no-focus *:focus {
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -50,7 +56,7 @@ footer {
 .top-layer {
     width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: $foreground;
     top: 0;
 }
 
@@ -231,7 +237,7 @@ h2 {
 }
 
 .close-button {
-    z-index: 2;
+    z-index: $foreground;
     position: absolute;
     top: -1rem;
     right: -0.5rem;
@@ -264,6 +270,20 @@ h2 {
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.spinner-container {
+    position: relative;
+    display: flex;
+
+    height: 10rem;
+    width: 100%;
+
+    background-color: transparent;
+    .spinner {
+        margin: auto;
+        align-content: center;
+    }
 }
 
 *::-webkit-scrollbar-track {

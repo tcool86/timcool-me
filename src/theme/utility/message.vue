@@ -27,9 +27,10 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import '../../styles/style-vars.scss';
     .message.is-info {
         position: fixed;
-        z-index: 100;
+        z-index: $alertLayer;
         width: 100%;
     }
     .message--blur {

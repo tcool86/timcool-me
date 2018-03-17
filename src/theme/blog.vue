@@ -74,17 +74,6 @@
 </script>
 <style lang="scss">
     @import '../styles/style-vars.scss';
-    .spinner-container {
-        position: absolute;
-        height: 10rem;
-        background-color: $backgroundColor;
-        width: 100%;
-        display: grid;
-        .spinner {
-            margin: auto;
-            align-content: center;
-        }
-    }
     .post-wrapper {
         &:first-child {
             margin-top: 4rem;

@@ -130,4 +130,12 @@
             }
         }
     }
+    .no-focus :focus {
+        .project-media {
+            box-shadow: 2px 2px 3px $activeColor, 
+                        3px 3px 4px $activeColor,
+                        4px 4px 5px $activeColor;
+            border-color: $activeColor;
+        }
+    }
 </style>

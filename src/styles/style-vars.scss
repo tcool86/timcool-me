@@ -15,6 +15,13 @@ $borderColor: #565656;
 $backgroundColorBlue: rgba(31, 129, 154, 0.618);
 $contentMaxWidth: 1200px;
 
+/* Layers */
+$background: 1;
+$mainground: 2;
+$foreground: 3;
+$peakground: 4;
+$alertLayer: 100;
+
 /* Mobile & Tablet */
 $tabletSize: 1158px;
 $mobileSize: 800px;

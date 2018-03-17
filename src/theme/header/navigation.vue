@@ -1,5 +1,5 @@
 <template>
-    <div class="navigation-container">
+    <div class="navigation-container noselect">
         <div class="mobile-menu" v-on:click="mobileMenuTapped">
             <svgicon icon="menu" class="icon-large clickable"></svgicon>
         </div>
@@ -7,8 +7,11 @@
             @media-enter="enterMobile"
             @media-leave="leaveMobile">
         </media>
-        <transition name="fade-out" mode="out-in">
-            <ul :class="menuClasses" v-if="showMenu" v-on:click="setListItemActive" ref="menuList">
+        <transition name="fade-out" mode="out-in" v-on:enter="setListItemActive">
+            <ul :class="menuClasses" 
+                v-if="showMenu"
+                v-on:click="setListItemActiveClick"
+                ref="menuList">
                 <li aria-label="show about">
                     <router-link class="navigation-item" to="/about">About</router-link>
                 </li>
@@ -33,12 +36,15 @@
     import '../icons'
 
     const menuClasses = ['navigation-menu', 'site-nav', 'backdrop-sky']
+    const routerActiveClass = 'router-link-exact-active'
+    const listItemActiveClass = 'active'
 
     export default {
         data : function () {
             return {
                 'showMenu' : true,
-                'menuClasses' : menuClasses
+                'menuClasses' : menuClasses,
+                'activeItem' : 0
             }
         },
         methods : {
@@ -51,25 +57,43 @@
             mobileMenuTapped : function (event) {
                 this.showMenu = !this.showMenu
             },
-            setListItemActive : function (event) {
-                this.$refs.menuList.querySelectorAll('li').forEach((li) => {
-                    li.className = ''
+            setListItemActive : function () {
+                let listItems = this.$refs.menuList.querySelectorAll('li')
+                listItems.forEach((item) => {
+                    let routerLink = item.firstElementChild
+                    let linkClasses = routerLink.className.split(' ')
+                    if (linkClasses.includes(routerActiveClass)) {
+                        item.className = listItemActiveClass
+                    } else {
+                        item.className = ''
+                    }
                 })
+            },
+            setListItemActiveClick : function (event) {
                 let listItem = event.target
-                if (listItem.nodeName === 'UL' || listItem.nodeName === 'LI') {
+                if (listItem.nodeName !== 'A') {
                     event.stopPropagation()
                     return
                 }
-                listItem.parentElement.className = 'active'
+                this.$refs.menuList.querySelectorAll('li').forEach((li) => {
+                    li.className = ''
+                })
+                listItem.parentElement.className = listItemActiveClass
             }
         },
         components : {
             Media
+        },
+        mounted () {
+            this.setListItemActive()
         }
     }
 </script>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
+    .navigation-container {
+        z-index: $peakground;
+    }
     .mobile-menu {
         display: none;
     }
@@ -113,6 +137,8 @@
             background-color: $highlightColor;
             color: black;
 
+            box-shadow: 4px 4px 8px silver;
+
             cursor: pointer;
         }
         &:active {
@@ -140,13 +166,13 @@
             flex-direction: column;
             align-items: flex-start;
             position: relative;
-            top: 4rem;
+            top: 5rem;
             right: 0;
 
             padding: 1rem;
             border-radius: 12px;
 
-            z-index: 100;
+            z-index: $peakground;
         }
         .navigation-item {
             padding: 0.5rem;

@@ -19,6 +19,7 @@
     }
 </script>
 <style lang="scss">
+    @import '../../../../styles/style-vars.scss';
     .project-image-detail-container {
         position: absolute;
         display: flex;
@@ -28,7 +29,7 @@
         width: 100vw;
         height: 100vh;
 
-        z-index: 200;
+        z-index: $alertLayer;
     }
     .close-button-wrapper {
         position: absolute;

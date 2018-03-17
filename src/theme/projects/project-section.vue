@@ -20,15 +20,13 @@
                 </div>
             </div>
         </div>
-        <transition name="fade">
-            <div class="spinner-container content" v-if="showSpinner">
-                <div class="spinner">
-                    <div class="loader"></div>
-                </div>
-            </div>
-        </transition>
         <transition name="fade" mode="out-in">
-            <div class="projects-container">
+            <div class="projects-container no-focus">
+                <div class="spinner-container content" v-if="showSpinner">
+                    <div class="spinner">
+                        <div class="loader"></div>
+                    </div>
+                </div>
                 <div
                     v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
                     v-for="project in projectsModel" 
@@ -60,7 +58,7 @@
         data : function () {
             return {
                 'showSpinner' : true,
-                'animateProjects' : false,
+                'animateProjects' : true,
                 'searchProjects' : [],
                 'projectsModel' : [],
                 'searchActive' : false
@@ -144,20 +142,9 @@
             margin-bottom: 4rem;
         }
     }
-    .spinner-container {
-        height: 10rem;
-        background-color: $backgroundColor;
-        width: 100%;
-        display: grid;
-        .v-spinner {
-            margin: auto;
-        }
-    }
-    @mixin projectFadeIn($n) {
-        &:nth-child(#{$n}) {
-            -moz-animation-duration: (0.5 + $n/4)s;
-            -webkit-animation-duration: (0.5 + $n/4)s;
-        }
+    .push-up-animation {
+        animation: pushUp;
+        animation-duration: 0.66s;
     }
     .projects-container {
         margin: auto;

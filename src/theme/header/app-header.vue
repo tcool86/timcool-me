@@ -9,7 +9,7 @@
     </div>
 </template>
 <script>
-    import mainNavigation from './new-navigation.vue'
+    import mainNavigation from './navigation.vue'
     import socialLinks from './social-links.vue'
     import Media from 'vue-media'
     

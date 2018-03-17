@@ -33,7 +33,7 @@
             max-width: 144px;
             max-height: 144px;
 
-            z-index: 1;
+            z-index: $mainground;
             
             &:hover {
                 cursor: pointer;

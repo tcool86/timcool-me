@@ -1,5 +1,5 @@
 <template>
-    <ul class="social-links-wrapper">
+    <ul class="social-links-wrapper no-focus">
         <li class="social-item">
             <a href="//www.facebook.com/timcool" target="_blank" rel="noopener" alt="facebook">
                 <svgicon icon="facebook" class="icon-large clickable facebook-color"></svgicon>
@@ -50,7 +50,14 @@
             background-color: $backgroundColorSocial;
 
             transition: all 0.15s ease-out;
-            z-index: 1;
+            z-index: $peakground;
+        }
+    }
+    .no-focus  {
+        a:focus {
+            svg {
+                fill: $activeColor;
+            }
         }
     }
     .social-item {

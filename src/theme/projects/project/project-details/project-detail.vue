@@ -80,7 +80,7 @@
         height: 100vh;
 
         background-color: $backgroundColorSocial;
-        z-index: 100;
+        z-index: $alertLayer;
     }
     .project-detail {
         position: relative;
