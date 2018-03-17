@@ -57,7 +57,7 @@
         },
         methods : {
             handleScrollEvent : function (event) {
-                const menuHeight = 2
+                const menuHeight = 120
                 if (window.scrollY >= menuHeight) {
                     this.$data.scrollDown = true
                 } else {
