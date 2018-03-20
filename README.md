@@ -10,7 +10,6 @@ TODO
 $ git clone https://github.com/tcool86/timcool-me.git
 $ cd timcool-me
 $ npm install
-$ npm run build-dev
 $ npm run start 
 ```
 
