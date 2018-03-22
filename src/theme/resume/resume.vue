@@ -1,6 +1,28 @@
 <template>
     <div class="resume-container">
-        <h1 class="content-title">Resume</h1>
+        <h1 class="content-title">Work Experience</h1>
+        <div class="tech-wrapper">
+            <i :class="'tech-icon tech-icon--ios'"></i>
+            <i :class="'tech-icon tech-icon--osx'"></i>
+            <i :class="'tech-icon tech-icon--windows'"></i>
+            <i :class="'tech-icon tech-icon--linux'"></i>
+            <i :class="'tech-icon tech-icon--web'"></i>
+            <i :class="'tech-icon tech-icon--bash'"></i>
+            <i :class="'tech-icon tech-icon--node'"></i>
+            <i :class="'tech-icon tech-icon--apache'"></i>
+            <i :class="'tech-icon tech-icon--objc'"></i>
+            <i :class="'tech-icon tech-icon--swift'"></i>
+            <i :class="'tech-icon tech-icon--php'"></i>
+            <i :class="'tech-icon tech-icon--python'"></i>
+            <i :class="'tech-icon tech-icon--js'"></i>
+            <i :class="'tech-icon tech-icon--realbasic'"></i>
+            <i :class="'tech-icon tech-icon--html'"></i>
+            <i :class="'tech-icon tech-icon--css'"></i>
+            <i :class="'tech-icon tech-icon--sass'"></i>
+            <i :class="'tech-icon tech-icon--jquery'"></i>
+            <i :class="'tech-icon tech-icon--vue'"></i>
+            <i :class="'tech-icon tech-icon--angular'"></i>
+        </div>
         <div class="resume-wrapper container">
             <rs-blurb class="view-height" id="rs-id"></rs-blurb>
             <tm-blurb class="view-height" id="tm-id" :show-blurb="scrollY"></tm-blurb>
@@ -44,6 +66,7 @@
 </script>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
+    @import '../../styles/tech-icon-sprites.scss';
     .resume-wrapper {
         color: silver;
         article {
@@ -158,6 +181,29 @@
         }
         .add-on-block {
             margin-top: 4rem;
+        }
+    }
+    .project-tech-icons {
+        display: flex;
+        flex-direction: row;
+
+        margin: 0 2px;
+    }
+    .tech-wrapper {
+        display: block;
+        position: relative;
+        
+        margin: 0 2px;
+
+        width: 32px;
+        height: 32px;
+        i {
+            display: block;
+            position: relative;
+            top: -16px;
+            left: -16px;
+
+            transform: scale(0.5);
         }
     }
 </style>
