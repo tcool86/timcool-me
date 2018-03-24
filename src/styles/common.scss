@@ -449,6 +449,10 @@ h2 {
     }
 }
 
+.project-move {
+    transition: transform 0.66s;
+}
+
 @keyframes hoverImageFocus {
     from {
         filter: brightness(0.5) blur(0.3em) contrast(60%);

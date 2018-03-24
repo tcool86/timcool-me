@@ -20,19 +20,22 @@
                 </div>
             </div>
         </div>
-        <transition name="fade" mode="out-in">
+        <transition name="fade" mode="in-out">
             <div class="projects-container no-focus">
                 <div class="spinner-container content" v-if="showSpinner">
                     <div class="spinner">
                         <div class="loader"></div>
                     </div>
                 </div>
-                <div
-                    v-bind:class="{ 'project-container' : true, 'push-up-animation' : animateProjects }" 
-                    v-for="project in projectsModel" 
-                    v-bind:key="project._id">
-                    <project :project="project"></project>
-                </div>
+                <transition-group name="project" tag="div" class="projects-list">
+                    <div
+                        v-bind:class="{ 'project-container' : true }"
+                        v-for="project in projectsModel" 
+                        v-bind:key="project._id"
+                        ref="projects">
+                        <project :project="project" :data-id="project._id"></project>
+                    </div>
+                </transition-group>
             </div>
         </transition>
     </section>
@@ -114,6 +117,21 @@
                     }
                     return 0
                 })
+            },
+            updateZOrdering () {
+                let projects = this.$refs.projects
+                if (typeof projects === 'undefined') {
+                    return
+                }
+                let projectsModel = this.projectsModel
+                let modelIndices = {}
+                projectsModel.forEach((model, index) => {
+                    modelIndices[model._id] = index
+                })
+                projects.forEach((project, index) => {
+                    let id = project.firstChild.attributes['data-id'].value
+                    project.style.zIndex = (200 + modelIndices[id])
+                })
             }
         },
         watch : {
@@ -123,13 +141,17 @@
             'projects' () {
                 this.updateSpinner()
             },
-            'projectsModel' (val) {}
+            'projectsModel' (val) {
+                this.updateZOrdering()
+            }
         },
         created () {
             this.checkForDeeplink()
             this.loadProjects()
             this.updateSpinner()
-            this.filterLastUpdated()
+        },
+        mounted () {
+            this.updateZOrdering()
         }
     }
 </script>
