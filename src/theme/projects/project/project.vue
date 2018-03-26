@@ -28,6 +28,7 @@
     import projectTech from './project-technology-panel.vue'
     import projectDates from './project-dates.vue'
     import projectDetail from './project-details/project-detail.vue'
+    import { EventBus } from '../../../event-bus.js'
     import '../../icons'
 
     const parentPathName = '/projects'
@@ -54,6 +55,7 @@
             handleProjectOnClick () {
                 this.handleDeeplinkOpen()
                 this.showDetailBackground = true
+                EventBus.$emit('testing', this.$props.project.title)
             },
             closeModal : function (event) {
                 let targetClass = event.target.className

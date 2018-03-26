@@ -17,9 +17,12 @@
     import appFooter from './app-footer.vue'
     import message from './utility/message.vue'
     import settings from './settings.vue'
+    import { EventBus } from '../event-bus.js'
     // import animatedBackground from './animated-background.vue'
     // import { userAgent } from './utility/user-agent.js'
-
+    EventBus.$on('testing', (data) => {
+        console.log('this actually work? ' + data)
+    })
     export default {
         data : function () {
             return {
