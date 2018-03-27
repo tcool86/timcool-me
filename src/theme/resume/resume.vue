@@ -1,27 +1,67 @@
 <template>
     <div class="resume-container">
         <h1 class="content-title">Work Experience</h1>
-        <div class="tech-wrapper">
-            <i :class="'tech-icon tech-icon--ios'"></i>
-            <i :class="'tech-icon tech-icon--osx'"></i>
-            <i :class="'tech-icon tech-icon--windows'"></i>
-            <i :class="'tech-icon tech-icon--linux'"></i>
-            <i :class="'tech-icon tech-icon--web'"></i>
-            <i :class="'tech-icon tech-icon--bash'"></i>
-            <i :class="'tech-icon tech-icon--node'"></i>
-            <i :class="'tech-icon tech-icon--apache'"></i>
-            <i :class="'tech-icon tech-icon--objc'"></i>
-            <i :class="'tech-icon tech-icon--swift'"></i>
-            <i :class="'tech-icon tech-icon--php'"></i>
-            <i :class="'tech-icon tech-icon--python'"></i>
-            <i :class="'tech-icon tech-icon--js'"></i>
-            <i :class="'tech-icon tech-icon--realbasic'"></i>
-            <i :class="'tech-icon tech-icon--html'"></i>
-            <i :class="'tech-icon tech-icon--css'"></i>
-            <i :class="'tech-icon tech-icon--sass'"></i>
-            <i :class="'tech-icon tech-icon--jquery'"></i>
-            <i :class="'tech-icon tech-icon--vue'"></i>
-            <i :class="'tech-icon tech-icon--angular'"></i>
+        <div class="technologies-worked-with">
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--ios'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--osx'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--windows'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--linux'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--web'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--bash'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--node'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--apache'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--objc'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--swift'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--php'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--python'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--js'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--realbasic'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--html'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--css'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--sass'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--jquery'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--vue'"></i>
+            </div>
+            <div class="tech-wrapper">
+                <i :class="'tech-icon tech-icon--angular'"></i>
+            </div>
         </div>
         <div class="resume-wrapper container">
             <rs-blurb class="view-height" id="rs-id"></rs-blurb>
@@ -64,7 +104,7 @@
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../../styles/style-vars.scss';
     @import '../../styles/tech-icon-sprites.scss';
     .resume-wrapper {
@@ -190,20 +230,25 @@
         margin: 0 2px;
     }
     .tech-wrapper {
-        display: block;
+        display: inline-block;
         position: relative;
         
         margin: 0 2px;
 
-        width: 32px;
-        height: 32px;
+        width: 64px;
+        height: 64px;
         i {
             display: block;
             position: relative;
-            top: -16px;
-            left: -16px;
+            top: 0;
+            left: 0;
 
-            transform: scale(0.5);
+            transform: scale(1);
         }
+    }
+    .technologies-worked-with {
+        width: 100%;
+        height: 30em;
+        margin: auto;
     }
 </style>
