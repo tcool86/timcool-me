@@ -1,7 +1,7 @@
 <template>
     <div id="app" :class="appBackdropClass">
         <!-- <animated-background v-if="displayBG" ref="animBG"></animated-background> -->
-        <message></message>
+        <!-- <message></message> -->
         <app-header></app-header>
         <section class="view-height">
             <div class="container-content">
