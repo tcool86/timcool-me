@@ -20,14 +20,14 @@
                 </div>
             </div>
         </div>
-        <transition name="fade" mode="in-out">
-            <div class="projects-container no-focus">
-                <div class="spinner-container content" v-if="showSpinner">
-                    <div class="spinner">
-                        <div class="loader"></div>
-                    </div>
+        <transition name="fade" mode="out-in">
+            <div class="spinner-container content" v-if="showSpinner">
+                <div class="spinner">
+                    <div class="loader"></div>
                 </div>
-                <transition-group name="project" tag="div" class="projects-list">
+            </div>
+            <div class="projects-container no-focus push-up-animation" v-if="!showSpinner">
+                <transition-group name="project" tag="div" class="projects-list" >
                     <div
                         v-bind:class="{ 'project-container' : true }"
                         v-for="project in projectsModel" 
@@ -166,7 +166,7 @@
     }
     .push-up-animation {
         animation: pushUp;
-        animation-duration: 0.66s;
+        animation-duration: 1.66s;
     }
     .projects-container {
         margin: auto;
