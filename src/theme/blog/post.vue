@@ -19,7 +19,7 @@
     </article>
 </template>
 <script>
-    import Filter from '../vuex/filters.js'
+    import Filter from '../../vuex/filters.js'
     export default {
         data : function () {
             var filters = []

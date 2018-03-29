@@ -18,7 +18,7 @@
     </section>
 </template>
 <script>
-    import Filter from '../vuex/filters.js'
+    import Filter from '../../vuex/filters.js'
     import post from './post.vue'
     import { mapGetters } from 'vuex'
 
@@ -73,7 +73,7 @@
     }
 </script>
 <style lang="scss">
-    @import '../styles/style-vars.scss';
+    @import '../../styles/style-vars.scss';
     .post-wrapper {
         &:first-child {
             margin-top: 4rem;

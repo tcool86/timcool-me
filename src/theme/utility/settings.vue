@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-    @import '../styles/style-vars.scss';
+    @import '../../styles/style-vars.scss';
     .checkbox {
         position: absolute;
         bottom: 2rem;

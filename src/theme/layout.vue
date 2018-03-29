@@ -16,7 +16,7 @@
     import appHeader from './header/app-header.vue'
     import appFooter from './app-footer.vue'
     import message from './utility/message.vue'
-    import settings from './settings.vue'
+    import settings from './utility/settings.vue'
     import { EventBus } from '../event-bus.js'
     // import animatedBackground from './animated-background.vue'
     // import { userAgent } from './utility/user-agent.js'
