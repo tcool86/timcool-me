@@ -26,6 +26,7 @@
     import projectMetaInfo from './project-meta-info.vue'
     import projectImagesSection from './project-images-section.vue'
     import projectImageDetail from './project-image-detail.vue'
+    import { EventBus } from '../../../../event-bus'
 
     let closeableClasses = ['project-detail-container', 'close-detail']
 
@@ -51,7 +52,7 @@
                 }
             },
             closeButtonClick (event) {
-                this.$emit('close')
+                EventBus.$emit('hideProjectDetail')
             },
             closeImageDetailClick (event) {
                 event.stopPropagation()

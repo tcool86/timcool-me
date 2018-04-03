@@ -54,8 +54,7 @@
         methods : {
             handleProjectOnClick () {
                 this.handleDeeplinkOpen()
-                this.showDetailBackground = true
-                EventBus.$emit('testing', this.$props.project.title)
+                EventBus.$emit('showProjectDetail', this.$props.project)
             },
             closeModal : function (event) {
                 let targetClass = event.target.className
@@ -84,20 +83,6 @@
             deeplinkName : function () {
                 let name = this.project.title
                 return name.toLowerCase().replace(/\s/g, '-')
-            }
-        },
-        created () {
-            let deeplink = this.$route.params.deeplink
-            let locationPath = ''
-            if (typeof (window) !== 'undefined') {
-                locationPath = window.location.pathname
-            }
-            if (typeof (deeplink) !== 'undefined' && locationPath !== parentPathName) {
-                if (deeplink === this.deeplinkName()) {
-                    setTimeout(() => {
-                        this.showDetailBackground = true
-                    }, 200)
-                }
             }
         }
     }

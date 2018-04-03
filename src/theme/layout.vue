@@ -1,14 +1,12 @@
 <template>
     <div id="app" :class="appBackdropClass">
-        <!-- <animated-background v-if="displayBG" ref="animBG"></animated-background> -->
-        <!-- <message></message> -->
+        <project-details v-if="project !== null" :project="project"></project-details>
         <app-header></app-header>
         <section class="view-height">
             <div class="container-content">
                 <router-view></router-view>
             </div>
         </section>
-        <!-- <settings @updateBackground="toggleBackgroundAnimation" v-if="displayBG"></settings> -->
         <app-footer></app-footer>
     </div>
 </template>
@@ -17,46 +15,35 @@
     import appFooter from './app-footer.vue'
     import message from './utility/message.vue'
     import settings from './utility/settings.vue'
+    import projectDetails from './projects/project/project-details/project-detail.vue'
     import { EventBus } from '../event-bus.js'
-    // import animatedBackground from './animated-background.vue'
-    // import { userAgent } from './utility/user-agent.js'
-    EventBus.$on('testing', (data) => {
-        console.log('this actually work? ' + data)
-    })
+
     export default {
         data : function () {
             return {
-                'displayBG' : false,
-                'appBackdropClass' : 'default-backdrop'
+                'appBackdropClass' : 'default-backdrop',
+                'project' : null
             }
         },
         components : {
             'app-header' : appHeader,
             'app-footer' : appFooter,
             'message' : message,
-            // 'animated-background' : animatedBackground,
+            'project-details' : projectDetails,
             'settings' : settings
         },
         methods : {
-            toggleBackgroundAnimation : function () {
-                if (this.$refs.animBG) {
-                    this.$refs.animBG.toggleBackgroundAnimation()
-                }
-            },
-            showDefaultBackground : function () {
-                if (this.displayBG) {
-                    return
-                }
-                return 'default-backdrop'
-            }
-        },
-        watch : {
-            $route () {
-                // this.$refs.animBG.pulseAnimation()
+            setProjectDetail : function (project) {
+                this.project = project
             }
         },
         mounted () {
-            // this.displayBG = userAgent.canUseBackground()
+            EventBus.$on('showProjectDetail', (project) => {
+                this.setProjectDetail(project)
+            })
+            EventBus.$on('hideProjectDetail', (project) => {
+                this.setProjectDetail(null)
+            })
         }
     }
 </script>
