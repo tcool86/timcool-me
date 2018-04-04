@@ -14,9 +14,9 @@
             </div>
             <div class="separator"></div>
             <project-images-section :images="project.images" @imageClicked="getImageDetail"></project-images-section>
-        </div>
-        <div class="close-detail button button--long" v-on:click="closeButtonClick">
-            close
+            <div class="close-detail button button--long" v-on:click="closeButtonClick">
+                close
+            </div>
         </div>
     </div>
 </template>
@@ -106,12 +106,11 @@
         display: none;
     }
     .button.button--long {
-        position: absolute;
         bottom: 40px;
-        left: 8%;
         display: flex;
-        
-        width: 84%;
+        margin: auto;
+
+        width: 64%;
 
         color: whitesmoke;
 
