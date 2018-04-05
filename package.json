@@ -19,6 +19,7 @@
     "build-dev": "npm run generate-icons-dev; npm run build;"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.3.0",
     "axios-cache-adapter": "^2.0.0",
     "chai": "^4.1.2",
     "check-node-version": "^3.1.1",
