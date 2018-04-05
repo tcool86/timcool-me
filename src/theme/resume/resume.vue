@@ -1,68 +1,7 @@
 <template>
     <div class="resume-container">
         <h1 class="content-title">Work Experience</h1>
-        <div class="technologies-worked-with">
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--ios'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--osx'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--windows'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--linux'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--web'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--bash'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--node'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--apache'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--objc'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--swift'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--php'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--python'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--js'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--realbasic'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--html'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--css'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--sass'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--jquery'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--vue'"></i>
-            </div>
-            <div class="tech-wrapper">
-                <i :class="'tech-icon tech-icon--angular'"></i>
-            </div>
-        </div>
+        <resume-job></resume-job>
         <div class="resume-wrapper container">
             <rs-blurb class="view-height" id="rs-id"></rs-blurb>
             <tm-blurb class="view-height" id="tm-id" :show-blurb="scrollY"></tm-blurb>
@@ -74,6 +13,7 @@
     import rewardStyleBlurb from './blurbs/rs-blurb.vue'
     import thismomentBlurb from './blurbs/tm-blurb.vue'
     import hobbyfanBlurb from './blurbs/hf-blurb.vue'
+    import resumeJob from './resume-job.vue'
 
     export default {
         data : function () {
@@ -85,7 +25,8 @@
         components : {
             'rs-blurb' : rewardStyleBlurb,
             'tm-blurb' : thismomentBlurb,
-            'hf-blurb' : hobbyfanBlurb
+            'hf-blurb' : hobbyfanBlurb,
+            'resume-job' : resumeJob
         },
         methods : {
             handleScrollEvent : function (event) {
