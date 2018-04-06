@@ -232,6 +232,21 @@ h2 {
     font-size: 2em;
 }
 
+h3 {
+    margin: 0.5em 0;
+
+    font-size: 14pt;
+    font-weight: bold;
+    font-family: sans-serif;
+
+    color: white;
+
+    text-shadow: -1px -1px 0 #000, 
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+}
+
 .view-height {
     min-height: 100vh;
 }
@@ -264,6 +279,18 @@ h2 {
     background: #200122;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.backdrop-blue {
+    background: #3a47d5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #00d2ff, #3a47d5);
+    background: linear-gradient(to top, #00d2ff, #3a47d5);
+}
+
+.backdrop-dark-blue {
+    background: #182848;
+    background: -webkit-linear-gradient(to top, #293b65, #182848);
+    background: linear-gradient(to top, #293b65, #182848);
 }
 
 .backdrop-grey {

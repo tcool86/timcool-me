@@ -3,7 +3,7 @@
         <div class="tech-wrapper" 
             v-for="icon in iconClasses"
             v-bind:key="icon">
-            <i :class="'tech-icon ' + icon"></i>
+            <i :class="'tech-icon ' + icon" :alt="icon"></i>
         </div>
     </div>
 </template>
