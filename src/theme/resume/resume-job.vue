@@ -1,43 +1,29 @@
 <template>
     <div class="job-container view-height">
         <div class="company-name title-text backdrop-blue">
-            <h2>rewardStyle + LIKEtoKNOW.it</h2>
+            <h2>{{company}}</h2>
         </div>
         <job-technology :tech="technologies"></job-technology>
         <div class="job-title job-detail">
-            <h3>Software Engineer (iOS/Full-Stack)</h3>
+            <h3>{{jobTitle}}</h3>
         </div>
         <div class="max-1024 job-detail job-description backdrop-dark-blue">
             <h3>Primary Achievements:</h3>
-            <div>
-                Built and maintained features inside the rewardStyle iOS influencer app. 
-                The influencer app was used to post 1k+ original pieces of content daily by 12k+ publishers. 
-                Those posts engaged 2.3M+ LIKEtoKNOW.it users generating $210 million in sales to retail partners.
-                Developed part of the front-end web experience for rewardStyle's Display product.
+            <div v-for="achievement in achievements"
+                v-bind:key="achievement">
+                <li class="job-achievement">
+                    {{achievement}}
+                </li>
             </div>
         </div>
         <div class="job-detail">
             <div class="job-links">
                 <h3>Links:</h3>
-                <ul>
-                    <a href="//www.rewardstyle.com">
+                <ul v-for="link in links"
+                    v-bind:key="link.name">
+                    <a :href="link.href">
                         <li class="job-link">
-                            rewardStyle.com
-                        </li>
-                    </a>
-                     <a href="//itunes.apple.com/us/app/rewardstyle/id632918824">
-                        <li class="job-link">
-                            influencer app
-                        </li>
-                    </a>
-                    <a href="//www.liketoknow.it">
-                        <li class="job-link">
-                            LIKEtoKNOW.it
-                        </li>
-                    </a>
-                    <a href="//itunes.apple.com/us/app/liketoknow-it/id1154027990">
-                        <li class="job-link">
-                            consumer app
+                            {{link.name}}
                         </li>
                     </a>
                 </ul>
@@ -60,10 +46,37 @@
         'objc',
         'swift'
     ]
+    var testAchievements = [
+        'Built and maintained features inside the rewardStyle iOS influencer app. The influencer app was used to post 1k+ original pieces of content daily by 12k+ publishers. Those posts engaged 2.3M+ LIKEtoKNOW.it users generating $210 million in sales to retail partners.',
+        'Developed part of the front-end web experience for rewardStyle\'s Display product.',
+        'Integration of new rewardStyle APIs for mobile app consumption.'
+    ]
+    var testLinks = [
+        {
+            'name' : 'rewardStyle.com',
+            'href' : '//www.rewardstyle.com'
+        },
+        {
+            'name' : 'influencer app',
+            'href' : '//itunes.apple.com/us/app/rewardstyle/id632918824'
+        },
+        {
+            'name' : 'LIKEtoKNOW.it',
+            'href' : '//www.liketoknow.it'
+        },
+        {
+            'name' : 'consumer app',
+            'href' : '//itunes.apple.com/us/app/liketoknow-it/id1154027990'
+        }
+    ]
     export default {
         data : function () {
             return {
-                'technologies' : testResume
+                'company' : 'rewardStyle + LIKEtoKNOW.it',
+                'jobTitle' : 'Software Engineer (iOS/Full-Stack)',
+                'technologies' : testResume,
+                'achievements' : testAchievements,
+                'links' : testLinks
             }
         },
         components : {
@@ -143,8 +156,11 @@
         width: 100%;
     }
     .job-description {
-
         color: white;
+    }
+    .job-achievement {
+        text-indent: 1rem;
+        list-style-type: disc;
     }
     .job-links-container {
         display: flex;
