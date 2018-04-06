@@ -269,6 +269,14 @@ h3 {
     }
 }
 
+.dark-text {
+    color: black;
+    text-shadow: -1px -1px 0 #FFF, 
+                1px -1px 0 #FFF,
+                -1px 1px 0 #FFF,
+                1px 1px 0 #FFF;
+}
+
 .backdrop-sky {
     background: #ECE9E6;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
@@ -297,6 +305,12 @@ h3 {
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.backdrop-green {
+    background: #008552;
+    background: -webkit-linear-gradient(to top, #9ebd13, #008552);
+    background: linear-gradient(to top, #9ebd13, #008552);
 }
 
 .spinner-container {

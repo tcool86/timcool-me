@@ -1,15 +1,15 @@
 <template>
     <div class="job-container view-height">
-        <div class="company-name title-text backdrop-blue">
-            <h2>{{company}}</h2>
+        <div :class="'company-name title-text ' + job.bannerClass">
+            <h2 :class="job.textColor">{{job.company}}</h2>
         </div>
-        <job-technology :tech="technologies"></job-technology>
+        <job-technology :tech="job.technologies"></job-technology>
         <div class="job-title job-detail">
-            <h3>{{jobTitle}}</h3>
+            <h3>{{job.title}}</h3>
         </div>
         <div class="max-1024 job-detail job-description backdrop-dark-blue">
             <h3>Primary Achievements:</h3>
-            <div v-for="achievement in achievements"
+            <div v-for="achievement in job.achievements"
                 v-bind:key="achievement">
                 <li class="job-achievement">
                     {{achievement}}
@@ -19,7 +19,7 @@
         <div class="job-detail">
             <div class="job-links">
                 <h3>Links:</h3>
-                <ul v-for="link in links"
+                <ul v-for="link in job.links"
                     v-bind:key="link.name">
                     <a :href="link.href">
                         <li class="job-link">
@@ -33,52 +33,8 @@
 </template>
 <script>
     import jobTechnologies from '../projects/project/project-technology.vue'
-    var testResume = [
-        'web',
-        'jquery',
-        'html',
-        'css',
-        'js',
-        'angular',
-        'bash',
-        'ios',
-        'apple',
-        'objc',
-        'swift'
-    ]
-    var testAchievements = [
-        'Built and maintained features inside the rewardStyle iOS influencer app. The influencer app was used to post 1k+ original pieces of content daily by 12k+ publishers. Those posts engaged 2.3M+ LIKEtoKNOW.it users generating $210 million in sales to retail partners.',
-        'Developed part of the front-end web experience for rewardStyle\'s Display product.',
-        'Integration of new rewardStyle APIs for mobile app consumption.'
-    ]
-    var testLinks = [
-        {
-            'name' : 'rewardStyle.com',
-            'href' : '//www.rewardstyle.com'
-        },
-        {
-            'name' : 'influencer app',
-            'href' : '//itunes.apple.com/us/app/rewardstyle/id632918824'
-        },
-        {
-            'name' : 'LIKEtoKNOW.it',
-            'href' : '//www.liketoknow.it'
-        },
-        {
-            'name' : 'consumer app',
-            'href' : '//itunes.apple.com/us/app/liketoknow-it/id1154027990'
-        }
-    ]
     export default {
-        data : function () {
-            return {
-                'company' : 'rewardStyle + LIKEtoKNOW.it',
-                'jobTitle' : 'Software Engineer (iOS/Full-Stack)',
-                'technologies' : testResume,
-                'achievements' : testAchievements,
-                'links' : testLinks
-            }
-        },
+        props : ['job'],
         components : {
             'job-technology' : jobTechnologies
         }
@@ -139,6 +95,9 @@
 
             background: inherit;
             content: '';
+        }
+        h3 {
+            margin-top: 0;
         }
         .job-detail {
             display: flex;
