@@ -147,6 +147,7 @@
     .job-achievement {
         text-indent: 1rem;
         list-style-type: disc;
+        list-style-position: inside;
     }
     .job-links-container {
         display: flex;
@@ -164,6 +165,12 @@
             background-color: #333;
         
             text-indent: 0.5em;
+
+            transition: all 0.33s;
+            &:hover {
+                background-color: $activeColor;
+                color: black;
+            }
         }
         a {
             color: $highlightColor;

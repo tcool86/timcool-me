@@ -376,7 +376,7 @@ h3 {
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: all .5s
+    transition: all .33s
 }
 .fade-enter, .fade-leave-to {
     opacity: 0;
@@ -393,14 +393,14 @@ h3 {
 }
 
 .fade-out-enter-active, .fade-out-leave-active {
-    transition: all .5s
+    transition: all .33s
 }
 .fade-out-enter, .fade-out-leave-to {
     opacity: 0;
 }
 
 .closeModal-enter-active, .closeModal-leave-active {
-    transition: all 0.3s ease-out;
+    transition: all 0.33s ease-out;
 }
 .closeModal-enter, .closeModal-leave-to {
     opacity: 0;
@@ -412,6 +412,7 @@ h3 {
 .bounce-leave-active {
     animation: bounce-in .33s reverse;
 }
+
 @keyframes bounce-in {
     0% {
         opacity: 0;
