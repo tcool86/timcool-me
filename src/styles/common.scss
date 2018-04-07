@@ -383,6 +383,15 @@ h3 {
     transform: translateY(5rem);
 }
 
+.fade-slow-enter-active, .fade-slow-leave-active {
+    opacity: 1;
+    transition: all 1.5s
+}
+.fade-slow-enter, .fade-slow-leave-to {
+    opacity: 0;
+    transform: translateY(5rem);
+}
+
 .fade-out-enter-active, .fade-out-leave-active {
     transition: all .5s
 }

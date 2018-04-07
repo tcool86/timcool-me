@@ -1,48 +1,75 @@
 <template>
     <div class="job-container view-height">
-        <div :class="'company-name title-text ' + job.bannerClass">
-            <h2 :class="job.textColor">{{job.company}}</h2>
-        </div>
-        <job-technology :tech="job.technologies"></job-technology>
-        <div class="job-title job-detail">
-            <h3>{{job.title}}</h3>
-        </div>
-        <div class="max-1024 job-detail job-description backdrop-dark-blue">
-            <h3>Primary Achievements:</h3>
-            <div v-for="achievement in job.achievements"
-                v-bind:key="achievement">
-                <li class="job-achievement">
-                    {{achievement}}
-                </li>
-            </div>
-        </div>
-        <div class="job-detail">
-            <div class="job-links">
-                <h3>Links:</h3>
-                <ul v-for="link in job.links"
-                    v-bind:key="link.name">
-                    <a :href="link.href">
-                        <li class="job-link">
-                            {{link.name}}
+        <transition name="fade-slow">
+            <div class="job-wrapper" v-if="showOnScroll">
+                <div :class="'company-name title-text ' + job.bannerClass">
+                    <h2 :class="job.textColor">{{job.company}}</h2>
+                </div>
+                <job-technology :tech="job.technologies"></job-technology>
+                <div class="job-title job-detail">
+                    <h3>{{job.title}}</h3>
+                </div>
+                <div class="max-1024 job-detail job-description backdrop-dark-blue">
+                    <h3>Primary Achievements:</h3>
+                    <div v-for="achievement in job.achievements"
+                        v-bind:key="achievement">
+                        <li class="job-achievement">
+                            {{achievement}}
                         </li>
-                    </a>
-                </ul>
+                    </div>
+                </div>
+                <div class="job-detail">
+                    <div class="job-links">
+                        <h3>Links:</h3>
+                        <ul v-for="link in job.links"
+                            v-bind:key="link.name">
+                            <a :href="link.href">
+                                <li class="job-link">
+                                    {{link.name}}
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 <script>
     import jobTechnologies from '../projects/project/project-technology.vue'
     export default {
-        props : ['job'],
+        props : ['job', 'scroll'],
+        data : function () {
+            return {
+                showOnScroll : false
+            }
+        },
         components : {
             'job-technology' : jobTechnologies
+        },
+        methods : {
+            handleScrollUpdate : function (scroll) {
+                let top = (this.$el.offsetTop - 800)
+                if (scroll > top) {
+                    this.showOnScroll = true
+                } else {
+                    this.showOnScroll = false
+                }
+            }
+        },
+        watch : {
+            'scroll' : function (scroll) {
+                this.handleScrollUpdate(scroll)
+            }
+        },
+        mounted () {
+            this.handleScrollUpdate(0)
         }
     }
 </script>
 <style lang="scss">
     @import '../../styles/style-vars.scss';
-    .job-container {
+    .job-wrapper {
         display: flex;
         flex-direction: column;
         

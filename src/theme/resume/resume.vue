@@ -1,9 +1,9 @@
 <template>
     <div class="resume-container">
         <h1 class="content-title">Work Experience</h1>
-        <resume-job :job="rewardstyle"></resume-job>
-        <resume-job :job="thismoment"></resume-job>
-        <resume-job :job="hobbyfan"></resume-job>
+        <resume-job :job="rewardstyle" :scroll="scrollY"></resume-job>
+        <resume-job :job="thismoment" :scroll="scrollY"></resume-job>
+        <resume-job :job="hobbyfan" :scroll="scrollY"></resume-job>
     </div>
 </template>
 <script>
