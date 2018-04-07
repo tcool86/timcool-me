@@ -12,8 +12,9 @@ const technologies = [
 ]
 
 const achievements = [
-    'Built and maintained features inside the rewardStyle iOS influencer app. The influencer app was used to post 1k+ original pieces of content daily by 12k+ publishers. Those posts engaged 2.3M+ LIKEtoKNOW.it users generating $210 million in sales to retail partners.',
-    'Developed part of the front-end web experience for rewardStyle\'s Display product.',
+    'Solved a lot of core issues with the rewardStyle iOS influencer app.',
+    'Built and maintained new features inside the influencer app. The influencer app was used to post 1k+ original pieces of content daily by 12k+ publishers. Those posts engaged 2.3M+ LIKEtoKNOW.it users generating $210 million in sales to retail partners.',
+    'Developed part of the frontend web experience for rewardStyle\'s Display product.',
     'Integration of new rewardStyle APIs for mobile app consumption.'
 ]
 

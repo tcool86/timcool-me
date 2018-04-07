@@ -271,10 +271,10 @@ h3 {
 
 .dark-text {
     color: black;
-    text-shadow: -1px -1px 0 #FFF, 
-                1px -1px 0 #FFF,
-                -1px 1px 0 #FFF,
-                1px 1px 0 #FFF;
+    text-shadow: -1px -1px 0 #888, 
+                1px -1px 0 #888,
+                -1px 1px 0 #888,
+                1px 1px 0 #888;
 }
 
 .backdrop-sky {
@@ -311,6 +311,18 @@ h3 {
     background: #008552;
     background: -webkit-linear-gradient(to top, #9ebd13, #008552);
     background: linear-gradient(to top, #9ebd13, #008552);
+}
+
+.backdrop-thismoment {
+    background: #63B742;
+    background: -webkit-linear-gradient(to top, #fff, #63B742 40%);
+    background: linear-gradient(to top, #fff 0%, #63B742 40%);
+}
+
+.backdrop-hobbyfan {
+    background: #337EC2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #96BEE1, #337EC2);
+    background: linear-gradient(to top, #96BEE1, #337EC2);
 }
 
 .spinner-container {

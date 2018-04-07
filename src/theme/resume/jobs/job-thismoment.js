@@ -12,7 +12,7 @@ const technologies = [
 ]
 
 const achievements = [
-    'Wrote and designed framework and modular components for front-end SDK.',
+    'Wrote and designed framework and modular components for frontend SDK.',
     'Created web APIs to help drive frontend Content Cloud experiences.',
     'Rewrote and refactored legacy code to make it easier to maintain and extend.',
     'Added frontend components to Content Cloud integrating with 3rd party software such as Adobe Experience Manager.'
@@ -33,7 +33,7 @@ const company = 'thismoment'
 
 const title = 'Software Engineer (Tech Lead)'
 
-const bannerClass = 'backdrop-green'
+const bannerClass = 'backdrop-thismoment'
 
 export default {
     technologies,

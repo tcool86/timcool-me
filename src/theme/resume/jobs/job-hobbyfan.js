@@ -29,7 +29,7 @@ const company = 'hobbyfan'
 
 const title = 'Web Developer (Part Time)'
 
-const bannerClass = 'backdrop-blue'
+const bannerClass = 'backdrop-hobbyfan'
 
 export default {
     technologies,
