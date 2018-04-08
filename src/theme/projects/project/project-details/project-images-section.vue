@@ -1,20 +1,15 @@
 <template>
     <div class="project-images-container">
-        <div class="project-image-container" v-for="image in images" v-bind:key="image.image">
+        <div class="project-image-container no-focus" v-for="image in images" v-bind:key="image.image">
             <a :href="image.image" data-fancybox="projectImages" :data-caption="image.caption">
-                <img class="project-image" :src="image.image">
+                <img class="project-image" :src="image.thumb">
             </a>
         </div>
     </div>
 </template>
 <script>
     export default {
-        props : ['images'],
-        methods : {
-            imageClicked : function (event) {
-                this.$emit('imageClicked', event)
-            }
-        }
+        props : ['images']
     }
 </script>
 <style lang="scss" scoped>

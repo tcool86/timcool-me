@@ -1,11 +1,5 @@
 <template>
     <div class="project-detail-container" v-on:click="closeOutsideClick">
-        <transition name="fade" mode="out-in">
-            <project-image-detail 
-                v-if="selectedImage !== null" 
-                :image="selectedImage"
-                @closeImage="selectedImage = null"></project-image-detail>
-        </transition>
         <div class="project-detail">
             <project-detail-title :title="project.title" :deeplink="deeplink"></project-detail-title>
             <project-meta-info :project="project"></project-meta-info>
@@ -25,18 +19,15 @@
     import projectDetailTitle from './project-detail-title.vue'
     import projectMetaInfo from './project-meta-info.vue'
     import projectImagesSection from './project-images-section.vue'
-    import projectImageDetail from './project-image-detail.vue'
     import { EventBus } from '../../../../event-bus'
 
     let closeableClasses = ['project-detail-container', 'close-detail']
 
-    // consider using global event bus for background blur
     export default {
         components : {
             'project-detail-title' : projectDetailTitle,
             'project-meta-info' : projectMetaInfo,
-            'project-images-section' : projectImagesSection,
-            'project-image-detail' : projectImageDetail
+            'project-images-section' : projectImagesSection
         },
         data : function () {
             return {
@@ -131,5 +122,8 @@
         
         background-color: $titleBackgroundColor;
         box-shadow: 0px 0px 3px $backgroundColor;
+    }
+    .project-detail::-webkit-scrollbar-corner {
+        display: none;
     }
 </style>
