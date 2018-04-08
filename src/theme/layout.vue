@@ -1,6 +1,8 @@
 <template>
     <div id="app" :class="appBackdropClass">
-        <project-details v-if="project !== null" :project="project"></project-details>
+        <transition name="fade-in">
+            <project-details v-if="project !== null" :project="project"></project-details>
+        </transition>
         <app-header></app-header>
         <section class="view-height">
             <div class="container-content">
