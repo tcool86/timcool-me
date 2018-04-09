@@ -36,7 +36,7 @@
     import '../icons'
 
     const menuClasses = ['navigation-menu', 'site-nav', 'backdrop-sky']
-    const routerActiveClass = 'router-link-exact-active'
+    const routerActiveClass = 'is-active'
     const listItemActiveClass = 'active'
 
     export default {
@@ -147,7 +147,7 @@
 
             cursor: pointer;
         }
-        &.router-link-exact-active {
+        &.is-active {
             background-color: white;
             
             color: black;
