@@ -271,10 +271,10 @@ h3 {
 
 .dark-text {
     color: black;
-    text-shadow: -1px -1px 0 #888, 
-                1px -1px 0 #888,
-                -1px 1px 0 #888,
-                1px 1px 0 #888;
+    text-shadow: -1px -1px 0 #AAA, 
+                1px -1px 0 #AAA,
+                -1px 1px 0 #AAA,
+                1px 1px 0 #AAA;
 }
 
 .backdrop-sky {
@@ -316,7 +316,7 @@ h3 {
 .backdrop-thismoment {
     background: #63B742;
     background: -webkit-linear-gradient(to top, #fff, #63B742 40%);
-    background: linear-gradient(to top, #fff 0%, #63B742 40%);
+    background: linear-gradient(to top, #239712 0%, #63B742 40%);
 }
 
 .backdrop-hobbyfan {

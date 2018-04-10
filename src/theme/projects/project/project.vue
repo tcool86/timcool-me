@@ -65,9 +65,6 @@
                     this.closeDetail()
                 }
             },
-            closeDetail : function () {
-                this.handleDeeplinkClose()
-            },
             handleDeeplink : function () {
                 if (this.deeplink !== null) {
                     if (this.deeplink === this.deeplinkName()) {
@@ -82,9 +79,6 @@
         },
         mounted () {
             this.handleDeeplink()
-            EventBus.$on('hideProjectDetail', (project) => {
-                this.handleDeeplinkClose()
-            })
         },
         watch : {
             '$route' (to, from) {
