@@ -44,10 +44,11 @@ export default {
         }
     }
     .link--copy-message {
-        position: absolute;
         display: inline;
      
-        margin-left: 2rem;
+        vertical-align: middle;
+        
+        font-size: 21pt;
         
         @media (max-width: $tabletSize) {
             position: relative;

@@ -39,7 +39,9 @@
             closeOutsideClick (event) {
                 let className = event.target.className
                 if (closeableClasses.includes(className)) {
-                    this.closeButtonClick(event)
+                    this.$router.push({
+                        'path' : '/projects'
+                    })
                 }
             },
             closeButtonClick (event) {
