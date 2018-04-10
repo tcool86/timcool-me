@@ -1,15 +1,6 @@
 <template>
     <div class="project-wrapper">
-        <transition name="fade-out" mode="out-in" v-on:after-enter="showDetail = true">
-            <div class="detail-modal-background"
-                v-on:click="closeModal"
-                v-if="showDetailBackground">
-                <transition name="bounce" mode="out-in" v-on:after-leave="showDetailBackground = false">
-                    <project-detail :project="project" :deeplink="getFullDeeplink()" v-if="showDetail" @close="closeDetail"></project-detail>
-                </transition>
-            </div>
-        </transition>
-        <article class="project" tabindex="0" v-on:click="handleProjectOnClick" v-on:keyup.enter="handleProjectOnClick">
+        <router-link tag="article" :to="getRoute()" class="project" tabindex="0" append>
             <project-icon :project="project"></project-icon>
             <div class="project-media backdrop-sky">
                 <project-title :title="project.title"></project-title>
@@ -17,7 +8,7 @@
                 <project-description :description="project.shortDescription"></project-description>
                 <project-dates :project="project"></project-dates>
             </div>
-        </article>
+        </router-link>
     </div>
 </template>
 <script>
@@ -48,13 +39,24 @@
         data : function () {
             return {
                 showDetailBackground : false,
-                showDetail : false
+                showDetail : false,
+                deeplink : null
             }
         },
         methods : {
+            getRoute : function () {
+                return {
+                    path : this.deeplinkName()
+                }
+            },
             handleProjectOnClick () {
-                this.handleDeeplinkOpen()
-                EventBus.$emit('showProjectDetail', this.$props.project)
+                let origin = window.location.origin + parentPathName
+                let link = origin + '/' + this.deeplinkName()
+                let eventData = {
+                    project : this.$props.project,
+                    deeplink : link
+                }
+                EventBus.$emit('showProjectDetail', eventData)
             },
             closeModal : function (event) {
                 let targetClass = event.target.className
@@ -65,25 +67,33 @@
             },
             closeDetail : function () {
                 this.handleDeeplinkClose()
-                this.showDetail = false
             },
-            handleDeeplinkOpen : function () {
-                let url = this.getFullDeeplink()
-                window.history.pushState(null, null, url)
-            },
-            handleDeeplinkClose : function () {
-                if (typeof window !== 'undefined') {
-                    let url = window.location.origin + parentPathName
-                    window.history.pushState(null, null, url)
+            handleDeeplink : function () {
+                if (this.deeplink !== null) {
+                    if (this.deeplink === this.deeplinkName()) {
+                        this.handleProjectOnClick()
+                    }
                 }
-            },
-            getFullDeeplink : function () {
-                return window.location.origin + parentPathName + '/' + this.deeplinkName()
             },
             deeplinkName : function () {
                 let name = this.project.title
                 return name.toLowerCase().replace(/\s/g, '-')
             }
+        },
+        mounted () {
+            this.handleDeeplink()
+            EventBus.$on('hideProjectDetail', (project) => {
+                this.handleDeeplinkClose()
+            })
+        },
+        watch : {
+            '$route' (to, from) {
+                this.deeplink = this.$route.params.title
+                this.handleDeeplink()
+            }
+        },
+        created () {
+            this.deeplink = this.$route.params.title
         }
     }
 </script>

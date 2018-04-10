@@ -1,7 +1,7 @@
 <template>
     <div id="app" :class="appBackdropClass">
         <transition name="fade-in">
-            <project-details v-if="project !== null" :project="project"></project-details>
+            <project-details v-if="project !== null" :project="project" :deeplink="deeplink"></project-details>
         </transition>
         <app-header></app-header>
         <section class="view-height">
@@ -24,7 +24,8 @@
         data : function () {
             return {
                 'appBackdropClass' : 'default-backdrop',
-                'project' : null
+                'project' : null,
+                'deeplink' : null
             }
         },
         components : {
@@ -35,8 +36,9 @@
             'settings' : settings
         },
         methods : {
-            setProjectDetail : function (project) {
-                this.project = project
+            setProjectDetail : function (eventData) {
+                this.project = eventData.project
+                this.deeplink = eventData.deeplink
             }
         },
         mounted () {
@@ -44,7 +46,10 @@
                 this.setProjectDetail(project)
             })
             EventBus.$on('hideProjectDetail', (project) => {
-                this.setProjectDetail(null)
+                this.setProjectDetail({
+                    'project' : null,
+                    'deeplink' : null
+                })
             })
         }
     }

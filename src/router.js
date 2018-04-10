@@ -14,7 +14,6 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     mode : 'history',
     linkActiveClass : 'is-active',
-    scrollBehavior : (to, from, savedPosition) => ({ y : 0 }),
     routes : [{
         path : '/',
         redirect : '/about'
@@ -28,7 +27,7 @@ const router = new VueRouter({
         path : '/projects',
         component : projects
     }, {
-        path : '/projects/:deeplink',
+        path : '/projects/:title',
         component : projects
     }, {
         path : '/blog',

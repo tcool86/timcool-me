@@ -8,9 +8,9 @@
             </div>
             <div class="separator"></div>
             <project-images-section :images="project.images" @imageClicked="getImageDetail"></project-images-section>
-            <div class="close-detail button button--long" v-on:click="closeButtonClick">
+            <router-link to="/projects" class="close-detail button button--long">
                 close
-            </div>
+            </router-link>
         </div>
     </div>
 </template>
@@ -54,6 +54,13 @@
                 let figureNode = event.target.parentElement
                 let imageElement = figureNode.querySelector('img')
                 this.selectedImage = imageElement.src
+            }
+        },
+        watch : {
+            '$route' (to, from) {
+                if (to.path === '/projects') {
+                    this.closeButtonClick()
+                }
             }
         }
     }
