@@ -16,7 +16,7 @@
                     <router-link class="navigation-item" to="/about">About</router-link>
                 </li>
                 <li aria-label="show resume">
-                    <router-link class="navigation-item" to="/resume">Work Exp</router-link>
+                    <router-link class="navigation-item" to="/work">Work Exp</router-link>
                 </li>
                 <li aria-label="show projects">
                     <router-link class="navigation-item" to="/projects">Projects</router-link>

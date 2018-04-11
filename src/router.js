@@ -21,7 +21,7 @@ const router = new VueRouter({
         path : '/about',
         component : about
     }, {
-        path : '/resume',
+        path : '/work',
         component : resume
     }, {
         path : '/projects',
