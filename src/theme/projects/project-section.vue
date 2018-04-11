@@ -171,7 +171,7 @@
     .projects-container {
         margin: auto;
 
-        max-width: 1200px;
+        max-width: 1400px;
     }
     .project-container {
         position: relative;

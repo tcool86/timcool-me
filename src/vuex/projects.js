@@ -1,5 +1,5 @@
 import appServices from '../app.service.js'
-import truncate from 'truncate'
+// import truncate from 'truncate'
 import DateFormatter from 'dateformat'
 import HTMLDecoder from 'decode-html'
 import striphtml from 'js-striphtml'
@@ -26,8 +26,7 @@ const actions = {
                 let decodedDescription = HTMLDecoder(project.description)
                 project.description = decodedDescription
                 let strippedDescription = striphtml.stripTags(project.description)
-                let shortDescription = truncate(strippedDescription, 140, { 'ellipsis' : '... read more' })
-                project.shortDescription = shortDescription
+                project.shortDescription = project.short_description
                 let searchableDescription = strippedDescription.toLowerCase() + project.title.toLowerCase()
                 project.searchableDescription = searchableDescription
                 project.lastUpdatedFormatted = DateFormatter(new Date(project.last_updated), 'mmmm dS, yyyy')

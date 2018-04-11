@@ -104,7 +104,7 @@
             border-radius: 1rem;
             
             width: 100%;
-            height: 142px;
+            height: 126px;
 
             box-shadow: 0 0 1px black, 0 0 1px black;
 

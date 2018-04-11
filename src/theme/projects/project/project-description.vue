@@ -12,8 +12,9 @@
         margin: -0.5rem 0 1rem 0.5rem;
 
         max-width: 72%;
+        min-width: 50%;
 
-        font-size: 12pt;
+        font-size: 14pt;
         line-height: 1.4rem;
 
         white-space: pre-line;
@@ -24,8 +25,7 @@
             margin-bottom: 0;
 
             max-width: 90%;
-
-            font-size: 10pt;
+            min-height: 50px;
         }
     }
 </style>

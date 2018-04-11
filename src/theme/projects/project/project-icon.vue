@@ -21,9 +21,14 @@
         }
     }
     .project-image {
+        position: relative;
+        top: -1rem;
         display: flex;
         align-items: center;
         
+        @media (max-width: $mobileSize) {
+            top: 0;
+        }
         img {
             border: 0.1rem $backgroundColor solid;
             border-radius: 20%;

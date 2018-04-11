@@ -247,6 +247,10 @@ h3 {
                 1px 1px 0 #000;
 }
 
+strong {
+    color: whitesmoke;
+}
+
 .view-height {
     min-height: 100vh;
 }
@@ -521,6 +525,10 @@ h3 {
 
 .project-move {
     transition: transform 0.66s;
+}
+
+.project-leave-active {
+    position: absolute;
 }
 
 @keyframes hoverImageFocus {
