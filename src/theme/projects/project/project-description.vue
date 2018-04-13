@@ -1,5 +1,5 @@
 <template>
-    <div class="project-description">{{ description }}</div>
+    <div class="project-description">{{ description }} <span class="read-more">Read More</span></div>
 </template>
 <script>
     export default {
@@ -20,6 +20,14 @@
         white-space: pre-line;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        .read-more {
+            font-size: 10pt;
+            font-weight: bold;
+            text-shadow: lightgray 1px 1px 1px;
+            
+            white-space: nowrap;
+        }
 
         @media (max-width: $mobileSize) {
             margin-bottom: 0;
