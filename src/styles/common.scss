@@ -523,14 +523,6 @@ strong {
     }
 }
 
-.project-move {
-    transition: transform 0.66s;
-}
-
-.project-leave-active {
-    position: absolute;
-}
-
 @keyframes hoverImageFocus {
     from {
         filter: brightness(0.5) blur(0.3em) contrast(60%);

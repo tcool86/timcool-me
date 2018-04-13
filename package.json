@@ -43,7 +43,7 @@
     "sinon-chai": "^2.14.0",
     "truncate": "^2.0.0",
     "uglify-js": "^3.3.4",
-    "vue": "^2.5.13",
+    "vue": "^2.5.16",
     "vue-clipboard2": "0.0.8",
     "vue-lazyload": "^1.1.4",
     "vue-media": "^1.1.1",

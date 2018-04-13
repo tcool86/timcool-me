@@ -96,6 +96,15 @@
     .project {
         display: flex;
 
+        &-move {
+            transition: transform 0.66s ease-in-out;
+        }
+        &-enter-active {
+            transition: transform 0.33s ease-in-out;
+        }
+        &-leave-active {
+            position: absolute;
+        }
         .project-media {
             @include smallOverlapLeft();
             display: flex;

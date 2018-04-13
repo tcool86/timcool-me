@@ -28,7 +28,8 @@
             </div>
             <div class="projects-container no-focus push-up-animation" v-if="!showSpinner">
                 <transition-group name="project" tag="div" class="projects-list" >
-                    <div
+                    <div 
+                        v-if="typeof projects !== 'undefined'"
                         v-bind:class="{ 'project-container' : true }"
                         v-for="project in projectsModel" 
                         v-bind:key="project._id"
@@ -135,9 +136,6 @@
             }
         },
         watch : {
-            '$route' (to, from) {
-                this.loadProjects()
-            },
             'projects' () {
                 this.updateSpinner()
             },
