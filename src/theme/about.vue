@@ -18,20 +18,20 @@
                     <p>
                         For most of my academic and professional life, I’ve enjoyed working with interactive media and writing software applications. 
                         I’ve been building iOS apps and developing websites for the past eight years or so. 
-                        Every day I strive to be more competent at what I do than the day before, it's a motto that I believe could benefit everyone.
+                        It's great to be in a field where every day I'm learning something new!
                     </p>
                 </div>
                 <div class="text-wrapper about-interests">
                     <p>
-                        <strong>From my LinkedIn:</strong> I'm a software developer, technology enthusiast, artist, and engineer. 
-                        My main objective is to work with other self-motivated individuals to create great things. 
+                        <strong>From my LinkedIn:</strong> I'm a software developer, technology enthusiast, and geek with an appreciation for art. 
+                        My primary objective is to work with other self-motivated individuals to create great things. 
                         I love games, challenges, and solving interesting problems.
                     </p>
                     <p>
                         My other interests include going to the gym, philosophy, Japanese culture, and my mustang.
                     </p>
                     <p>
-                        Current interests: Vue, Quantum assembly, Unity Engine, VR, and Dragon Ball Fighterz.
+                        Current interests: Vue.js, Unity Engine, VR/AR, and Quantum assembly.
                     </p>
                 </div>
             </div>
