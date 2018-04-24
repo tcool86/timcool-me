@@ -33,6 +33,7 @@
 </template>
 <script>
     import Media from 'vue-media'
+    import { userAgent } from '../utility/user-agent.js'
     import '../icons'
 
     const menuClasses = ['navigation-menu', 'site-nav', 'backdrop-sky']
@@ -40,6 +41,7 @@
     const listItemActiveClass = 'active'
 
     export default {
+        mixins : [userAgent.mobileClassMixin],
         data : function () {
             return {
                 'showMenu' : true,
@@ -86,6 +88,7 @@
         },
         mounted () {
             this.setListItemActive()
+            menuClasses.push(this.mobileClassWrapper('menu'))
         }
     }
 </script>
@@ -107,6 +110,13 @@
 
         background-color: $backgroundColor;
         
+        &.menu--mobile {
+            height: 100vh;
+            li {
+                margin-bottom: 3rem;
+                font-size: xx-large;
+            }
+        }
         li {
             transition: all .33s;
             &:hover {
@@ -117,6 +127,7 @@
             }
         }
     }
+
     .navigation-item {
         margin: 2px;
         padding: 1rem 1.5rem;
@@ -173,6 +184,10 @@
             border-radius: 12px;
 
             z-index: $peakground;
+
+            li {
+                margin-bottom: 1rem;
+            }
         }
         .navigation-item {
             padding: 0.5rem;
