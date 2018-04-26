@@ -31,9 +31,16 @@
 
         @media (max-width: $mobileSize) {
             margin-bottom: 0;
-
+            
             max-width: 90%;
             min-height: 50px;
+
+            font-size: 20pt;
+            line-height: 2.4rem;
+
+            .read-more {
+                font-size: 18pt;
+            }
         }
     }
 </style>

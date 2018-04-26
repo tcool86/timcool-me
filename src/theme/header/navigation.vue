@@ -172,15 +172,19 @@
             right: 1rem;
             top: 1rem;
             display: block;
+            .icon-large {
+                width: 4rem;
+                height: 4rem;
+            }
         }
         .navigation-menu {
             flex-direction: column;
             align-items: flex-start;
             position: relative;
-            top: 5rem;
+            top: 7rem;
             right: 0;
 
-            padding: 1rem;
+            padding: 3rem;
             border-radius: 12px;
 
             z-index: $peakground;
