@@ -19,8 +19,10 @@
     import settings from './utility/settings.vue'
     import projectDetails from './projects/project/project-details/project-detail.vue'
     import { EventBus } from '../event-bus.js'
+    import { userAgent } from './utility/user-agent.js'
 
     export default {
+        mixins : [userAgent.mobileClassMixin],
         data : function () {
             return {
                 'appBackdropClass' : 'default-backdrop',
@@ -51,6 +53,7 @@
                     'deeplink' : null
                 })
             })
+            this.appBackdropClass = this.mobileClassWrapper(this.appBackdropClass)
         }
     }
 </script>
@@ -68,7 +71,7 @@
 
         z-index: -1;
     }
-    .default-backdrop {
+    .default-backdrop, .default-backdrop--mobile {
         background: -webkit-gradient(linear, left top, right top, from(#282829), color-stop(0.05, $backgroundColorSolid), color-stop(0.5, #282829), color-stop(0.95, $backgroundColorSolid), to(#282829));
         background: -webkit-linear-gradient(left, #282829, $backgroundColorSolid 5%, #282829, $backgroundColorSolid 95%, #282829);
         background: -moz-linear-gradient(left, #282829, $backgroundColorSolid 5%, #282829, $backgroundColorSolid 95%, #282829);
