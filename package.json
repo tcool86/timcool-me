@@ -30,6 +30,7 @@
     "ejs": "2.5.6",
     "express": "4.15.2",
     "fs": "0.0.1-security",
+    "hoek": "^5.0.3",
     "js-striphtml": "^1.1.2",
     "jsonp-body": "^1.0.0",
     "karma": "^1.7.1",
