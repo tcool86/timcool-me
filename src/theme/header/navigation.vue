@@ -1,15 +1,10 @@
 <template>
     <div class="navigation-container noselect">
-        <div class="mobile-menu" v-on:click="mobileMenuTapped">
-            <svgicon icon="menu" class="icon-large clickable"></svgicon>
+        <div class="mobile-menu" v-on:click="mobileMenuTapped" ref="menuIcon">
+            <svgicon icon="menu" class="clickable"></svgicon>
         </div>
-        <media :query="{maxWidth: 1158}"
-            @media-enter="enterMobile"
-            @media-leave="leaveMobile">
-        </media>
         <transition name="fade-out" mode="out-in" v-on:enter="setListItemActive">
             <ul :class="menuClasses" 
-                v-if="showMenu"
                 v-on:click="setListItemActiveClick"
                 ref="menuList">
                 <li aria-label="show about">
@@ -50,14 +45,15 @@
             }
         },
         methods : {
-            enterMobile : function () {
-                this.showMenu = false
-            },
-            leaveMobile : function () {
-                this.showMenu = true
-            },
             mobileMenuTapped : function (event) {
                 this.showMenu = !this.showMenu
+                if (this.showMenu) {
+                    this.$refs.menuIcon.style.transform = 'translateX(0)'
+                    this.$refs.menuList.style.transform = 'translateX(0)'
+                } else {
+                    this.$refs.menuIcon.style.transform = 'translateX(-50vw)'
+                    this.$refs.menuList.style.transform = 'translateX(-50vw)'
+                }
             },
             setListItemActive : function () {
                 let listItems = this.$refs.menuList.querySelectorAll('li')
@@ -88,7 +84,15 @@
         },
         mounted () {
             this.setListItemActive()
+            this.$refs.menuIcon.style.transform = 'translateX(-50vw)'
             menuClasses.push(this.mobileClassWrapper('menu'))
+        },
+        watcher : {
+            $mq (newValue, oldValue) {
+                if (newValue !== oldValue) {
+                    console.log(newValue)
+                }
+            }
         }
     }
 </script>
@@ -99,6 +103,13 @@
     }
     .mobile-menu {
         display: none;
+        transition: all 0.33s;
+        svg {
+            width: 2rem;
+            height: 2rem;
+
+            fill: white;
+        }
     }
     .navigation-menu {
         justify-content: flex-start;
@@ -117,6 +128,47 @@
                 font-size: xx-large;
             }
         }
+    }
+
+    @include desktop {
+        .navigation-item {
+            margin: 2px;
+            padding: 1rem 1.5rem;
+
+            color: black;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+
+            font-weight: bold;
+            text-transform: uppercase;
+
+            transition: 0.33s;
+            &:hover {
+                border: 1px solid silver;
+                
+                background-color: $highlightColor;
+                color: black;
+
+                box-shadow: 4px 4px 8px silver;
+
+                cursor: pointer;
+            }
+            &:active {
+                background-color: $activeColor;
+                color: black;
+
+                cursor: pointer;
+            }
+            &.is-active {
+                background-color: white;
+                
+                color: black;
+
+                box-shadow: 4px 4px 8px silver;
+            }
+        }
         li {
             transition: all .33s;
             &:hover {
@@ -127,76 +179,43 @@
             }
         }
     }
-
-    .navigation-item {
-        margin: 2px;
-        padding: 1rem 1.5rem;
-
-        color: black;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-
-        font-weight: bold;
-        text-transform: uppercase;
-
-        transition: 0.33s;
-        &:hover {
-            border: 1px solid silver;
-            
-            background-color: $highlightColor;
-            color: black;
-
-            box-shadow: 4px 4px 8px silver;
-
-            cursor: pointer;
+    @include mobile {
+        .navigation-container {
+            display: flex;
+            width: 100vw;
+            flex-direction: row-reverse;
         }
-        &:active {
-            background-color: $activeColor;
-            color: black;
-
-            cursor: pointer;
-        }
-        &.is-active {
-            background-color: white;
-            
-            color: black;
-
-            box-shadow: 4px 4px 8px silver;
-        }
-    }
-    @media (max-width: $tabletSize) {
         .mobile-menu {
-            position: fixed;
-            right: 1rem;
-            top: 1rem;
             display: block;
-            .icon-large {
-                width: 4rem;
-                height: 4rem;
-            }
+            position: relative;
+            left: 20px;
+            top: 20px;
+            flex: 1;
+            height: 100vh;
         }
         .navigation-menu {
             flex-direction: column;
             align-items: flex-start;
-            position: relative;
-            top: 7rem;
+            position: sticky;
+            top: 0;
             right: 0;
-
-            padding: 3rem;
-            border-radius: 12px;
-
-            z-index: $peakground;
-
+            padding: 0;
+            border-radius: 0;
+            z-index: 400;
+            height: 100vh;
+            width: 50vw;
+            transform: translateX(-50vw);
+            transition: all 0.33s;
             li {
-                margin-bottom: 1rem;
+                margin: 1em;
+                width: 30vw;
+                font-size: 1em;
+                a {
+                    text-transform: uppercase;
+                    color: black;
+                    font-weight: bold;
+                }
             }
-        }
-        .navigation-item {
-            padding: 0.5rem;
-
-            line-height: 2rem;
         }
     }
 </style>

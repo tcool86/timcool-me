@@ -23,3 +23,16 @@
 
     padding-left: 3rem;
 }
+
+@mixin mobile {
+    @media (max-width: #{$tabletSize}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    /* Anything above mobile width is considered Desktop for now */
+    @media (min-width: #{$tabletSize}) {
+        @content;
+    }
+}
