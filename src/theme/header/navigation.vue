@@ -87,7 +87,7 @@
             this.$refs.menuIcon.style.transform = 'translateX(-50vw)'
             menuClasses.push(this.mobileClassWrapper('menu'))
         },
-        watcher : {
+        watch : {
             $mq (newValue, oldValue) {
                 if (newValue !== oldValue) {
                     console.log(newValue)
