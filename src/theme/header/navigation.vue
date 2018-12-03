@@ -7,19 +7,19 @@
             <ul :class="menuClasses" 
                 v-on:click="setListItemActiveClick"
                 ref="menuList">
-                <li aria-label="show about">
+                <li aria-label="show about" class="menu-item">
                     <router-link class="navigation-item" to="/about">About</router-link>
                 </li>
-                <li aria-label="show resume">
+                <li aria-label="show resume" class="menu-item">
                     <router-link class="navigation-item" to="/work">Work Exp</router-link>
                 </li>
-                <li aria-label="show projects">
+                <li aria-label="show projects" class="menu-item">
                     <router-link class="navigation-item" to="/projects">Projects</router-link>
                 </li>
-                <li aria-label="show blog">
+                <li aria-label="show blog" class="menu-item">
                     <router-link class="navigation-item" to="/blog">Blog</router-link>
                 </li>
-                <li aria-label="show extra">
+                <li aria-label="show extra" class="menu-item">
                     <router-link class="navigation-item" to="/extra">Extra</router-link>
                 </li>
             </ul>
@@ -63,7 +63,7 @@
                     if (linkClasses.includes(routerActiveClass)) {
                         item.className = listItemActiveClass
                     } else {
-                        item.className = ''
+                        item.className = 'menu-item'
                     }
                 })
             },
@@ -74,7 +74,7 @@
                     return
                 }
                 this.$refs.menuList.querySelectorAll('li').forEach((li) => {
-                    li.className = ''
+                    li.className = 'menu-item'
                 })
                 listItem.parentElement.className = listItemActiveClass
             }
@@ -90,7 +90,10 @@
         watch : {
             $mq (newValue, oldValue) {
                 if (newValue !== oldValue) {
-                    console.log(newValue)
+                    if (newValue === 'desktop') {
+                        this.$refs.menuIcon.style.transform = 'translateX(0)'
+                        this.$refs.menuList.style.transform = 'translateX(0)'
+                    }
                 }
             }
         }
@@ -171,7 +174,7 @@
         }
         li {
             transition: all .33s;
-            &:hover {
+            &.menu-item:hover {
                 transform: translate(-4px,-4px);
             }
             &.active {
@@ -191,7 +194,7 @@
             left: 20px;
             top: 20px;
             flex: 1;
-            height: 100vh;
+            height: 40px;
         }
         .navigation-menu {
             flex-direction: column;
@@ -207,10 +210,18 @@
             transform: translateX(-50vw);
             transition: all 0.33s;
             li {
-                margin: 1em;
-                width: 30vw;
+                margin-top: 8px;
+                padding: 1em;
+                
+                width: 100%;
+                
                 font-size: 1em;
+                white-space: nowrap;
                 a {
+                    padding: 1em;
+
+                    width: 100%;
+
                     text-transform: uppercase;
                     color: black;
                     font-weight: bold;
