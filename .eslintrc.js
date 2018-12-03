@@ -8,7 +8,7 @@ module.exports = {
     rules : {
         'indent' : ["error", 4],
         'key-spacing' : ["error", { "beforeColon": true }],
-        "no-debugger" : false,
+        "no-debugger" : 0,
     },
     // required to lint *.vue files
     plugins: [

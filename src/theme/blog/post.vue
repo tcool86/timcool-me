@@ -16,6 +16,16 @@
             </div>
             <slot name='content'></slot>
         </div>
+        <div id="disqus_thread"></div>
+        <!-- <script>
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document
+            var s = d.createElement('script')
+            s.src = 'https://timcool-me.disqus.com/embed.js'
+            s.setAttribute('data-timestamp', +new Date())(d.head || d.body).appendChild(s)
+        })()
+        </script> -->
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </article>
 </template>
 <script>
