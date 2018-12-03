@@ -99,11 +99,5 @@
         height: 6rem;
         width: 100%;
     }
-    @media (max-width: $tabletSize) {
-        .navigation {
-            align-items: flex-end;
-            align-self: flex-start;
-        }
-    }
 </style>
 

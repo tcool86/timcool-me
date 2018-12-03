@@ -108,8 +108,8 @@
         display: none;
         transition: all 0.33s;
         svg {
-            width: 2rem;
-            height: 2rem;
+            width: 2em;
+            height: 2em;
 
             fill: white;
         }
@@ -194,7 +194,7 @@
             left: 20px;
             top: 20px;
             flex: 1;
-            height: 40px;
+            height: 4em;
         }
         .navigation-menu {
             flex-direction: column;
@@ -225,6 +225,7 @@
                     text-transform: uppercase;
                     color: black;
                     font-weight: bold;
+                    font-size: xx-large;
                 }
             }
         }
