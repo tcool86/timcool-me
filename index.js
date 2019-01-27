@@ -2,6 +2,7 @@ var express = require('express');
 var jsonp = require('jsonp-body');
 var app = express();
 const axios = require('axios');
+const compression = require('compression');
 
 const serialize = require('serialize-javascript');
 const fs = require('fs');
@@ -18,6 +19,8 @@ app.use(express.static(__dirname + '/public'));
 
 const rootPath = (isProd) ? "/" : "/dist";
 app.use(rootPath, express.static(path.resolve(__dirname, "./dist")));
+
+app.use(compression());
 
 if (isProd) {
     const bundlePath = path.resolve(__dirname, './dist/server/main.js');
