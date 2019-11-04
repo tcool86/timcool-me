@@ -2,18 +2,7 @@
     <section class="blog-posts container is-fluid">
         <h1 class="content-title">Blog</h1>
         <transition name="fade" mode="out-in">
-            <div class="spinner-container" v-if="showSpinner">
-                <div class="spinner">
-                    <div class="loader"></div>
-                </div>
-            </div>
-            <div class="list-group-item view-height" v-for="post in posts" v-bind:key="post.id">
-                <blog-post :categories='post.categories'>
-                    <h2 slot="title" class="title-text" v-html="post.title.rendered"></h2>
-                    <div class="text-wrapper" slot="content" v-html="post.content.rendered"></div>
-                </blog-post>
-                <br/>
-            </div>
+            <h2 v-if="true">No posts for now...</h2>
         </transition>
     </section>
 </template>
@@ -67,8 +56,9 @@
             }
         },
         created () {
-            this.loadPosts()
-            this.updateSpinner()
+            // Remove posts (blog taken down)
+            // this.loadPosts()
+            // this.updateSpinner()
         }
     }
 </script>

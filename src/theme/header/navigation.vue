@@ -19,9 +19,9 @@
                 <li aria-label="show blog" class="menu-item">
                     <router-link class="navigation-item" to="/blog">Blog</router-link>
                 </li>
-                <li aria-label="show extra" class="menu-item">
+                <!-- <li aria-label="show extra" class="menu-item">
                     <router-link class="navigation-item" to="/extra">Extra</router-link>
-                </li>
+                </li> -->
             </ul>
         </transition>
     </div>

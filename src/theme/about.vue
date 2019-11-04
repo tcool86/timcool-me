@@ -9,11 +9,10 @@
                         <img class="cool-shadow" :src="'//res.cloudinary.com/hnairgdu6/image/upload/v1516937711/timcool-profile-image_b6m3bc.jpg'" />
                     </figure>
                     <p>
-                        I’m Tim Cool, and this is my website. I live in Oakland, CA and work full time as a Software Engineer. 
+                        I’m Tim Cool, and this is my website. I live in Mountain View, CA and work full time as a Software Engineer. 
                         Ever since I was young, I’ve always been interested in science, technology, video games, comics, and movies. 
                         I started creating computer games when I was around ten years old, using the visual programming application 
-                        CocoaDR3, along with programs like Hypercard and Hyperstudio on my family's Macintosh Performa 550. 
-                        From there I would graduate to more advanced programming languages like REALbasic, then C++ (mostly for school, and fun).
+                        CocoaDR3, along with programs like Hypercard and Hyperstudio on my family's Macintosh Performa 550.
                     </p>
                     <p>
                         For most of my academic and professional life, I’ve enjoyed working with interactive media and writing software applications. 
@@ -23,15 +22,15 @@
                 </div>
                 <div class="text-wrapper about-interests">
                     <p>
-                        <strong>From my LinkedIn:</strong> I'm a software developer, technology enthusiast, and geek with an appreciation for art. 
-                        My primary objective is to work with other self-motivated individuals to create great things. 
+                        I'm a software developer, technology enthusiast, and geek with an appreciation for art. 
+                        I enjoy working with other self-motivated individuals to create great things. 
                         I love games, challenges, and solving interesting problems.
                     </p>
                     <p>
                         My other interests include going to the gym, philosophy, Japanese culture, and my mustang.
                     </p>
                     <p>
-                        Current interests: Vue.js, Unity Engine, VR/AR, and Quantum assembly.
+                        Current interests: Vue, Svelte, TypeScript, Phaser.
                     </p>
                 </div>
             </div>
@@ -95,6 +94,7 @@
                 margin-top: 1rem;
                 color: darkgrey;
                 font-family: 'Exo 2';
+                font-size: 1.2em;
             }
         }
     }

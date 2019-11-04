@@ -20,6 +20,8 @@ Vue.use(VueLazyload)
 Vue.use(VueSVGIcon)
 Vue.use(VueClipboard)
 
+// Vuegito.printMsg()
+
 const app = new Vue({
     router,
     ...AppLayout,

@@ -5,7 +5,7 @@
         </media>
         <div class="container">
             <div class="content has-text-centered">
-                Copyright &copy; 2018 Timothy Cool 
+                Copyright &copy; 2019 Timothy Cool 
             </div>
         </div>
     </footer>
