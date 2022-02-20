@@ -36,7 +36,7 @@
     "jsonp-body": "^1.0.0",
     "karma": "^6.3.14",
     "mocha": "^4.1.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "orm": "^4.0.2",
     "pg": "6.x",
     "phantomjs-prebuilt": "^2.1.16",
